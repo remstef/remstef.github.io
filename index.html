@@ -1,13 +1,754 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link rel="canonical" href="./itsme/"/>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta http-equiv="refresh" content="0;url=./itsme/" />
+<title>The Protagonists Portfolio</title>
+<link rel="icon" type="image/x-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22169%22%20height%3D%22169%22%3E%3Ccircle%20fill%3D%22%236494ED%22%20stroke%3D%22%236494ED%22%20stroke-width%3D%225%22%20cx%3D%2284%22%20cy%3D%2284%22%20r%3D%2220%22%20%2F%3E%3Ccircle%20fill%3D%22%236494ED%22%20stroke%3D%22%236494ED%22%20stroke-width%3D%225%22%20cx%3D%2235%22%20cy%3D%22113%22%20r%3D%229%22%3E%3CanimateTransform%20repeatCount%3D%221%22%20attributeName%3D%22transform%22%20begin%3D%220s%22%20dur%3D%221.5s%22%20type%3D%22rotate%22%20from%3D%220%2084%2084%22%20to%3D%22360%2084%2084%22%20%2F%3E%3C%2Fcircle%3E%3Cellipse%20fill%3D%22none%22%20stroke%3D%22%236494ED%22%20stroke-width%3D%226%22%20cx%3D%2284%22%20cy%3D%2284%22%20rx%3D%2258%22%20ry%3D%2257%22%20%2F%3E%3C%2Fsvg%3E">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!-- Tailwind CSS + DaisyUI CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5.1.12/daisyui.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5.1.12/themes.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet" type="text/css" />
+
+<!-- Babel to compile React & ReactDOM -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+
+<!-- Import map to resolve bare module specifiers -->
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19",
+    "react-dom": "https://esm.sh/react-dom@19/client",
+    "react-markdown": "https://esm.sh/react-markdown@10?bundle",
+    "rehype-raw": "https://esm.sh/rehype-raw@7?bundle",
+    "daisyui": "https://esm.sh/daisyui@5"
+  }
+}
+</script>
+
+<!-- export React to global scope -->
+<!-- set up tailwind config -->
+<script type="module" id="window-export-module">
+import React from "react";
+import { createRoot } from "react-dom";
+// import daisyui from "daisyui";
+window.React = React;
+window.reactDomCreateRoot = createRoot;
+// window.daisyui = daisyui;
+// window.onload = () => {
+//   window.tailwind.config = {
+//     plugins: [ daisyui ],
+//     daisyui: {
+//       themes: true, // enables all built-in themes
+//     },
+//   }
+// }
+</script>
 </head>
-<body>
-    <h1>Redirecting...</h1>
-    <a href="./itsme/">Click here if you are not redirected.<a>
-    <script>location='./itsme/'</script>
+<body data-theme="light">
+  <div id="root"></div>
 </body>
+
+<!-- React JSX code compiled by Babel -->
+<script type="text/babel" data-type="module">
+
+import { useState, useEffect, useRef } from 'react';
+import { createRoot } from 'react-dom';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+
+
+const themes = [
+  "light",
+  "dark",
+  "cupcake",
+  "bumblebee",
+  "emerald",
+
+  "corporate",
+  "synthwave",
+  "retro",
+  "cyberpunk",
+  "valentine",
+
+  "halloween",
+  "garden",
+  "forest",
+  "aqua",
+  "lofi",
+
+  "pastel",
+  "fantasy",
+  "wireframe",
+  "black",
+  "luxury",
+
+  "dracula",
+  "cmyk",
+  "autumn",
+  "business",
+  "acid",
+
+  "lemonade",
+  "night",
+  "coffee",
+  "winter",
+  "dim",
+
+  "nord",
+  "sunset",
+  "caramellatte",
+  "abyss",
+  "silk"
+];
+
+const defaultDarkTheme = "coffee";
+const defaultLightTheme = "autumn";
+const defaultTab = "About";
+
+const theProtagonistsName = "Steffen Remus";
+const showInitials = null; // "S.R.";
+
+// global variables and functions need to be initialized in the MainApp function
+let theme = null;
+let changeTheme = null;
+let showAlert = null;
+
+const tabs = {
+  "About" : () => (
+    <ResponsiveCardsContainer>
+      <div className="card lg:card-side bg-base-100 m-1 shadow-xl items-center">
+        <figure className="p-8 w-1/2">
+          <div className="text-center">
+          {!showInitials ? 
+            <div className="avatar">
+              <div className="rounded-xl w-48">
+                <img src="img/passfoto-v2-ss-unblurred-squared.jpg" className="w-48"
+                  alt={"Profile Picture - " + theProtagonistsName} />
+              </div>
+            </div>
+            :
+            <div className="avatar avatar-placeholder">
+              <div className="bg-neutral text-neutral-content w-48 rounded-full">
+                <span className="text-3xl">S.R.</span>
+              </div>
+            </div>
+        }
+        </div>
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title text-2xl font-mono">Steffen Remus</h2>
+          <p className="pl-4 w-7/8 md:w-2/3 font-mono">
+            <span className="font-mono">Dr. rer. nat.</span>
+            ,&nbsp;
+            <a href="https://www.inf.uni-hamburg.de/en/inst/ab/lt/people/steffen-remus.html"><span className="link link-primary link-hover">Postdoctoral Researcher at University of Hamburg</span></a>
+          </p>
+        </div>
+      </div>
+      <CardElement>
+        <div className="w-full text-2xl mb-2 sm:text-center">Visibility</div>
+        <div className="mx-8 text-3xl text-center flex flex-wrap items-center">
+          <div className="flex-1 w-16 m-2"><a href="https://lt.informatik.uni-hamburg.de/people/steffen-remus" title="University Profile"><span className="link link-primary link-hover"><i className="fa fa-university"></i></span></a></div>
+          <div className="flex-1 w-16 m-2"><a href="https://www.linkedin.com/in/steffen-remus-54a62498" title="LinkedIn Profile"><span className="link link-primary link-hover"><i className="fa fa-linkedin-square"></i></span></a></div>
+          <div className="flex-1 w-16 m-2"><a href="https://github.com/remstef" title="Github Profile"><span className="link link-primary link-hover"><i className="fa fa-github"></i></span></a></div>
+          <div className="flex-1 w-16 m-2"><a href="https://scholar.google.com/citations?user=nDGCpDYAAAAJ" title="Google Scholar Profile"><span className="link link-primary link-hover"><i className="ai ai-google-scholar-square"></i></span></a></div>
+          <div className="flex-1 w-16 m-2"><a href="https://orcid.org/0000-0003-4303-8781" title="OrcId Profile"><span className="link link-primary link-hover"><i className="ai ai-orcid"></i></span></a></div>
+        </div>
+      </CardElement>
+    </ResponsiveCardsContainer>
+  ),
+  "Bibliography" : () => (
+    <ResponsiveCardsContainer>
+    <CardElement>
+      <HtmlLoader filename="biblio-chicago-li.html" />
+    </CardElement>
+    </ResponsiveCardsContainer>
+  ),
+};
+  // Template Tabs:
+  //
+  // "Theme" : () => (
+  //   <ResponsiveCardsContainer>
+  //   <ThemeSwitcherCard theme={theme} changeTheme={changeTheme} />
+  //   </ResponsiveCardsContainer>
+  // ),
+  // "About MD" : () => (
+  //   <ResponsiveCardsContainer>
+  //   <CardElement>
+  //     <MarkdownLoader filename="about.md"/>
+  //   </CardElement>
+  //   </ResponsiveCardsContainer>
+  // ), 
+  // "Markdown" : () => (
+  //   <ResponsiveCardsContainer>
+  //   <CardElement title="Example Markdown">
+  //     <MarkdownLoader filename="example.md" />
+  //   </CardElement>
+  //   </ResponsiveCardsContainer>
+  // ), 
+  // "Html" : () => (
+  //   <ResponsiveCardsContainer>
+  //   <CardElement title="Example HTML">
+  //     <HtmlLoader filename="example.html" />
+  //   </CardElement>
+  //   </ResponsiveCardsContainer>
+  // ), 
+  // "HtmlReact" : () => (
+  //   <ResponsiveCardsContainer>
+  //   <CardElement title="Example HTML with React">
+  //     <HtmlLoader filename="example2.html" />
+  //   </CardElement>
+  //   </ResponsiveCardsContainer>
+  // ),
+  // "Html Embed" : () => (
+  //   <ResponsiveCardsContainer>
+  //   <CardElement>
+  //     <div className="flex flex-wrap">
+  //       <div className="w-full md:w-2/3">
+  //           Example HTML with Embedded React Components
+  //       </div>
+  //       <div className="w-full md:w-1/3">
+  //           Here is some Info text
+  //       </div>
+  //     </div>
+  //   </CardElement>
+  //   </ResponsiveCardsContainer>
+  // )
+
+const AlertInfoIcon = () =>   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="h-6 w-6 shrink-0 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+const AlertSuccessIcon = () =>   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+const AlertWarningIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+const AlertErrorIcon = () =>   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+
+// Close all summary-detail dropdowns
+const forceCloseAllSummaryStyleDropdowns = () => document.querySelectorAll('details[open]').forEach(d => d.removeAttribute('open'));
+
+export function ResponsiveCardsContainer({ children }){
+  return (
+    <div class="container items-center justify-center w-full sm:w-2/3">
+      { children }
+    </div>
+  )
+}
+
+export function CardElement({ children, title }){
+  return (
+    <div className="card bg-base-100 m-1 shadow-xl">
+      <div className="card-body">
+        { title ? <h2 className="card-title">{title}</h2> : null }
+        { children }
+      </div>
+    </div>
+  );
+}
+
+export function ThemeSwitcherCard({theme, changeTheme}) {
+
+  const handleThemeChange = (e) => {
+    const newTheme = e.target.value;
+    changeTheme(newTheme);
+  };
+
+  return (
+    <CardElement title="Theme Switcher">
+      <select
+        className="select select-bordered border w-full px-2"
+        value={theme}
+        onChange={handleThemeChange}
+      >
+        { themes.map(t => <option key={t} value={t}>{t}</option> ) }
+      </select>
+      <p className="mt-4">
+        Current theme: <span className="font-bold">{theme}</span>
+      </p>
+      <div className="flex-1">
+        <span role="button" tabIndex="0" className="btn btn-primary mt-4">A Primary Color Example Button</span>
+        <span role="button" tabIndex="0" className="btn btn-secondary mt-4">A Secondary Color Example Button</span>
+      </div>
+
+      { /* 
+      <div title="Change Theme" class="dropdown dropdown-end block ">
+        { themes.map(theme_ => 
+          <div data-theme={theme_} tabindex="0" role="button" class="btn group btn-sm gap-1.5 px-1.5 btn-ghost" aria-label="Change Theme">
+            <div class="bg-base-100 group-hover:border-base-content/20 border-base-content/10 grid shrink-0 grid-cols-2 gap-0.5 rounded-md border p-1 transition-colors">
+              <div class="bg-base-content size-1 rounded-full"></div>
+              <div class="bg-primary size-1 rounded-full"></div>
+              <div class="bg-secondary size-1 rounded-full"></div>
+              <div class="bg-accent size-1 rounded-full"></div>
+            </div> 
+          </div>
+         ) }
+      </div>
+      */
+     }
+
+      <div className="flex">
+        <ThemeSwitchDropdown theme={theme} changeTheme={changeTheme} />
+      </div>
+
+      <div className="flex">
+        <details className="dropdown">
+          <summary className="btn m-1">open or close</summary>
+          <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+            <li><div className="btn flex justify-start items-center">Item 1</div></li>
+            <li><div>Item 2</div></li>
+          </ul>
+        </details>
+      </div>
+
+    </CardElement>
+  );
+
+}
+
+export function ThemeSwitchDropdown({ theme, changeTheme }) {
+  return (
+    <details className="dropdown">
+      <summary role="button" className="py-2 btn btn-ghost [list-style:none] [appearance:none] [&::-webkit-details-marker]:hidden" >
+        <div class="bg-base-100 group-hover:border-base-content/20 border-base-content/10 grid shrink-0 grid-cols-2 gap-0.5 rounded-md border p-1 transition-colors">
+          <div class="bg-base-content size-1 rounded-full"></div>
+          <div class="bg-primary size-1 rounded-full"></div>
+          <div class="bg-secondary size-1 rounded-full"></div>
+          <div class="bg-accent size-1 rounded-full"></div>
+        </div> 
+      </summary>
+      <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow max-h-64 overflow-auto">
+        { themes.map(theme_ => 
+          <li>
+            <div 
+              data-theme={theme_} 
+              tabindex="0" 
+              role="button" 
+              class="btn group btn-sm flex justify-start items-center gap-1.5 px-1.5 btn-ghost"
+              onClick={() => {changeTheme(theme_); forceCloseAllSummaryStyleDropdowns(); }}
+            >
+              <div class="bg-base-100 group-hover:border-base-content/20 border-base-content/10 grid shrink-0 grid-cols-2 gap-0.5 rounded-md border p-1 transition-colors">
+                <div class="bg-base-content size-1 rounded-full"></div>
+                <div class="bg-primary size-1 rounded-full"></div>
+                <div class="bg-secondary size-1 rounded-full"></div>
+                <div class="bg-accent size-1 rounded-full"></div>
+              </div>
+              <span className={`${theme === theme_ ? 'underline' : 'font-normal'}`}>{theme_}</span>
+            </div>
+          </li>
+        ) }
+      </ul>
+    </details>
+  );
+}
+
+
+export function MarkdownLoader({ filename }) {
+
+  const [ markdown, setMarkdown ] = React.useState("");
+  const [ error, setError ] = React.useState(null);
+
+  React.useEffect(() => {
+    fetch(filename)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then(text => setMarkdown(text))
+      .catch(err => {
+        console.error('Error loading markdown:', err);
+        setError(err.message);
+      });
+  }, [ filename ]);
+
+  if (error) {
+    return (
+      <div className="container mx-auto p-4">
+        <p className="text-red-500">Error loading markdown: {error}</p>
+      </div>
+    );
+  }
+
+  return (
+    <ReactMarkdown 
+      rehypePlugins={[rehypeRaw]}
+      components={{
+        h1: ({node, ...props}) => <h1 className="text-4xl font-bold mt-8 mb-4" {...props} />,
+        h2: ({node, ...props}) => <h2 className="text-3xl font-bold mt-7 mb-3" {...props} />,
+        h3: ({node, ...props}) => <h3 className="text-2xl font-bold mt-6 mb-2" {...props} />,
+        h4: ({node, ...props}) => <h4 className="text-xl font-bold mt-5 mb-2" {...props} />,
+        h5: ({node, ...props}) => <h5 className="text-lg font-bold mt-4 mb-2" {...props} />,
+        h6: ({node, ...props}) => <h6 className="text-base font-bold mt-4 mb-2" {...props} />,
+        p: ({node, ...props}) => <p className="mb-4 leading-relaxed" {...props} />,
+        ul: ({node, ...props}) => <ul className="list-disc list-inside mb-4 space-y-1" {...props} />,
+        ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-4 space-y-1" {...props} />,
+        li: ({node, ...props}) => <li className="ml-2" {...props} />,
+        a: ({node, ...props}) => <a className="text-blue-500 hover:text-blue-700 underline" {...props} />,
+        code: ({node, inline, ...props}) => 
+          inline 
+            ? <code className="bg-gray-200 px-2 py-1 rounded text-sm font-mono" {...props} />
+            : <code className="block bg-gray-900 text-gray-100 p-4 rounded mb-4 overflow-x-auto font-mono text-sm" {...props} />,
+        pre: ({node, ...props}) => <pre className="mb-4" {...props} />,
+        blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-gray-400 pl-4 italic my-4 text-gray-700" {...props} />,
+        hr: () => <hr className="my-6 border-t-2 border-gray-300" />,
+        img: ({node, ...props}) => <img className="max-w-full h-auto my-4 rounded" {...props} />,
+        table: ({node, ...props}) => <table className="border-collapse border border-gray-400 w-full mb-4" {...props} />,
+        thead: ({node, ...props}) => <thead className="bg-gray-200" {...props} />,
+        th: ({node, ...props}) => <th className="border border-gray-400 px-4 py-2 text-left font-bold" {...props} />,
+        td: ({node, ...props}) => <td className="border border-gray-400 px-4 py-2" {...props} />,
+      }}
+    >
+      {markdown}
+    </ReactMarkdown>
+  );
+};
+
+export function HtmlLoader({ filename }) {
+
+  const [ html, setHtml ] = React.useState("");
+  const [ error, setError ] = React.useState(null);
+  const containerRef = React.useRef(null);
+
+  React.useEffect(() => {
+    fetch(filename)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then(text => setHtml(text))
+      .catch(err => {
+        console.error('Error loading html:', err);
+        setError(err.message);
+      });
+  }, [ filename ]);
+
+  // Execute scripts after HTML is rendered
+  React.useEffect(() => {
+    if (containerRef.current && html) {
+      containerRef.current.innerHTML = html;
+      
+      // Find and execute script tags
+      const scripts = containerRef.current.querySelectorAll('script');
+      scripts.forEach(script => {
+        try {
+          // // Remove export statements which aren't supported in eval
+          let code = script.innerHTML.replace(/export\s+(function|const|class)\s+/g, '$1 ');
+          
+          if (script.type === 'text/babel') {
+            // Transform JSX to JavaScript using Babel
+            const transformed = window.Babel.transform(code, {
+              presets: ['react']
+            }).code;
+            // Execute the transformed code
+            eval(transformed);
+          } else {
+            // Execute regular JavaScript
+            eval(code);
+          }
+        } catch (err) {
+          console.error('Error executing script:', err, script.innerHTML);
+        }
+      });
+    }
+  }, [html]);
+
+  if (error) {
+    return (
+      <div className="container mx-auto p-4">
+        <p className="text-red-500">Error loading html: {error}</p>
+      </div>
+    );
+  }
+
+  return (
+    <div ref={containerRef} />
+  );
+};
+
+export function ThemeSwap({theme, changeTheme, size=10}){
+
+  const handleThemeChange = (e) => {
+    const newTheme = e.target.value === defaultDarkTheme ? defaultLightTheme : defaultDarkTheme;
+    changeTheme(newTheme);
+  };
+
+  return (
+    <label className="swap swap-rotate">
+      {/* this hidden checkbox controls the state */}
+      <input type="checkbox" className="theme-controller" value={theme} onChange={handleThemeChange} />
+
+      {/* sun icon */}
+      <svg
+        className={`swap-off h-${size} w-${size} fill-current`}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24">
+        <path
+          d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+      </svg>
+
+      {/* moon icon */}
+      <svg
+        className={`swap-on h-${size} w-${size} fill-current`}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24">
+        <path
+          d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+      </svg>
+    </label>
+  );
+}
+
+
+export function Navigation({ activeTab, setActiveTab, theme, changeTheme }) {
+  
+  const dropdownRef = React.useRef(null);
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+    forceCloseAllSummaryStyleDropdowns();
+  };
+  
+  return (
+    <div className="navbar">
+
+      <div className="navbar-start">
+
+        <details className="dropdown">
+          <summary role="button" className="py-2 btn btn-ghost lg:hidden [list-style:none] [appearance:none] [&::-webkit-details-marker]:hidden" >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+          </summary>
+          <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            {Object.entries(tabs).map(([tab, _]) => (
+              <li><span role="button" tabIndex="0"
+                onClick={() => handleTabClick(tab)}
+                className={`btn btn-ghost ${activeTab === tab ? 'underline' : 'font-normal'}` /* flex justify-start items-center */ }
+              >
+                {tab}
+              </span></li>
+            ))}
+          <li>
+            { /* flex justify-start items-center */ }
+            <span role="button" tabIndex="0" className="btn btn-ghost">
+              <ThemeSwap theme={theme} changeTheme={(newTheme) =>{ changeTheme(newTheme); forceCloseAllSummaryStyleDropdowns();} } size={6} />
+            </span>
+          </li>
+          </ul>
+        </details>
+
+        <span role="button" tabIndex="0" className="hidden btn btn-ghost lg:flex">
+          <ThemeSwap theme={theme} changeTheme={changeTheme} size={8} />
+        </span>
+        <div className="py-2">
+          <ThemeSwitchDropdown theme={theme} changeTheme={changeTheme} />
+        </div>
+      </div>
+
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal">
+          {Object.entries(tabs).map(([tab, _]) => (
+            <li><a
+              onClick={() => setActiveTab(tab)}
+              className={`px-2 btn btn-ghost ${activeTab === tab ? 'underline' : 'font-normal'}`}
+            >
+              {tab}
+            </a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="navbar-end">
+        <span 
+          role="button" 
+          tabIndex="0" 
+          className="btn btn-ghost text-xl" 
+          // onClick={
+          //   () => showAlert({
+          //      type: "info", 
+          //      message: "This is an info message!", 
+          //      autoDismissSeconds: 3 
+          // })}
+        >
+          {theProtagonistsName}
+        </span>
+        { /* <div className="px-2 font-semibold text-xl">{theProtagonistsName}</div> */ }
+      </div>
+
+    </div>
+  );
+}
+
+export function GenericAlert({ id, type = "info", message, onClose }) {
+  const typeClass = {
+    info: "alert-info",
+    warning: "alert-warning",
+    error: "alert-error",
+    success: "alert-success",
+  }[type] || "alert-info";
+  const typeIcon = {
+    info: <AlertInfoIcon />,
+    warning: <AlertWarningIcon />,
+    error: <AlertErrorIcon />,
+    success: <AlertSuccessIcon />,
+  }[type] || <AlertInfoIcon />
+  // return (
+  //   <div
+  //     className={`alert alert-soft ${typeClass} flex items-center justify-center gap-1 mb-1`}
+  //     role="alert"
+  //     title="Dismiss"
+  //     onClick={() => onClose(id)}
+  //   >
+  //     {typeIcon}
+  //     <span className="flex-1">{message}</span>
+  //   </div>
+  // );
+  // return (
+  //   <>
+  //     <div className="fixed inset-0 bg-black/50 z-40" />
+  //     <div className="fixed inset-0 flex items-center justify-center z-50 ">
+  //       <div 
+  //         className={`alert alert-soft ${typeClass} shadow-lg max-w-lg w-full`}
+  //         role="alert"
+  //         title="Dismiss"
+  //         onClick={() => onClose(id)}
+  //         >
+  //         {typeIcon}
+  //         <span className="flex-1">{message}</span>
+  //       </div>
+  //     </div>
+  //   </>
+  // );
+      return (
+          <div 
+            className={`alert ${typeClass} shadow-lg max-w-lg w-full pointer-events-auto`}
+            role="alert"
+            title="Dismiss"
+            onClick={() => onClose(id)}
+            >
+            {typeIcon}
+            <span className="flex-1">{message}</span>
+          </div>
+      );
+
+
+}
+
+export function MainApp() {
+  const [activeTab, setActiveTabState] = useState(() => {
+    return location.hash ? decodeURIComponent(location.hash.substring(1)) : defaultTab;
+    // return localStorage.getItem("activeTab") || defaultTab;
+  });
+  
+  const setActiveTab = (tab) => {
+    // localStorage.setItem("activeTab", tab);
+    location.hash = tab;
+    setActiveTabState(tab);
+  };
+
+  const [ _theme, _setTheme ] = useState(defaultLightTheme);
+
+  const [ listOfActiveAlerts, setListOfActiveAlerts ] = useState([]);
+
+  // Add an alert
+  showAlert = ({ type = "info", message, autoDismissSeconds=8 }) => {
+    const id = Date.now() + Math.random();
+    setListOfActiveAlerts((prev) => [...prev, { id, type, message }]);
+    // Auto-dismiss after X seconds:
+    setTimeout(() => setListOfActiveAlerts((prev) => prev.filter(a => a.id !== id)), autoDismissSeconds*1000);
+  }
+
+  // Remove an alert
+  function removeAlert(id) {
+    setListOfActiveAlerts((prev) => prev.filter(a => a.id !== id));
+  }
+
+  const _changeTheme = (newTheme) => {
+    _setTheme(newTheme);
+    document.body.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+
+  // make variables and functions globally available if needed
+  theme = _theme;
+  changeTheme = _changeTheme;
+
+  useEffect(()=>{
+    // change title according to protagonists name
+    document.title = theProtagonistsName + ' - Portfolio';
+    
+    // Check localStorage for the saved theme
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      changeTheme(savedTheme);
+    } else {
+      // Fall back to system preference
+      const userPrefersDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (userPrefersDarkTheme){
+        changeTheme(defaultDarkTheme);
+      } else {
+        changeTheme(defaultLightTheme);
+      }
+    }
+    showAlert({ type: "info", message: "This site is under construction.", autoDismissSeconds: 3 });
+  },[ ]);
+
+
+  return (
+    <div className="flex flex-col h-screen bg-base-200">
+      {/* Keep Modals And Alerts Here */}  
+      {/* Alerts */}
+      <div className="fixed top-20 right-2 z-50 max-w-lg w-1/2">
+        {listOfActiveAlerts.map(alert => (
+          <GenericAlert key={alert.id} {...alert} onClose={removeAlert} />
+        ))}
+      </div>
+      {/* variants for positioning 
+        // top right
+        <div className="fixed top-20 right-2 z-50 max-w-lg w-1/2">
+          ...
+        </div>
+        // modal style shadow centered
+        <>
+          <div className="fixed inset-0 bg-black/50 z-40" />
+          <div className="fixed inset-0 flex items-center justify-center z-50 ">
+            ...
+          </div>
+        <>
+        // bottom centered
+        <div className="fixed left-1/2 transform -translate-x-1/2 bottom-1/4 z-50">
+          ...
+        </div>
+        // centered
+        <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
+          ...
+        </div>
+        */}
+
+      {/* Header */}
+      <header className="bg-base-100 shadow-sm flex-shrink-0">
+        <Navigation activeTab={activeTab} setActiveTab={setActiveTab} theme={theme} changeTheme={changeTheme} />
+      </header>
+      
+      {/* Main*/}
+      <main className="flex-1 overflow-y-auto m-1">
+        <div className="flex justify-center p-4">
+          { activeTab in tabs ? tabs[activeTab]() : tabs[defaultTab]() }
+        </div>
+      </main>
+      
+      {/* Footer */}
+      <footer className="footer sm:footer-horizontal footer-center bg-base-100 shadow-sm text-center p-1 text-sm flex-shrink-0">
+        <div className="flex items-center w-full">
+          <span className="flex-1 text-center">© {new Date().getFullYear()}</span>
+        </div>
+      </footer>
+
+    </div>
+  );
+}
+
+createRoot(document.getElementById("root")).render(<MainApp />);
+
+</script>
 </html>
