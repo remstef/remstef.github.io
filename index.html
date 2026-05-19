@@ -4,6 +4,36 @@
 <title>The Protagonists Portfolio</title>
 <link rel="icon" type="image/x-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22169%22%20height%3D%22169%22%3E%3Ccircle%20fill%3D%22%236494ED%22%20stroke%3D%22%236494ED%22%20stroke-width%3D%225%22%20cx%3D%2284%22%20cy%3D%2284%22%20r%3D%2220%22%20%2F%3E%3Ccircle%20fill%3D%22%236494ED%22%20stroke%3D%22%236494ED%22%20stroke-width%3D%225%22%20cx%3D%2235%22%20cy%3D%22113%22%20r%3D%229%22%3E%3CanimateTransform%20repeatCount%3D%221%22%20attributeName%3D%22transform%22%20begin%3D%220s%22%20dur%3D%221.5s%22%20type%3D%22rotate%22%20from%3D%220%2084%2084%22%20to%3D%22360%2084%2084%22%20%2F%3E%3C%2Fcircle%3E%3Cellipse%20fill%3D%22none%22%20stroke%3D%22%236494ED%22%20stroke-width%3D%226%22%20cx%3D%2284%22%20cy%3D%2284%22%20rx%3D%2258%22%20ry%3D%2257%22%20%2F%3E%3C%2Fsvg%3E">
 <meta charset="UTF-8" />
+<style>
+  @keyframes slideDownAndFadeIn {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .alert-slide-in {
+    animation: slideDownAndFadeIn .5s ease-out;
+  }
+  
+  .alert-fade-out {
+    animation: fadeOut .5s ease-out forwards;
+  }
+
+</style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <!-- Tailwind CSS + DaisyUI CDN -->
@@ -579,7 +609,7 @@ export function Navigation({ activeTab, setActiveTab, theme, changeTheme }) {
   );
 }
 
-export function GenericAlert({ id, type = "info", message, onClose }) {
+export function GenericAlert({ id, type = "info", message, onClose, isExiting = false }) {
   const typeClass = {
     info: "alert-info",
     warning: "alert-warning",
@@ -592,46 +622,20 @@ export function GenericAlert({ id, type = "info", message, onClose }) {
     error: <AlertErrorIcon />,
     success: <AlertSuccessIcon />,
   }[type] || <AlertInfoIcon />
-  // return (
-  //   <div
-  //     className={`alert alert-soft ${typeClass} flex items-center justify-center gap-1 mb-1`}
-  //     role="alert"
-  //     title="Dismiss"
-  //     onClick={() => onClose(id)}
-  //   >
-  //     {typeIcon}
-  //     <span className="flex-1">{message}</span>
-  //   </div>
-  // );
-  // return (
-  //   <>
-  //     <div className="fixed inset-0 bg-black/50 z-40" />
-  //     <div className="fixed inset-0 flex items-center justify-center z-50 ">
-  //       <div 
-  //         className={`alert alert-soft ${typeClass} shadow-lg max-w-lg w-full`}
-  //         role="alert"
-  //         title="Dismiss"
-  //         onClick={() => onClose(id)}
-  //         >
-  //         {typeIcon}
-  //         <span className="flex-1">{message}</span>
-  //       </div>
-  //     </div>
-  //   </>
-  // );
-      return (
-          <div 
-            className={`alert ${typeClass} shadow-lg max-w-lg w-full pointer-events-auto`}
-            role="alert"
-            title="Dismiss"
-            onClick={() => onClose(id)}
-            >
-            {typeIcon}
-            <span className="flex-1">{message}</span>
-          </div>
-      );
 
-
+  return (
+    <div 
+      className={`alert ${typeClass} shadow-lg max-w-lg w-full pointer-events-auto ${
+        isExiting ? 'alert-fade-out' : 'alert-slide-in'
+      }`}
+      role="alert"
+      title="Dismiss"
+      onClick={() => onClose(id)}
+    >
+      {typeIcon}
+      <span className="flex-1">{message}</span>
+    </div>
+  );
 }
 
 export function MainApp() {
@@ -653,14 +657,20 @@ export function MainApp() {
   // Add an alert
   showAlert = ({ type = "info", message, autoDismissSeconds=8 }) => {
     const id = Date.now() + Math.random();
-    setListOfActiveAlerts((prev) => [...prev, { id, type, message }]);
+    setListOfActiveAlerts((prev) => [...prev, { id, type, message, isExiting: false }]);
     // Auto-dismiss after X seconds:
-    setTimeout(() => setListOfActiveAlerts((prev) => prev.filter(a => a.id !== id)), autoDismissSeconds*1000);
+    setTimeout(() => removeAlert(id), autoDismissSeconds*1000);
   }
 
-  // Remove an alert
+  // Remove an alert (triggers fade-out animation first)
   function removeAlert(id) {
-    setListOfActiveAlerts((prev) => prev.filter(a => a.id !== id));
+    setListOfActiveAlerts((prev) => 
+      prev.map(a => a.id === id ? { ...a, isExiting: true } : a)
+    );
+    // Wait for fade-out animation to complete before removing
+    setTimeout(() => {
+      setListOfActiveAlerts((prev) => prev.filter(a => a.id !== id));
+    }, 500);
   }
 
   const _changeTheme = (newTheme) => {
@@ -690,7 +700,9 @@ export function MainApp() {
         changeTheme(defaultLightTheme);
       }
     }
-    showAlert({ type: "info", message: "This site is under construction.", autoDismissSeconds: 3 });
+    // make an alert appear after 3 seconds, and disappear after 3 seconds again
+    setTimeout(() => showAlert({ type: "info", message: "Note, this site is under construction and might not be complete.", autoDismissSeconds: 3 }), 3000);
+
   },[ ]);
 
 
