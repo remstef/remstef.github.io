@@ -45,12 +45,22 @@
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<!-- Tailwind CSS + DaisyUI CDN -->
+<!-- Tailwind CSS Play CDN (for protoyping purposes) -->
 <script src="https://cdn.tailwindcss.com"></script>
+<!-- Daisy UI Styles -->
 <link href="https://cdn.jsdelivr.net/npm/daisyui@5.1.12/daisyui.min.css" rel="stylesheet" type="text/css" />
 <link href="https://cdn.jsdelivr.net/npm/daisyui@5.1.12/themes.min.css" rel="stylesheet" type="text/css" />
+<!-- Icons -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet" type="text/css" />
+<!-- Fonts -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap" rel="stylesheet" type="text/css" /> -->
+<!-- <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap" rel="stylesheet" type="text/css" /> -->
+<link href="https://cdn.jsdelivr.net/npm/computer-modern@0.1.3/cmu-bright.css" rel="stylesheet" type="text/css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 
 <!-- Babel to compile React & ReactDOM -->
 <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
@@ -68,23 +78,34 @@
 }
 </script>
 
+<!-- Configure Tailwind -->
+<script>
+  // limited runtime config (only certain theme values)
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { 
+          sans: [
+            'CMU Bright', 
+            // 'Roboto',
+            // 'Roboto Slab',
+            // 'Roboto Flex', 
+            'ui-sans-serif',
+            'system-ui'
+          ] 
+        },
+        // other simple theme extensions
+      }
+    }
+  }
+</script>
+
 <!-- export React to global scope -->
-<!-- set up tailwind config -->
 <script type="module" id="window-export-module">
 import React from "react";
 import { createRoot } from "react-dom";
-// import daisyui from "daisyui";
 window.React = React;
 window.reactDomCreateRoot = createRoot;
-// window.daisyui = daisyui;
-// window.onload = () => {
-//   window.tailwind.config = {
-//     plugins: [ daisyui ],
-//     daisyui: {
-//       themes: true, // enables all built-in themes
-//     },
-//   }
-// }
 </script>
 </head>
 <body data-theme="light">
@@ -98,7 +119,6 @@ import { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
-
 
 const themes = [
   "light",
@@ -144,8 +164,8 @@ const themes = [
   "silk"
 ];
 
-const defaultDarkTheme = "business";
-const defaultLightTheme = "nord";
+const defaultDarkTheme = "forest"; // "business";
+const defaultLightTheme = "garden"; // "nord";
 const defaultTab = "About";
 
 const theProtagonistsName = "Steffen Remus";
@@ -182,13 +202,19 @@ const tabs = {
         </figure>
         <div className="card-body">
           <h2 className="card-title text-2xl font-mono">Steffen Remus</h2>
-          <p className="pl-4 w-7/8 md:w-2/3 font-mono">
+          <p className="pl-4 w-7/8 md:w-2/3 font-mono text-justify break-words whitespace-normal [hyphens:auto]">
             <span className="font-mono">Dr. rer. nat.</span>
             ,&nbsp;
-            <a href="https://www.inf.uni-hamburg.de/en/inst/ab/lt/people/steffen-remus.html"><span className="link link-primary link-hover">Postdoctoral Researcher at University of Hamburg</span></a>
+            <a href="https://www.inf.uni-hamburg.de/en/inst/ab/lt/people/steffen-remus.html"><span className="link link-primary link-hover">Postdoctoral researcher in the Language Technology Group, University of Hamburg, Germany.</span></a>
           </p>
         </div>
       </div>
+      <CardElement>
+        {/* <div className="w-full text-2xl mb-2 sm:text-center">About Me</div> */}
+        <div className="max-w text-lg mx-8 text-justify break-words whitespace-normal [hyphens:auto]">
+          <MarkdownLoader filename="./tabs/about/aboutme.md" />
+        </div>
+      </CardElement>
       <CardElement>
         <div className="w-full text-2xl mb-2 sm:text-center">Visibility</div>
         <div className="mx-8 text-3xl text-center flex flex-wrap items-center">
@@ -201,10 +227,10 @@ const tabs = {
       </CardElement>
     </ResponsiveCardsContainer>
   ),
-  "Bibliography" : () => (
+  "Publications" : () => (
     <ResponsiveCardsContainer>
     <CardElement>
-      <HtmlLoader filename="biblio-chicago-li.html" />
+      <HtmlLoader filename="tabs/publications/biblio-chicago-li.html" />
     </CardElement>
     </ResponsiveCardsContainer>
   ),
@@ -604,12 +630,14 @@ export function Navigation({ activeTab, setActiveTab, theme, changeTheme }) {
           role="button" 
           tabIndex="0" 
           className="btn btn-ghost text-xl" 
-          // onClick={
+          onClick={
           //   () => showAlert({
           //      type: "info", 
           //      message: "This is an info message!", 
           //      autoDismissSeconds: 3 
-          // })}
+          // })
+            () => setActiveTab(null)
+          }
         >
           {theProtagonistsName}
         </span>
@@ -657,7 +685,13 @@ export function MainApp() {
   
   const setActiveTab = (tab) => {
     // localStorage.setItem("activeTab", tab);
-    location.hash = tab;
+    if (tab != null){
+      location.hash = tab;
+    }else{
+      const { origin, pathname, search } = location;
+      history.replaceState(null, '', origin + pathname + search);
+      tab = Object.keys(tabs)[0];
+    }
     setActiveTabState(tab);
   };
 
