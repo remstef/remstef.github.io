@@ -135,12 +135,14 @@ const themes = [
   "silk"
 ];
 
-const defaultDarkTheme = "coffee";
-const defaultLightTheme = "autumn";
+const defaultDarkTheme = "business";
+const defaultLightTheme = "nord";
 const defaultTab = "About";
 
 const theProtagonistsName = "Steffen Remus";
-const showInitials = null; // "S.R.";
+const showInitials = null; // show initials or photo? // "S.R.";
+const profilePicture = "img/passfoto-v2-ss-unblurred-squared.jpg";
+const showConstructionAlert = true;
 
 // global variables and functions need to be initialized in the MainApp function
 let theme = null;
@@ -156,7 +158,7 @@ const tabs = {
           {!showInitials ? 
             <div className="avatar">
               <div className="rounded-xl w-48">
-                <img src="img/passfoto-v2-ss-unblurred-squared.jpg" className="w-48"
+                <img src={profilePicture} className="w-48"
                   alt={"Profile Picture - " + theProtagonistsName} />
               </div>
             </div>
@@ -701,7 +703,16 @@ export function MainApp() {
       }
     }
     // make an alert appear after 3 seconds, and disappear after 3 seconds again
-    setTimeout(() => showAlert({ type: "info", message: "Note, this site is under construction and might not be complete.", autoDismissSeconds: 3 }), 3000);
+    if (showConstructionAlert){
+      setTimeout(
+        () => showAlert({ 
+          type: "info", 
+          message: "Note, this site is under construction and might not be complete.", 
+          autoDismissSeconds: 3 
+        }), 3000
+      );
+    }
+    
 
   },[ ]);
 
