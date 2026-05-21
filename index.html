@@ -211,8 +211,10 @@ const tabs = {
       </div>
       <CardElement>
         {/* <div className="w-full text-2xl mb-2 sm:text-center">About Me</div> */}
-        <div className="max-w text-lg mx-8 text-justify break-words whitespace-normal [hyphens:auto]">
-          <MarkdownLoader filename="./aboutme.md" />
+        <div className="flex justify-center">
+          <div className="lg:w-2/3 sm:max-w text-lg text-justify break-words whitespace-normal [hyphens:auto]">
+            <MarkdownLoader filename="./aboutme.md" />
+          </div>
         </div>
       </CardElement>
       <CardElement>
