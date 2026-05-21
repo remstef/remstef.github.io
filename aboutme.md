@@ -1,2 +1,0 @@
-
-I work on supervised and unsupervised methods on the intersection of machine learning and computational linguistics, with a focus on (distributional) semantics, information extraction, information retrieval, knowledge induction and focused web crawling.
