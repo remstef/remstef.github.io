@@ -709,7 +709,7 @@ export function MainApp() {
   });
   
   setActiveTab = (tab, skipNewHistoryEntry=false) => {
-    if (tab != null){
+    if (tab){
       const url = new URL(location.href);
       url.searchParams.set('tab', tab);
       if (!skipNewHistoryEntry) {
@@ -718,14 +718,15 @@ export function MainApp() {
     }else{
       // update the url in the address bar to remove search params and the # (hash)
       const { origin, pathname, search } = location;
-      tab = Object.keys(tabs)[0];
+      tab = defaultTab;
       if (!skipNewHistoryEntry) {
         history.pushState({ }, '', origin + pathname); // to update browser address without reload
       }
     }
     setActiveTabState(tab);
   };
-  getActiveTab = () => activeTab;
+  getActiveTab = () => activeTab || defaultTab;
+
 
   const [ theme, _setTheme ] = useState(defaultLightTheme);
   changeTheme = (newTheme) => {
@@ -794,7 +795,7 @@ export function MainApp() {
       if (event.state && 'tab' in event.state){
         tab = event.state['tab'];
       }
-      setActiveTabState(tab);
+      setActiveTab(tab, true);
     };
     
     addEventListener('popstate', onPopState);
