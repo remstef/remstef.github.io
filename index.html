@@ -790,9 +790,11 @@ export function MainApp() {
     // handle browser history events
     const onPopState = (event) => {
       // event.state is the state object from pushState/replaceState
+      let tab = null;
       if ('tab' in event.state){
-        setActiveTabState(event.state['tab']);
+        tab = event.state['tab'];
       }
+      setActiveTabState(tab);
     };
     
     addEventListener('popstate', onPopState);
