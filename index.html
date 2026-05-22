@@ -791,7 +791,7 @@ export function MainApp() {
     const onPopState = (event) => {
       // event.state is the state object from pushState/replaceState
       let tab = null;
-      if ('tab' in event.state){
+      if (event.state && 'tab' in event.state){
         tab = event.state['tab'];
       }
       setActiveTabState(tab);
