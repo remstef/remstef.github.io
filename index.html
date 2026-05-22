@@ -174,9 +174,19 @@ const profilePicture = "img/passfoto-v2-ss-unblurred-squared.jpg";
 const showConstructionAlert = true;
 
 // global variables and functions need to be initialized in the MainApp function
-let theme = null;
+let getActiveTheme = null;
 let changeTheme = null;
 let showAlert = null;
+let setActiveTab = null;
+let getActiveTab = null;
+
+// Close all summary-detail dropdowns
+const forceCloseAllSummaryStyleDropdowns = () => document.querySelectorAll('details[open]').forEach(d => d.removeAttribute('open'));
+
+const AlertInfoIcon = () =>   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="h-6 w-6 shrink-0 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+const AlertSuccessIcon = () =>   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+const AlertWarningIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+const AlertErrorIcon = () =>   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
 
 const tabs = {
   "About" : () => (
@@ -303,13 +313,7 @@ const tabs = {
   //   </ResponsiveCardsContainer>
   // )
 
-const AlertInfoIcon = () =>   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="h-6 w-6 shrink-0 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-const AlertSuccessIcon = () =>   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-const AlertWarningIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-const AlertErrorIcon = () =>   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-
-// Close all summary-detail dropdowns
-const forceCloseAllSummaryStyleDropdowns = () => document.querySelectorAll('details[open]').forEach(d => d.removeAttribute('open'));
+// REACT MODULES
 
 export function ResponsiveCardsContainer({ children }){
   return (
@@ -330,7 +334,7 @@ export function CardElement({ children, title }){
   );
 }
 
-export function ThemeSwitcherCard({theme, changeTheme}) {
+export function ThemeSwitcherCard() {
 
   const handleThemeChange = (e) => {
     const newTheme = e.target.value;
@@ -341,13 +345,13 @@ export function ThemeSwitcherCard({theme, changeTheme}) {
     <CardElement title="Theme Switcher">
       <select
         className="select select-bordered border w-full px-2"
-        value={theme}
+        value={getActiveTheme()}
         onChange={handleThemeChange}
       >
         { themes.map(t => <option key={t} value={t}>{t}</option> ) }
       </select>
       <p className="mt-4">
-        Current theme: <span className="font-bold">{theme}</span>
+        Current theme: <span className="font-bold">{getActiveTheme()}</span>
       </p>
       <div className="flex-1">
         <span role="button" tabIndex="0" className="btn btn-primary mt-4">A Primary Color Example Button</span>
@@ -371,7 +375,7 @@ export function ThemeSwitcherCard({theme, changeTheme}) {
      }
 
       <div className="flex">
-        <ThemeSwitchDropdown theme={theme} changeTheme={changeTheme} />
+        <ThemeSwitchDropdown />
       </div>
 
       <div className="flex">
@@ -389,7 +393,7 @@ export function ThemeSwitcherCard({theme, changeTheme}) {
 
 }
 
-export function ThemeSwitchDropdown({ theme, changeTheme }) {
+export function ThemeSwitchDropdown() {
   return (
     <details className="dropdown">
       <summary role="button" className="py-2 btn btn-ghost [list-style:none] [appearance:none] [&::-webkit-details-marker]:hidden" >
@@ -416,7 +420,7 @@ export function ThemeSwitchDropdown({ theme, changeTheme }) {
                 <div class="bg-secondary size-1 rounded-full"></div>
                 <div class="bg-accent size-1 rounded-full"></div>
               </div>
-              <span className={`${theme === theme_ ? 'underline' : 'font-normal'}`}>{theme_}</span>
+              <span className={`${getActiveTheme() === theme_ ? 'underline' : 'font-normal'}`}>{theme_}</span>
             </div>
           </li>
         ) }
@@ -552,17 +556,18 @@ export function HtmlLoader({ filename }) {
   );
 };
 
-export function ThemeSwap({theme, changeTheme, size=10}){
+export function ThemeSwap({size=10}){
 
   const handleThemeChange = (e) => {
     const newTheme = e.target.value === defaultDarkTheme ? defaultLightTheme : defaultDarkTheme;
     changeTheme(newTheme);
+    forceCloseAllSummaryStyleDropdowns();
   };
 
   return (
     <label className="swap swap-rotate">
       {/* this hidden checkbox controls the state */}
-      <input type="checkbox" className="theme-controller" value={theme} onChange={handleThemeChange} />
+      <input type="checkbox" className="theme-controller" value={getActiveTheme()} onChange={handleThemeChange} />
 
       {/* sun icon */}
       <svg
@@ -586,7 +591,7 @@ export function ThemeSwap({theme, changeTheme, size=10}){
 }
 
 
-export function Navigation({ activeTab, setActiveTab, theme, changeTheme }) {
+export function Navigation() {
   
   const dropdownRef = React.useRef(null);
 
@@ -606,27 +611,28 @@ export function Navigation({ activeTab, setActiveTab, theme, changeTheme }) {
           </summary>
           <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
             {Object.entries(tabs).map(([tab, _]) => (
-              <li><span role="button" tabIndex="0"
-                onClick={() => handleTabClick(tab)}
-                className={`btn btn-ghost ${activeTab === tab ? 'underline' : 'font-normal'}` /* flex justify-start items-center */ }
+              <li><a role="button" tabIndex="0"
+                href={`?tab=${tab}`}
+                onClick={(e) => {e.preventDefault(); setActiveTab(tab); forceCloseAllSummaryStyleDropdowns();}}
+                className={`btn btn-ghost ${getActiveTab() === tab ? 'underline' : 'font-normal'}` /* flex justify-start items-center */ }
               >
                 {tab}
-              </span></li>
+              </a></li>
             ))}
           <li>
             { /* flex justify-start items-center */ }
             <span role="button" tabIndex="0" className="btn btn-ghost">
-              <ThemeSwap theme={theme} changeTheme={(newTheme) =>{ changeTheme(newTheme); forceCloseAllSummaryStyleDropdowns();} } size={6} />
+              <ThemeSwap size={6} />
             </span>
           </li>
           </ul>
         </details>
 
         <span role="button" tabIndex="0" className="hidden btn btn-ghost lg:flex">
-          <ThemeSwap theme={theme} changeTheme={changeTheme} size={8} />
+          <ThemeSwap size={8} />
         </span>
         <div className="py-2">
-          <ThemeSwitchDropdown theme={theme} changeTheme={changeTheme} />
+          <ThemeSwitchDropdown />
         </div>
       </div>
 
@@ -634,8 +640,9 @@ export function Navigation({ activeTab, setActiveTab, theme, changeTheme }) {
         <ul className="menu menu-horizontal">
           {Object.entries(tabs).map(([tab, _]) => (
             <li><a
-              onClick={() => setActiveTab(tab)}
-              className={`px-2 btn btn-ghost ${activeTab === tab ? 'underline' : 'font-normal'}`}
+              href={`?tab=${tab}`}
+              onClick={(e) => {e.preventDefault(); setActiveTab(tab);}}
+              className={`px-2 btn btn-ghost ${getActiveTab() === tab ? 'underline' : 'font-normal'}`}
             >
               {tab}
             </a></li>
@@ -697,23 +704,37 @@ export function GenericAlert({ id, type = "info", message, onClose, isExiting = 
 
 export function MainApp() {
   const [activeTab, setActiveTabState] = useState(() => {
-    return location.hash ? decodeURIComponent(location.hash.substring(1)) : defaultTab;
-    // return localStorage.getItem("activeTab") || defaultTab;
+    const url = new URL(location.href);
+    return url.searchParams.has('tab') ? url.searchParams.get('tab') : defaultTab;
   });
   
-  const setActiveTab = (tab) => {
-    // localStorage.setItem("activeTab", tab);
+  setActiveTab = (tab, skipNewHistoryEntry=false) => {
     if (tab != null){
-      location.hash = tab;
+      const url = new URL(location.href);
+      url.searchParams.set('tab', tab);
+      if (!skipNewHistoryEntry) {
+        history.pushState({tab: tab}, '', url); // to update browser address and history without reload
+      }
     }else{
+      // update the url in the address bar to remove search params and the # (hash)
       const { origin, pathname, search } = location;
-      history.replaceState(null, '', origin + pathname + search);
       tab = Object.keys(tabs)[0];
+      if (!skipNewHistoryEntry) {
+        history.pushState({ }, '', origin + pathname); // to update browser address without reload
+      }
     }
     setActiveTabState(tab);
   };
+  getActiveTab = () => activeTab;
 
-  const [ _theme, _setTheme ] = useState(defaultLightTheme);
+  const [ theme, _setTheme ] = useState(defaultLightTheme);
+  changeTheme = (newTheme) => {
+    _setTheme(newTheme);
+    document.body.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+  // make variables and functions globally available
+  getActiveTheme = () => theme;
 
   const [ listOfActiveAlerts, setListOfActiveAlerts ] = useState([]);
 
@@ -736,16 +757,7 @@ export function MainApp() {
     }, 500);
   }
 
-  const _changeTheme = (newTheme) => {
-    _setTheme(newTheme);
-    document.body.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-  };
-
-  // make variables and functions globally available if needed
-  theme = _theme;
-  changeTheme = _changeTheme;
-
+  // on initialization do
   useEffect(()=>{
     // change title according to protagonists name
     document.title = theProtagonistsName + ' - Portfolio';
@@ -763,6 +775,7 @@ export function MainApp() {
         changeTheme(defaultLightTheme);
       }
     }
+
     // make an alert appear after 3 seconds, and disappear after 3 seconds again
     if (showConstructionAlert){
       setTimeout(
@@ -773,7 +786,18 @@ export function MainApp() {
         }), 3000
       );
     }
+
+    // handle browser history events
+    const onPopState = (event) => {
+      // event.state is the state object from pushState/replaceState
+      if ('tab' in event.state){
+        setActiveTabState(event.state['tab']);
+      }
+    };
     
+    addEventListener('popstate', onPopState);
+    
+    return () => removeEventListener('popstate', onPopState);
 
   },[ ]);
 
@@ -811,7 +835,7 @@ export function MainApp() {
 
       {/* Header */}
       <header className="bg-base-100 shadow-sm flex-shrink-0">
-        <Navigation activeTab={activeTab} setActiveTab={setActiveTab} theme={theme} changeTheme={changeTheme} />
+        <Navigation />
       </header>
       
       {/* Main*/}
