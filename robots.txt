@@ -1,1 +1,6 @@
+User-agent: *
+Disallow:
+Allow: /
+
 Sitemap: https://remstef.github.io/sitemap.xml
+Host: remstef.github.io
