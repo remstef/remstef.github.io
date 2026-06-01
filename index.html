@@ -73,7 +73,8 @@
     "react-dom": "https://esm.sh/react-dom@19/client",
     "react-markdown": "https://esm.sh/react-markdown@10?bundle",
     "rehype-raw": "https://esm.sh/rehype-raw@7?bundle",
-    "daisyui": "https://esm.sh/daisyui@5"
+    "daisyui": "https://esm.sh/daisyui@5",
+    "tailwind-merge": "https://esm.sh/tailwind-merge@3"
   }
 }
 </script>
@@ -131,6 +132,7 @@ import { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import { twMerge } from 'tailwind-merge';
 
 const themes = [
   "light",
@@ -274,6 +276,11 @@ const tabs = {
     </CardElement>
     </ResponsiveCardsContainer>
   ),
+  "CV" : () => (
+    <ResponsiveCardsContainer>
+      <HtmlLoader filename="./cv.html" />
+    </ResponsiveCardsContainer>
+  ),
 };
   // Template Tabs:
   //
@@ -335,14 +342,75 @@ export function ResponsiveCardsContainer({ children }){
   )
 }
 
-export function CardElement({ children, title }){
+export function CardElement({ children, title, cardClassName="bg-base-100" }){
   return (
-    <div className="card bg-base-100 m-1 shadow-xl">
+    <div className={twMerge("card m-1 shadow-xl", cardClassName )}>
       <div className="card-body">
         { title ? <h2 className="card-title">{title}</h2> : null }
         { children }
       </div>
     </div>
+  );
+}
+
+function TimedCardElement({ children, title, cardClassName="bg-base-100", seconds = 5, onHide }) {
+  const [state, setState] = useState("visible"); // "visible" | "fading" | "hidden"
+
+  useEffect(() => {
+    const fadeStart = setTimeout(() => setState("fading"), (seconds - 0.5) * 1000);
+    const hide = setTimeout(() => {
+      setState("hidden");
+      if (onHide) onHide();
+    }, seconds * 1000);
+    return () => { clearTimeout(fadeStart); clearTimeout(hide); };
+  }, [seconds, onHide]);
+
+  if (state === "hidden") return null;
+
+
+  return (
+    <div className={twMerge(`card m-1 shadow-xl transition-opacity duration-500 ${state === "fading" ? "opacity-0" : "opacity-100"}`, cardClassName )}>
+      <div className="card-body">
+        { title ? <h2 className="card-title">{title}</h2> : null }
+        { children }
+      </div>
+    </div>
+  );
+}
+
+export function CollapseElement({ title = "Lorem Ipsum", children = "Lorem Ipsum dolor sit amet", openByDefault=false, titleBoxClassName="hover:bg-base-200"}){
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  useEffect(() => {
+    setIsOpen(openByDefault);
+  }, [ openByDefault ]);
+  
+  return (    
+    <>
+      {/* title box (always shown) */}
+      <div 
+        className={twMerge("cursor-pointer flex rounded-md", titleBoxClassName)}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {/* open and close icon */}
+        <div className="mx-2 w-4 bg-base-500 content-center">
+          {/* chevron https://heroicons.com/ */}
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}>
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+        </div>
+        {/* title text (always shown) */}
+        <div className="flex">
+          { title }
+        </div>
+      </div>
+      {/* content box (only shown if wanted) */}
+      {isOpen && (
+        <div className="ml-8">
+          { children }
+        </div>
+      )}
+    </>
   );
 }
 
@@ -447,7 +515,7 @@ export function MarkdownLoader({ filename }) {
   const [ markdown, setMarkdown ] = React.useState("");
   const [ error, setError ] = React.useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetch(filename)
       .then(response => {
         if (!response.ok) {

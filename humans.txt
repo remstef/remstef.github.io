@@ -1,0 +1,11 @@
+/* TEAM */
+Steffen Remus - Developer - @remstef
+Contributors - @remstef
+
+/* SITE */
+Built with: GitHub Pages, ReactJS, TailwindCSS, DaisyUI
+Design: Custom responsive theme
+Languages: HTML, CSS, JavaScript
+
+/* THANKS */
+Thanks to open-source projects and the community!
