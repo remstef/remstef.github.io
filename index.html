@@ -59,7 +59,7 @@
 <link href="https://cdn.jsdelivr.net/npm/computer-modern@0.1.3/cmu-bright.css" rel="stylesheet" type="text/css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
 
 
 <!-- Babel to compile React & ReactDOM -->
@@ -178,8 +178,9 @@ const themes = [
   "silk"
 ];
 
-const defaultDarkTheme = "forest"; // "business";
-const defaultLightTheme = "garden"; // "nord";
+const defaultDarkTheme = "dim"; //"forest"; // "business";
+const defaultLightTheme = "caramellatte";// "garden"; // "nord";
+const defaultTheme = defaultLightTheme; // set to null to use user system preference
 const defaultTab = "About";
 
 const theProtagonistsName = "Steffen Remus";
@@ -278,7 +279,7 @@ const tabs = {
   ),
   "CV" : () => (
     <ResponsiveCardsContainer>
-      <HtmlLoader filename="./cv.html" />
+      <HtmlLoader filename="./cv/cv.html" />
     </ResponsiveCardsContainer>
   ),
 };
@@ -378,7 +379,7 @@ function TimedCardElement({ children, title, cardClassName="bg-base-100", second
   );
 }
 
-export function CollapseElement({ title = "Lorem Ipsum", children = "Lorem Ipsum dolor sit amet", openByDefault=false, titleBoxClassName="hover:bg-base-200"}){
+export function CollapseElement({ title = "Lorem Ipsum", children = "Lorem Ipsum dolor sit amet", openByDefault=false, titleBoxClassName="hover:bg-base-200", show_open_close_icon=true}){
   const [isOpen, setIsOpen] = React.useState(false);
 
   useEffect(() => {
@@ -389,24 +390,39 @@ export function CollapseElement({ title = "Lorem Ipsum", children = "Lorem Ipsum
     <>
       {/* title box (always shown) */}
       <div 
-        className={twMerge("cursor-pointer flex rounded-md", titleBoxClassName)}
+        className={twMerge("cursor-pointer flex ", titleBoxClassName)}
         onClick={() => setIsOpen(!isOpen)}
       >
         {/* open and close icon */}
-        <div className="mx-2 w-4 bg-base-500 content-center">
-          {/* chevron https://heroicons.com/ */}
+        { show_open_close_icon ?
+          <div className="ml-2 mr-2 content-center">
+          {/* chevron https://heroicons.com/ * /}
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}>
             <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
           </svg>
+          */}
+            {
+              isOpen ? 
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-3">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+            </svg>
+            :
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-3">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+          }
         </div>
+          :
+          <div className="ml-3" />
+        }
         {/* title text (always shown) */}
-        <div className="flex">
+        <div className="flex w-full">
           { title }
         </div>
       </div>
       {/* content box (only shown if wanted) */}
       {isOpen && (
-        <div className="ml-8">
+        <div className="ml-3">
           { children }
         </div>
       )}
@@ -476,15 +492,15 @@ export function ThemeSwitcherCard() {
 export function ThemeSwitchDropdown() {
   return (
     <details className="dropdown">
-      <summary role="button" className="py-2 btn btn-ghost [list-style:none] [appearance:none] [&::-webkit-details-marker]:hidden" >
-        <div class="bg-base-100 group-hover:border-base-content/20 border-base-content/10 grid shrink-0 grid-cols-2 gap-0.5 rounded-md border p-1 transition-colors">
+      <summary role="button" className="btn btn-ghost [list-style:none] [appearance:none] [&::-webkit-details-marker]:hidden content-center" >
+        <div class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-md border border-gray-400 p-1 transition-colors">
           <div class="bg-base-content size-1 rounded-full"></div>
           <div class="bg-primary size-1 rounded-full"></div>
           <div class="bg-secondary size-1 rounded-full"></div>
           <div class="bg-accent size-1 rounded-full"></div>
         </div> 
       </summary>
-      <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow max-h-64 overflow-auto">
+      <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-[50vw] h-[50vh] p-2 shadow  overflow-auto">
         { themes.map(theme_ => 
           <li>
             <div 
@@ -506,6 +522,41 @@ export function ThemeSwitchDropdown() {
         ) }
       </ul>
     </details>
+  );
+}
+
+export function ReactMarkdownConfigured({ children }) {
+  return (
+    <ReactMarkdown 
+      rehypePlugins={[rehypeRaw]}
+      components={{
+        h1: ({node, ...props}) => <h1 className="text-4xl font-bold mt-8 mb-4" {...props} />,
+        h2: ({node, ...props}) => <h2 className="text-3xl font-bold mt-7 mb-3" {...props} />,
+        h3: ({node, ...props}) => <h3 className="text-2xl font-bold mt-6 mb-2" {...props} />,
+        h4: ({node, ...props}) => <h4 className="text-xl font-bold mt-5 mb-2" {...props} />,
+        h5: ({node, ...props}) => <h5 className="text-lg font-bold mt-4 mb-2" {...props} />,
+        h6: ({node, ...props}) => <h6 className="text-base font-bold mt-4 mb-2" {...props} />,
+        p: ({node, ...props}) => <p className="mb-2 leading-relaxed" {...props} />,
+        ul: ({node, ...props}) => <ul className="list-disc list-inside mb-2 space-y-1" {...props} />,
+        ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-2 space-y-1" {...props} />,
+        li: ({node, ...props}) => <li className="ml-4 -indent-4" {...props} />,
+        a: ({node, ...props}) => <a className="text-blue-500 hover:text-blue-700 underline" {...props} />,
+        code: ({node, inline, ...props}) => 
+          inline 
+            ? <code className="bg-gray-200 px-2 py-1 rounded text-sm font-mono" {...props} />
+            : <code className="block bg-gray-900 text-gray-100 p-4 rounded mb-2 overflow-x-auto font-mono text-sm" {...props} />,
+        pre: ({node, ...props}) => <pre className="mb-4" {...props} />,
+        blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-gray-400 pl-4 italic my-2 text-gray-700" {...props} />,
+        hr: () => <hr className="my-6 border-t-2 border-gray-300" />,
+        img: ({node, ...props}) => <img className="max-w-full h-auto my-2 rounded" {...props} />,
+        table: ({node, ...props}) => <table className="border-collapse border border-gray-400 w-full mb-2" {...props} />,
+        thead: ({node, ...props}) => <thead className="bg-gray-200" {...props} />,
+        th: ({node, ...props}) => <th className="border border-gray-400 px-4 py-2 text-left font-bold" {...props} />,
+        td: ({node, ...props}) => <td className="border border-gray-400 px-4 py-2" {...props} />,
+      }}
+    >
+      {children}
+    </ReactMarkdown>
   );
 }
 
@@ -539,36 +590,9 @@ export function MarkdownLoader({ filename }) {
   }
 
   return (
-    <ReactMarkdown 
-      rehypePlugins={[rehypeRaw]}
-      components={{
-        h1: ({node, ...props}) => <h1 className="text-4xl font-bold mt-8 mb-4" {...props} />,
-        h2: ({node, ...props}) => <h2 className="text-3xl font-bold mt-7 mb-3" {...props} />,
-        h3: ({node, ...props}) => <h3 className="text-2xl font-bold mt-6 mb-2" {...props} />,
-        h4: ({node, ...props}) => <h4 className="text-xl font-bold mt-5 mb-2" {...props} />,
-        h5: ({node, ...props}) => <h5 className="text-lg font-bold mt-4 mb-2" {...props} />,
-        h6: ({node, ...props}) => <h6 className="text-base font-bold mt-4 mb-2" {...props} />,
-        p: ({node, ...props}) => <p className="mb-4 leading-relaxed" {...props} />,
-        ul: ({node, ...props}) => <ul className="list-disc list-inside mb-4 space-y-1" {...props} />,
-        ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-4 space-y-1" {...props} />,
-        li: ({node, ...props}) => <li className="ml-2" {...props} />,
-        a: ({node, ...props}) => <a className="text-blue-500 hover:text-blue-700 underline" {...props} />,
-        code: ({node, inline, ...props}) => 
-          inline 
-            ? <code className="bg-gray-200 px-2 py-1 rounded text-sm font-mono" {...props} />
-            : <code className="block bg-gray-900 text-gray-100 p-4 rounded mb-4 overflow-x-auto font-mono text-sm" {...props} />,
-        pre: ({node, ...props}) => <pre className="mb-4" {...props} />,
-        blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-gray-400 pl-4 italic my-4 text-gray-700" {...props} />,
-        hr: () => <hr className="my-6 border-t-2 border-gray-300" />,
-        img: ({node, ...props}) => <img className="max-w-full h-auto my-4 rounded" {...props} />,
-        table: ({node, ...props}) => <table className="border-collapse border border-gray-400 w-full mb-4" {...props} />,
-        thead: ({node, ...props}) => <thead className="bg-gray-200" {...props} />,
-        th: ({node, ...props}) => <th className="border border-gray-400 px-4 py-2 text-left font-bold" {...props} />,
-        td: ({node, ...props}) => <td className="border border-gray-400 px-4 py-2" {...props} />,
-      }}
-    >
-      {markdown}
-    </ReactMarkdown>
+    <ReactMarkdownConfigured>
+      { markdown }
+    </ReactMarkdownConfigured>
   );
 };
 
@@ -636,7 +660,7 @@ export function HtmlLoader({ filename }) {
   );
 };
 
-export function ThemeSwap({size=10}){
+export function ThemeSwap({innersize=5}){
 
   const handleThemeChange = (e) => {
     const newTheme = e.target.value === defaultDarkTheme ? defaultLightTheme : defaultDarkTheme;
@@ -651,7 +675,7 @@ export function ThemeSwap({size=10}){
 
       {/* sun icon */}
       <svg
-        className={`swap-off h-${size} w-${size} fill-current`}
+          className={`swap-off h-${innersize} w-${innersize} fill-current`}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24">
         <path
@@ -660,7 +684,7 @@ export function ThemeSwap({size=10}){
 
       {/* moon icon */}
       <svg
-        className={`swap-on h-${size} w-${size} fill-current`}
+          className={`swap-on h-${innersize} w-${innersize} fill-current`}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24">
         <path
@@ -686,7 +710,7 @@ export function Navigation() {
       <div className="navbar-start">
 
         <details className="dropdown">
-          <summary role="button" className="py-2 btn btn-ghost lg:hidden [list-style:none] [appearance:none] [&::-webkit-details-marker]:hidden" >
+          <summary role="button" className="btn btn-ghost lg:hidden [list-style:none] [appearance:none] [&::-webkit-details-marker]:hidden content-center" >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
           </summary>
           <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
@@ -701,19 +725,19 @@ export function Navigation() {
             ))}
           <li>
             { /* flex justify-start items-center */ }
-            <span role="button" tabIndex="0" className="btn btn-ghost">
-              <ThemeSwap size={6} />
+            <span role="button" tabIndex="0" className="btn btn-ghost sm:hidden">
+              <ThemeSwap innersize={5} />
             </span>
           </li>
           </ul>
         </details>
 
-        <span role="button" tabIndex="0" className="hidden btn btn-ghost lg:flex">
-          <ThemeSwap size={8} />
+        <span role="button" tabIndex="0" className="hidden btn btn-ghost sm:flex">
+          <ThemeSwap innersize={5} />
         </span>
-        <div className="py-2">
+        
           <ThemeSwitchDropdown />
-        </div>
+        
       </div>
 
       <div className="navbar-center hidden lg:flex">
@@ -848,13 +872,18 @@ export function MainApp() {
     if (savedTheme) {
       changeTheme(savedTheme);
     } else {
-      // Fall back to system preference
+      // Fall back to system preference or default
+      if (defaultTheme != null){
+        changeTheme(defaultTheme);
+      } else {
       const userPrefersDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
       if (userPrefersDarkTheme){
         changeTheme(defaultDarkTheme);
       } else {
         changeTheme(defaultLightTheme);
       }
+      }
+      
     }
 
     // make an alert appear after 3 seconds, and disappear after 3 seconds again
