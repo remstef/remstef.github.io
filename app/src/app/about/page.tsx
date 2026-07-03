@@ -3,7 +3,7 @@ import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 import {
   profilePicture,
   showInitials,
-  theProtagonistsName
+  theProtagonistsName,
 } from "@/lib/constants";
 import { faGithub, faSquareLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faUniversity } from "@fortawesome/free-solid-svg-icons/faUniversity";
