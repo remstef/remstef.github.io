@@ -42,7 +42,7 @@ jobs:
         with:
           node-version: 24
           cache: "pnpm"
-          run_install: false
+          cache-dependency-path: ./app/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install
