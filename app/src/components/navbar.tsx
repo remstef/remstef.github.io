@@ -26,11 +26,11 @@ const navItems = [
     label: "CV",
     href: "/cv",
   },
-  {
-    id: "test",
-    label: "Test & Debug",
-    href: "/testanddebug",
-  },
+  // {
+  //   id: "test",
+  //   label: "Test & Debug",
+  //   href: "/testanddebug",
+  // },
 ];
 
 export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {
