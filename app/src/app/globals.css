@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  /* themes: light --default, dark --prefersdark, cupcake; */
+  themes: all;
+}
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  /* Other theme variables... */
+  --font-roboslab: var(--font-robotoslab);
+  --font-montse: var(--font-montserrat);
+  --font-body: var(--font-geist);
+  --font-sans: var(--font-geist);
+}
+
+@keyframes slideDownAndFadeIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.alert-slide-in {
+  animation: slideDownAndFadeIn 0.5s ease-out;
+}
+
+.alert-fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
