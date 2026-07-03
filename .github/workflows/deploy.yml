@@ -62,13 +62,14 @@ jobs:
 
       - name: Build with Next.js
         run: pnpm run build
+        working-directory: ./app
         env:
           PAGES_BASE_PATH: ${{ steps.setup_pages.outputs.base_path }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./app/out
 
   deploy:
     environment:
