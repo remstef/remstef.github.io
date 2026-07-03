@@ -6,7 +6,9 @@ export default function Publications() {
   return (
     <ResponsiveCardsContainer>
       <CardElement>
-        <HtmlLoader filename={`${process.env.PAGES_BASE_PATH}/biblio-chicago-li.html`} />
+        <div className="font-cmubright">
+          <HtmlLoader filename={`${process.env.PAGES_BASE_PATH}/biblio-chicago-li.html`} />
+        </div>
       </CardElement>
     </ResponsiveCardsContainer>
   );

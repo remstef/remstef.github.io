@@ -12,11 +12,11 @@ export default function About() {
       {/*  */}
       <CardElement>
         {/* <div className="w-full text-2xl mb-2 sm:text-center">About Me</div> */}
-        <div className="flex flex-wrap-reverse place-content-center place-items-center">
+        <div className="font-pixel flex flex-wrap-reverse place-content-center place-items-center">
           
           {/* head info of myself */}
           <div className="w-full lg:w-2/3 2xl:w-1/2">
-            <div className="p-4 pr-8 justify-center font-mono text-justify wrap-break-word whitespace-normal [hyphens:auto]">
+            <div className="p-4 pr-8 justify-center text-justify wrap-break-word whitespace-normal [hyphens:auto]">
               <h2 className="text-2xl my-2">Steffen Remus</h2>
               <p className="pl-4">
                 <span>Dr. rer. nat.</span>
@@ -61,7 +61,7 @@ export default function About() {
       */}
       {/*  */}
       <CardElement>
-        <div className="w-full text-2xl mb-2 sm:text-center">Visibility</div>
+        <div className="font-pixel w-full text-2xl mb-2 sm:text-center">Visibility</div>
         <div className="mx-8 text-3xl text-center flex flex-wrap items-center">
           <Link className="flex-1 m-2" href="https://lt.informatik.uni-hamburg.de/people/steffen-remus" title="University Profile"><FontAwesomeIcon className="link link-primary link-hover" icon={faUniversity} /></Link>
           <Link className="flex-1 m-2" href="https://www.linkedin.com/in/steffen-remus-54a62498" title="LinkedIn Profile"><FontAwesomeIcon className="link link-primary link-hover" icon={faSquareLinkedin} /></Link>

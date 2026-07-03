@@ -9,14 +9,14 @@ import { ReactNode } from "react";
 function Titlespan({children}:Readonly<{children:ReactNode}>){
   return (
     // <span className="font-montserrat font-light text-xl" children={children} />
-    <span className="text-xl" children={children} />
+    <span className="font-pixel text-xl" children={children} />
   );
 }
 const T = Titlespan
 
 function Contentdivjustified({children}:Readonly<{children:ReactNode}>){
   return (
-    <div className="text-justify wrap-break-word whitespace-normal [hyphens:auto]" children={children} />
+    <div className="font-cmubright text-justify wrap-break-word whitespace-normal [hyphens:auto]" children={children} />
   );
 }
 const CJ = Contentdivjustified
@@ -131,9 +131,7 @@ children = {
 _Outline:_ Conducted original research under the guidance of Prof. Dr. Chris Biemann, participated in project-related events, offered consultancy services for industry partners, developed and delivered courses in machine learning, NLP, and software engineering, supervised theses, student helpers and interns, maintained technical infrastructure and ensured its uptime.
 
 _Key Responsibilities:_
-- Teaching & Supervision  
-- Research Projects  
-- Server infrastructure maintenance: managing a Hadoop cluster that supports a distributed Elasticsearch cluster, two GPU servers, and several web servers; hosting demo applications as Docker containers.
+Teaching, Supervision, Research Projects  &amp; Server infrastructure maintenance: managing a Hadoop cluster that supports a distributed Elasticsearch cluster, two GPU servers, and several web servers; hosting demo applications as Docker containers.
 
 _Key Achievements:_
 - Successfully defended Ph.D. in June, 2023  
@@ -163,8 +161,7 @@ _Supervisor:_ Dr. Abdel Labbi & Dr. Alfio Gliozzo
 _Outline:_ Collaborated closely with Angela Fahrni on supervised relation extraction and event detection, utilizing distributional features.
 
 _Key Responsibilities:_  
-- Implemented a system for named entity recognition, cross-sentence relation extraction, and event detection using distributional features
-- (Small) internal crowdsourcing task for relation annotation.
+Implemented a system for named entity recognition, cross-sentence relation extraction, and event detection using distributional features &amp; Conducted (small) internal crowdsourcing task for relation annotation.
 
 &nbsp;
 
