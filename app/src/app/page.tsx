@@ -1,9 +1,11 @@
-import ResponsiveCardsContainer from "@/components/responsive-cards-container";
-
-export default function Home() {
+import { useRouter } from 'next/router'
+ 
+export default function Page() {
+  const router = useRouter()
+ 
   return (
-    <ResponsiveCardsContainer>
-      <></>
-    </ResponsiveCardsContainer>
-  );
+    <button type="button" onClick={() => router.push('/about')}>
+      About Steffen Remus
+    </button>
+  )
 }
