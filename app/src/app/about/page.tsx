@@ -4,7 +4,6 @@ import { profilePicture, showInitials, theProtagonistsName } from "@/lib/constan
 import { faGithub, faSquareLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faUniversity } from "@fortawesome/free-solid-svg-icons/faUniversity";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import "academicons/css/academicons.min.css";
 import Link from "next/link";
 
 export default function About() {

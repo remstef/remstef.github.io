@@ -6,7 +6,6 @@ import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 import { ThemeSwap } from "@/components/next-theme-swap";
 // import { ThemeSwitchDropdown } from "@/components/theme-switch-dropdown";
 import { ThemeSwitchDropdown } from "@/components/next-theme-switch-dropdown";
-import "academicons/css/academicons.min.css";
 import Link from "next/link";
 
 export default function TestAndDebug() {
