@@ -3,38 +3,48 @@ import { CollapseElement } from "@/components/collapse-element";
 import { MarkdownConfiguredExplicit } from "@/components/markdown-configured";
 import { MarkdownLoader } from "@/components/markdown-loader";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
+import type { Metadata } from "next";
 import { ReactNode } from "react";
 
+export const metadata: Metadata = {
+  title: "CV",
+};
 
-function Titlespan({children}:Readonly<{children:ReactNode}>){
+function Titlespan({ children }: Readonly<{ children: ReactNode }>) {
   return (
     // <span className="font-montserrat font-light text-xl" children={children} />
     <span className="font-pixel text-xl" children={children} />
   );
 }
-const T = Titlespan
+const T = Titlespan;
 
-function Contentdivjustified({children}:Readonly<{children:ReactNode}>){
+function Contentdivjustified({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <div className="font-cmubright text-justify wrap-break-word whitespace-normal [hyphens:auto]" children={children} />
+    <div
+      className="font-cmubright text-justify wrap-break-word whitespace-normal [hyphens:auto]"
+      children={children}
+    />
   );
 }
-const CJ = Contentdivjustified
+const CJ = Contentdivjustified;
 
 export default function CV() {
   return (
     <ResponsiveCardsContainer>
+      <>
+        {/* BEGIN */}
 
-<>{/* BEGIN */}
-
-{/* B: CONTACT INFORMATION */}
-<CardElement><CollapseElement 
-openByDefault={false}
-show_open_close_icon={true}
-titleBoxClassName=""
-title = { <T>Contact Information</T> }
-children = {<CJ><MarkdownConfiguredExplicit>
-{`<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        {/* B: CONTACT INFORMATION */}
+        <CardElement>
+          <CollapseElement
+            openByDefault={false}
+            show_open_close_icon={true}
+            titleBoxClassName=""
+            title={<T>Contact Information</T>}
+            children={
+              <CJ>
+                <MarkdownConfiguredExplicit>
+                  {`<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 ##### Steffen Remus, Dr.rer.nat.
 **Professional Title:** Postdoctoral Researcher & Lecturer  
@@ -47,27 +57,40 @@ children = {<CJ><MarkdownConfiguredExplicit>
 &nbsp;&nbsp;&nbsp;<i className="ai ai-orcid"></i>&nbsp;  [OrcId](https://orcid.org/0000-0003-4303-8781)  
 &nbsp;&nbsp;&nbsp;<i className="ai ai-google-scholar-square"></i>&nbsp;  [Google Scholar](https://scholar.google.com/citations?user=nDGCpDYAAAAJ)  
 `}
-</MarkdownConfiguredExplicit></CJ>}
-/></CardElement>
-{/* E: CONTACT INFORMATION */}
+                </MarkdownConfiguredExplicit>
+              </CJ>
+            }
+          />
+        </CardElement>
+        {/* E: CONTACT INFORMATION */}
 
-{/* B: PROFESSIONAL SUMMARY */}
-<CardElement><CollapseElement 
-openByDefault={false}
-titleBoxClassName=""
-title = { <T>Professional Summary</T> }
-children = { <CJ><MarkdownLoader filename={`${process.env.PAGES_BASE_PATH}/summary.md`} /></CJ> }
-/></CardElement>
-{/* E: PROFESSIONAL SUMMARY */}
+        {/* B: PROFESSIONAL SUMMARY */}
+        <CardElement>
+          <CollapseElement
+            openByDefault={false}
+            titleBoxClassName=""
+            title={<T>Professional Summary</T>}
+            children={
+              <CJ>
+                <MarkdownLoader
+                  filename={`${process.env.PAGES_BASE_PATH}/summary.md`}
+                />
+              </CJ>
+            }
+          />
+        </CardElement>
+        {/* E: PROFESSIONAL SUMMARY */}
 
-{/* B: Skills */}
-<CardElement><CollapseElement 
-openByDefault={false}
-titleBoxClassName=""
-title = { <T>Skills & Expertise</T> }
-children = {
-<CJ><MarkdownConfiguredExplicit>  
-{`
+        {/* B: Skills */}
+        <CardElement>
+          <CollapseElement
+            openByDefault={false}
+            titleBoxClassName=""
+            title={<T>Skills & Expertise</T>}
+            children={
+              <CJ>
+                <MarkdownConfiguredExplicit>
+                  {`
 ###### Core Skills & Expertise
 
 **Machine Learning & AI**  
@@ -112,18 +135,23 @@ children = {
 - Running, Kitesurfing, Road Biking, Technology, Problem-Solving  
 
 `}
-</MarkdownConfiguredExplicit></CJ>}/>
-</CardElement>
-{/* E: Skills */}
+                </MarkdownConfiguredExplicit>
+              </CJ>
+            }
+          />
+        </CardElement>
+        {/* E: Skills */}
 
-{/* B: Professional Experience */}
-<CardElement><CollapseElement 
-openByDefault={false}
-titleBoxClassName=""
-title = { <T>Professional Experience</T> }
-children = {
-<CJ><MarkdownConfiguredExplicit>  
-{`
+        {/* B: Professional Experience */}
+        <CardElement>
+          <CollapseElement
+            openByDefault={false}
+            titleBoxClassName=""
+            title={<T>Professional Experience</T>}
+            children={
+              <CJ>
+                <MarkdownConfiguredExplicit>
+                  {`
 ###### Language Technology Group & HITeC e.V., University of Hamburg, Germany
 - **Postdoctoral Research Scientist** — since 07/2023  
 - **Pre-doctoral Research Scientist** — 10/2016 to 06/2023
@@ -196,18 +224,23 @@ Co-authored 6 peer-reviewed papers; organized a one-day IBM Watson workshop.
 - Apprenticeship for Information and Telecommunications Systems Electronics Technician / Ausbildung als Informations- und Telekommunikationssystem Elektroniker (1997–2000)
 
 `}
-</MarkdownConfiguredExplicit></CJ>}/>
-</CardElement>
-{/* E: Professional Experience */}
+                </MarkdownConfiguredExplicit>
+              </CJ>
+            }
+          />
+        </CardElement>
+        {/* E: Professional Experience */}
 
-{/* B: Education */}
-<CardElement><CollapseElement 
-openByDefault={false}
-titleBoxClassName=""
-title = { <T>Education</T> }
-children = {
-<CJ><MarkdownConfiguredExplicit>  
-{`
+        {/* B: Education */}
+        <CardElement>
+          <CollapseElement
+            openByDefault={false}
+            titleBoxClassName=""
+            title={<T>Education</T>}
+            children={
+              <CJ>
+                <MarkdownConfiguredExplicit>
+                  {`
 **Dr.rer.nat. (Ph.D.) in Computer Science** — University of Hamburg, Germany, 2023  
   Thesis: “Domain Defining Context: On Domain-Dependent Corpus Expansion and Contextualized Semantic Structuring” — Advisor: Prof. Dr. Chris Biemann
 
@@ -224,18 +257,23 @@ children = {
 **High School** — Brüder Grimm Realschule, Frankfurt, 1997
 
 `}
-</MarkdownConfiguredExplicit></CJ>}/>
-</CardElement>
-{/* E: Education */}
+                </MarkdownConfiguredExplicit>
+              </CJ>
+            }
+          />
+        </CardElement>
+        {/* E: Education */}
 
-{/* B: Scientific Experience */}
-<CardElement><CollapseElement 
-openByDefault={false}
-titleBoxClassName=""
-title = { <T>Scientific Experience</T> }
-children = {
-<CJ><MarkdownConfiguredExplicit>  
-{`
+        {/* B: Scientific Experience */}
+        <CardElement>
+          <CollapseElement
+            openByDefault={false}
+            titleBoxClassName=""
+            title={<T>Scientific Experience</T>}
+            children={
+              <CJ>
+                <MarkdownConfiguredExplicit>
+                  {`
 ###### Volunteering
 - Member of the appointments committee (Berufungskommission) for the Machine Learning professorship, University of Hamburg (2020/21)
 
@@ -259,18 +297,23 @@ children = {
 - Reviewer for journals: TPAMI, TACL, NLE  
 - Workshop reviewing: TextGraphs, SemEval, WAC
 `}
-</MarkdownConfiguredExplicit></CJ>}/>
-</CardElement>
-{/* E: Scientific Experience */}
+                </MarkdownConfiguredExplicit>
+              </CJ>
+            }
+          />
+        </CardElement>
+        {/* E: Scientific Experience */}
 
-{/* B: Teaching Experience */}
-<CardElement><CollapseElement 
-openByDefault={false}
-titleBoxClassName=""
-title = { <T>Teaching Experience</T> }
-children = {
-<CJ><MarkdownConfiguredExplicit>  
-{`
+        {/* B: Teaching Experience */}
+        <CardElement>
+          <CollapseElement
+            openByDefault={false}
+            titleBoxClassName=""
+            title={<T>Teaching Experience</T>}
+            children={
+              <CJ>
+                <MarkdownConfiguredExplicit>
+                  {`
 ###### Curricula
 - **University of Hamburg:** multiple lecturer and teaching assistant roles in Research Software Engineering, Python for Computational Science, Deep Learning for NLP, Web Interfaces for Language Processing Systems, Applications with Aspects on Language Technology, Software Engineering I, Deep Learning for Unstructured Data, Statistical Methods of Language Technology, Machine Learning I, Practical Applications in NLP.  
 - **Technical University of Darmstadt:** Lecturer and teaching assistant roles including Q&A Technologies behind IBM Watson, Algorithms of Language Technology, General Computer Science.
@@ -278,18 +321,23 @@ children = {
 ###### Thesis Supervision
 I provide dedicated supervision for student helpers, inters and academic theses, including ten Bachelor’s theses, eleven Master’s theses and three independent studies up to date. I regularly lead one-on-one progress meetings on a weekly or bi-weekly basis, ensuring consistent academic development, timely completion, and overall project success
 `}
-</MarkdownConfiguredExplicit></CJ>}/>
-</CardElement>
-{/* E: Teaching Experience */}
+                </MarkdownConfiguredExplicit>
+              </CJ>
+            }
+          />
+        </CardElement>
+        {/* E: Teaching Experience */}
 
-{/* B: Awards & Grants */}
-<CardElement><CollapseElement 
-openByDefault={false}
-titleBoxClassName=""
-title = { <T>Awards & Grants</T> }
-children = {
-<CJ><MarkdownConfiguredExplicit>  
-{`
+        {/* B: Awards & Grants */}
+        <CardElement>
+          <CollapseElement
+            openByDefault={false}
+            titleBoxClassName=""
+            title={<T>Awards & Grants</T>}
+            children={
+              <CJ>
+                <MarkdownConfiguredExplicit>
+                  {`
 - 2022: Mentor for a student research project awarded €10,000.  
 - 2019: Awarded over €3,000 by the German DAAD office for international research in India.  
 - 2015: Best mentoring award for “Algorithms of Language Technology” exercise lab.  
@@ -297,57 +345,74 @@ children = {
 - 2013–2016: KDSL Graduate School Fellowship.  
 - 2013: Travel grant of €1,000 from Freunde der TU-Darmstadt e.V.
 `}
-</MarkdownConfiguredExplicit></CJ>}/>
-</CardElement>
-{/* E: Awards & Grants */}
+                </MarkdownConfiguredExplicit>
+              </CJ>
+            }
+          />
+        </CardElement>
+        {/* E: Awards & Grants */}
 
-{/* B: Awards & Grants */}
-<CardElement><CollapseElement 
-openByDefault={false}
-titleBoxClassName=""
-title = { <T>Publications & Code</T> }
-children = {
-<CJ><MarkdownConfiguredExplicit>  
-{`
+        {/* B: Awards & Grants */}
+        <CardElement>
+          <CollapseElement
+            openByDefault={false}
+            titleBoxClassName=""
+            title={<T>Publications & Code</T>}
+            children={
+              <CJ>
+                <MarkdownConfiguredExplicit>
+                  {`
 - [(Co-)authored over 30+ peer-reviewed papers.](./?tab=Publications)
 - Contributed to 50+ open source project repositories on various version control platforms (github, bitbucket, sourceforge, ...) of which I am maintainer/creator of 20+ projects.
 `}
-</MarkdownConfiguredExplicit></CJ>}/>
-</CardElement>
-{/* E: Awards & Grants */}
+                </MarkdownConfiguredExplicit>
+              </CJ>
+            }
+          />
+        </CardElement>
+        {/* E: Awards & Grants */}
 
-{/* B: CV as PDF */}
-<CardElement><CollapseElement 
-openByDefault={false}
-titleBoxClassName=""
-show_open_close_icon={false}
-title = { 
-<span className="text-2xl text-center w-full mr-3">
-  Download CV as PDF
-</span> 
-}
-children = {
-<div className="flex justify-center">
-  <div className="flex-1 justify-center content-center items-center text-center">
-  <a
-    role="button"
-    href="./pdf/cv-1page-nopic.pdf"
-    className="w-64 px-2 py-2 mx-8 my-2 btn btn-primary text-primary-content shadow"
-    children={<span className="text-primary-content">Short (1-page) PDF</span>}
-  />
-  <a
-    role="button"
-    href="./pdf/cv-full.pdf"
-    className="w-64 px-2 py-2 mx-8 my-2 btn btn-secondary"
-    children={<span className="text-secondary-content">Full PDF</span>}
-  />
-  </div>
-</div>
-}/></CardElement>
-{/* E: CV as PDF */}
+        {/* B: CV as PDF */}
+        <CardElement>
+          <CollapseElement
+            openByDefault={false}
+            titleBoxClassName=""
+            show_open_close_icon={false}
+            title={
+              <span className="text-2xl text-center w-full mr-3">
+                Download CV as PDF
+              </span>
+            }
+            children={
+              <div className="flex justify-center">
+                <div className="flex-1 justify-center content-center items-center text-center">
+                  <a
+                    role="button"
+                    href="./pdf/cv-1page-nopic.pdf"
+                    className="w-64 px-2 py-2 mx-8 my-2 btn btn-primary text-primary-content shadow"
+                    children={
+                      <span className="text-primary-content">
+                        Short (1-page) PDF
+                      </span>
+                    }
+                  />
+                  <a
+                    role="button"
+                    href="./pdf/cv-full.pdf"
+                    className="w-64 px-2 py-2 mx-8 my-2 btn btn-secondary"
+                    children={
+                      <span className="text-secondary-content">Full PDF</span>
+                    }
+                  />
+                </div>
+              </div>
+            }
+          />
+        </CardElement>
+        {/* E: CV as PDF */}
 
-{/* B: All as MD */}
-{/* <CardElement><CollapseElement 
+        {/* B: All as MD */}
+        {/* <CardElement><CollapseElement 
 openByDefault={false}
 title = { <T>&nbsp;</T> }
 children = {
@@ -356,9 +421,10 @@ children = {
 </CJ>
 }/></CardElement>
 */}
-{/* E: All as MD */}
+        {/* E: All as MD */}
 
-{/* END */}</>
+        {/* END */}
+      </>
     </ResponsiveCardsContainer>
   );
 }

@@ -1,12 +1,20 @@
 import CardElement from "@/components/card-element";
-import { MarkdownConfiguredExplicit, MarkdownConfiguredProseArticle } from "@/components/markdown-configured";
+import {
+  MarkdownConfiguredExplicit,
+  MarkdownConfiguredProseArticle,
+} from "@/components/markdown-configured";
 import { MarkdownLoader } from "@/components/markdown-loader";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 // import { ThemeSwap } from "@/components/theme-swap";
 import { ThemeSwap } from "@/components/next-theme-swap";
 // import { ThemeSwitchDropdown } from "@/components/theme-switch-dropdown";
 import { ThemeSwitchDropdown } from "@/components/next-theme-switch-dropdown";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Hello World",
+};
 
 export default function TestAndDebug() {
   return (
@@ -47,7 +55,9 @@ export default function TestAndDebug() {
         </MarkdownConfiguredProseArticle>
       </CardElement>
       <CardElement title={<span>BarBar</span>}>
-        <MarkdownLoader filename={`${process.env.PAGES_BASE_PATH}/somemarkdown.md`} />
+        <MarkdownLoader
+          filename={`${process.env.PAGES_BASE_PATH}/somemarkdown.md`}
+        />
       </CardElement>
       <CardElement title={<span>FooBarBar</span>}>
         <button>Show some alert</button>

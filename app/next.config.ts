@@ -8,11 +8,11 @@ const nextConfig: NextConfig = {
     return [
       // Basic redirect
       {
-        source: '/',
-        destination: '/about',
+        source: "/",
+        destination: "/about",
         permanent: true,
-      }
-    ]
+      },
+    ];
   },
 };
 

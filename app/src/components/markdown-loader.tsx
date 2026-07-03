@@ -1,9 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MarkdownConfiguredExplicit, MarkdownConfiguredProseArticle } from "./markdown-configured";
+import {
+  MarkdownConfiguredExplicit,
+  MarkdownConfiguredProseArticle,
+} from "./markdown-configured";
 
-export function MarkdownLoader({ filename, use="explicit" }: Readonly<{ filename: string, use?:'explicit'|'prose' }>) {
+export function MarkdownLoader({
+  filename,
+  use = "explicit",
+}: Readonly<{ filename: string; use?: "explicit" | "prose" }>) {
   const [markdown, setMarkdown] = useState("");
   const [error, setError] = useState(null);
 
@@ -30,8 +36,9 @@ export function MarkdownLoader({ filename, use="explicit" }: Readonly<{ filename
     );
   }
 
-  return use === 'explicit' ? 
+  return use === "explicit" ? (
     <MarkdownConfiguredExplicit>{markdown}</MarkdownConfiguredExplicit>
-    :
+  ) : (
     <MarkdownConfiguredProseArticle>{markdown}</MarkdownConfiguredProseArticle>
+  );
 }

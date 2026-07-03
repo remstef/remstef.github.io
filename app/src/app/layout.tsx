@@ -1,53 +1,110 @@
 import { AlertsContainer } from "@/components/alerts";
 import { NavigationBar } from "@/components/navbar";
 import { AlertsProvider } from "@/context/alerts-state";
+import {
+  profilePicture,
+  seoAuthor,
+  seoDescription,
+  seoKeywords,
+  seoTitle,
+  seoUrlLocation,
+} from "@/lib/constants";
 import { GeistMono } from "geist/font/mono";
-import { GeistPixelCircle, GeistPixelGrid, GeistPixelLine, GeistPixelSquare, GeistPixelTriangle } from 'geist/font/pixel';
+import {
+  GeistPixelCircle,
+  GeistPixelGrid,
+  GeistPixelLine,
+  GeistPixelSquare,
+  GeistPixelTriangle,
+} from "geist/font/pixel";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import { Montserrat, Roboto, Roboto_Flex, Roboto_Serif, Roboto_Slab } from 'next/font/google';
+import {
+  Montserrat,
+  Roboto,
+  Roboto_Flex,
+  Roboto_Serif,
+  Roboto_Slab,
+} from "next/font/google";
 import "./globals.css";
 
-import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
-config.autoAddCss = false
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 
 // Fonts: Inter, OpenSans, GoogleSans
 
 const roboto = Roboto({
-  weight: ['100','200','300','400'],
-  subsets: ['latin'],
-  variable: '--font-roboto'
+  weight: ["100", "200", "300", "400"],
+  subsets: ["latin"],
+  variable: "--font-roboto",
 });
 
 const robotoSlab = Roboto_Slab({
-  weight: ['100','200','300','400'],
-  subsets: ['latin'],
-  variable: '--font-robotoslab'
+  weight: ["100", "200", "300", "400"],
+  subsets: ["latin"],
+  variable: "--font-robotoslab",
 });
 
 const robotoFlex = Roboto_Flex({
-  weight: ['100','200','300','400'],
-  subsets: ['latin'],
-  variable: '--font-robotoflex'
+  weight: ["100", "200", "300", "400"],
+  subsets: ["latin"],
+  variable: "--font-robotoflex",
 });
 
 const robotoSerif = Roboto_Serif({
-  weight: ['100','200','300','400'],
-  subsets: ['latin'],
-  variable: '--font-robotoserif'
+  weight: ["100", "200", "300", "400"],
+  subsets: ["latin"],
+  variable: "--font-robotoserif",
 });
 
 const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['100','200','300','400','500','600','700','800',],
-  variable: '--font-montserrat'
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-montserrat",
 });
 
+// SEO
 export const metadata: Metadata = {
-  title: "Next.js on GitHub Pages",
-  description: "Deploy your static Next.js site to GitHub Pages.",
+  metadataBase: new URL(seoUrlLocation),
+  title: { default: seoTitle, template: `%s | ${seoTitle}` },
+  description: `${seoDescription} ${seoKeywords}`,
+  keywords: seoKeywords,
+  alternates: {
+    canonical: seoUrlLocation,
+    // languages: {
+    //   'en-US': 'https://example.com/en-US',
+    //   'de-DE': 'https://example.com/de-DE'
+    // }
+  },
+  openGraph: {
+    title: seoTitle,
+    description: seoDescription,
+    url: seoUrlLocation,
+    siteName: seoTitle,
+    images: [
+      {
+        url: `${seoUrlLocation}${profilePicture}`,
+        width: 1000,
+        height: 1000,
+        alt: seoAuthor,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  generator: "Next.js",
+  applicationName: "Steffen Remus Next.js App",
+  referrer: "origin-when-cross-origin",
+  authors: [{ name: seoAuthor, url: seoUrlLocation }],
+  creator: seoAuthor,
+  publisher: seoAuthor,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
 
 export default function RootLayout({
@@ -56,7 +113,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${roboto.variable} ${robotoSlab.variable} ${robotoFlex.variable} ${robotoSerif.variable} ${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${GeistPixelGrid.variable} ${GeistPixelCircle.variable} ${GeistPixelTriangle.variable} ${GeistPixelLine.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${montserrat.variable} ${roboto.variable} ${robotoSlab.variable} ${robotoFlex.variable} ${robotoSerif.variable} ${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${GeistPixelGrid.variable} ${GeistPixelCircle.variable} ${GeistPixelTriangle.variable} ${GeistPixelLine.variable}`}
+      suppressHydrationWarning
+    >
       <AlertsProvider>
         <body className="flex flex-col h-screen bg-base-200">
           <ThemeProvider>
