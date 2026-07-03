@@ -74,7 +74,7 @@ export default function RootLayout({
               <div className="flex justify-center p-4">{children}</div>
             </main>
             {/* Footer */}
-            <footer className="footer sm:footer-horizontal footer-center bg-base-100 shadow-sm text-center p-1 text-sm flex-shrink-0">
+            <footer className="footer sm:footer-horizontal footer-center bg-base-100 shadow-sm text-center p-1 text-sm shrink-0">
               <div className="flex items-center w-full">
                 <span className="flex-1 text-center">
                   © {new Date().getFullYear()}
