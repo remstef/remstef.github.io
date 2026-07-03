@@ -9,6 +9,7 @@ import {
   seoTitle,
   seoUrlLocation,
 } from "@/lib/constants";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { GeistMono } from "geist/font/mono";
 import {
   GeistPixelCircle,
@@ -118,6 +119,7 @@ export default function RootLayout({
       className={`${montserrat.variable} ${roboto.variable} ${robotoSlab.variable} ${robotoFlex.variable} ${robotoSerif.variable} ${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${GeistPixelGrid.variable} ${GeistPixelCircle.variable} ${GeistPixelTriangle.variable} ${GeistPixelLine.variable}`}
       suppressHydrationWarning
     >
+      <GoogleTagManager gtmId="G-1KHTNS4NY2" />
       <AlertsProvider>
         <body className="flex flex-col h-screen bg-base-200">
           <ThemeProvider>
