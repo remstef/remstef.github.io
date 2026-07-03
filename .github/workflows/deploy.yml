@@ -23,9 +23,6 @@ concurrency:
 
 jobs:
   build:
-    defaults:
-      run:
-        working-directory: ./app
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -45,10 +42,12 @@ jobs:
           cache-dependency-path: ./app/pnpm-lock.yaml
 
       - name: Install dependencies
+        working-directory: ./app
         run: pnpm install
 
       - name: Setup Pages
         id: setup_pages
+        working-directory: ./app
         uses: actions/configure-pages@v6
 
       - name: Restore cache
