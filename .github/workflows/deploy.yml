@@ -47,7 +47,6 @@ jobs:
 
       - name: Setup Pages
         id: setup_pages
-        working-directory: ./app
         uses: actions/configure-pages@v6
 
       - name: Restore cache
