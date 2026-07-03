@@ -8,7 +8,7 @@ export const defaultTab: Readonly<string> = "About";
 
 export const theProtagonistsName: Readonly<string> = "Steffen Remus";
 
-export const showInitials: Readonly<string | null> =  null; //'S.R.';// null; // show initials or photo? // "S.R.";
+export const showInitials: Readonly<string | null> =  'S.R.';// null; // show initials or photo? // "S.R.";
 
 export const profilePicture: Readonly<string> =
   "/img/passfoto-v2-ss-unblurred-squared.jpg";

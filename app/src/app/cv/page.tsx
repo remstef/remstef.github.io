@@ -54,7 +54,7 @@ children = {<CJ><MarkdownConfigured>
 openByDefault={false}
 titleBoxClassName=""
 title = { <T>Professional Summary</T> }
-children = { <CJ><MarkdownLoader filename="/summary.md" /></CJ> }
+children = { <CJ><MarkdownLoader filename={`${process.env.PAGES_BASE_PATH}/summary.md`} /></CJ> }
 /></CardElement>
 {/* E: PROFESSIONAL SUMMARY */}
 

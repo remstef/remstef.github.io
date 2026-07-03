@@ -100,13 +100,13 @@ export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {
         <ul className="menu menu-horizontal">
           {navItems.map((pageItem) => (
             <li key={pageItem.id}>
-              <a
+              <Link
                 href={pageItem.href}
                 // onClick={(e) => {e.preventDefault(); setActiveTab(tab);}}
                 className={`px-2 btn btn-ghost ${currentPathIsActivePath(pageItem.href) ? "underline" : "font-normal"}`}
               >
                 {pageItem.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
