@@ -1,5 +1,5 @@
 import CardElement from "@/components/card-element";
-import { MarkdownConfigured } from "@/components/markdown-configured";
+import { MarkdownConfiguredExplicit, MarkdownConfiguredProseArticle } from "@/components/markdown-configured";
 import { MarkdownLoader } from "@/components/markdown-loader";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 // import { ThemeSwap } from "@/components/theme-swap";
@@ -19,7 +19,7 @@ export default function TestAndDebug() {
         </div>
       </CardElement>
       <CardElement title={<span>Bar</span>}>
-        <MarkdownConfigured>
+        <MarkdownConfiguredExplicit>
           {`### hello World
 
 1. t1
@@ -30,7 +30,21 @@ export default function TestAndDebug() {
 <ul>Test</ul>
 
 `}
-        </MarkdownConfigured>
+        </MarkdownConfiguredExplicit>
+      </CardElement>
+      <CardElement title={<span>Bar Foo</span>}>
+        <MarkdownConfiguredProseArticle>
+          {`### hello World
+
+1. t1
+2.  t2
+3. t3
+
+<h1>Hello Html</h1>
+<ul>Test</ul>
+
+`}
+        </MarkdownConfiguredProseArticle>
       </CardElement>
       <CardElement title={<span>BarBar</span>}>
         <MarkdownLoader filename={`${process.env.PAGES_BASE_PATH}/somemarkdown.md`} />

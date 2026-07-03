@@ -1,6 +1,6 @@
 import CardElement from "@/components/card-element";
 import { CollapseElement } from "@/components/collapse-element";
-import { MarkdownConfigured } from "@/components/markdown-configured";
+import { MarkdownConfiguredExplicit } from "@/components/markdown-configured";
 import { MarkdownLoader } from "@/components/markdown-loader";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 import { ReactNode } from "react";
@@ -8,7 +8,8 @@ import { ReactNode } from "react";
 
 function Titlespan({children}:Readonly<{children:ReactNode}>){
   return (
-    <span className="[font-family:var(--font-montserrat)] font-light text-xl" children={children} />
+    // <span className="font-montserrat font-light text-xl" children={children} />
+    <span className="text-xl" children={children} />
   );
 }
 const T = Titlespan
@@ -32,7 +33,7 @@ openByDefault={false}
 show_open_close_icon={true}
 titleBoxClassName=""
 title = { <T>Contact Information</T> }
-children = {<CJ><MarkdownConfigured>
+children = {<CJ><MarkdownConfiguredExplicit>
 {`<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 ##### Steffen Remus, Dr.rer.nat.
@@ -46,7 +47,7 @@ children = {<CJ><MarkdownConfigured>
 &nbsp;&nbsp;&nbsp;<i className="ai ai-orcid"></i>&nbsp;  [OrcId](https://orcid.org/0000-0003-4303-8781)  
 &nbsp;&nbsp;&nbsp;<i className="ai ai-google-scholar-square"></i>&nbsp;  [Google Scholar](https://scholar.google.com/citations?user=nDGCpDYAAAAJ)  
 `}
-</MarkdownConfigured></CJ>}
+</MarkdownConfiguredExplicit></CJ>}
 /></CardElement>
 {/* E: CONTACT INFORMATION */}
 
@@ -65,7 +66,7 @@ openByDefault={false}
 titleBoxClassName=""
 title = { <T>Skills & Expertise</T> }
 children = {
-<CJ><MarkdownConfigured>  
+<CJ><MarkdownConfiguredExplicit>  
 {`
 ###### Core Skills & Expertise
 
@@ -111,7 +112,7 @@ children = {
 - Running, Kitesurfing, Road Biking, Technology, Problem-Solving  
 
 `}
-</MarkdownConfigured></CJ>}/>
+</MarkdownConfiguredExplicit></CJ>}/>
 </CardElement>
 {/* E: Skills */}
 
@@ -121,7 +122,7 @@ openByDefault={false}
 titleBoxClassName=""
 title = { <T>Professional Experience</T> }
 children = {
-<CJ><MarkdownConfigured>  
+<CJ><MarkdownConfiguredExplicit>  
 {`
 ###### Language Technology Group & HITeC e.V., University of Hamburg, Germany
 - **Postdoctoral Research Scientist** — since 07/2023  
@@ -198,7 +199,7 @@ Co-authored 6 peer-reviewed papers; organized a one-day IBM Watson workshop.
 - Apprenticeship for Information and Telecommunications Systems Electronics Technician / Ausbildung als Informations- und Telekommunikationssystem Elektroniker (1997–2000)
 
 `}
-</MarkdownConfigured></CJ>}/>
+</MarkdownConfiguredExplicit></CJ>}/>
 </CardElement>
 {/* E: Professional Experience */}
 
@@ -208,7 +209,7 @@ openByDefault={false}
 titleBoxClassName=""
 title = { <T>Education</T> }
 children = {
-<CJ><MarkdownConfigured>  
+<CJ><MarkdownConfiguredExplicit>  
 {`
 **Dr.rer.nat. (Ph.D.) in Computer Science** — University of Hamburg, Germany, 2023  
   Thesis: “Domain Defining Context: On Domain-Dependent Corpus Expansion and Contextualized Semantic Structuring” — Advisor: Prof. Dr. Chris Biemann
@@ -226,7 +227,7 @@ children = {
 **High School** — Brüder Grimm Realschule, Frankfurt, 1997
 
 `}
-</MarkdownConfigured></CJ>}/>
+</MarkdownConfiguredExplicit></CJ>}/>
 </CardElement>
 {/* E: Education */}
 
@@ -236,7 +237,7 @@ openByDefault={false}
 titleBoxClassName=""
 title = { <T>Scientific Experience</T> }
 children = {
-<CJ><MarkdownConfigured>  
+<CJ><MarkdownConfiguredExplicit>  
 {`
 ###### Volunteering
 - Member of the appointments committee (Berufungskommission) for the Machine Learning professorship, University of Hamburg (2020/21)
@@ -261,7 +262,7 @@ children = {
 - Reviewer for journals: TPAMI, TACL, NLE  
 - Workshop reviewing: TextGraphs, SemEval, WAC
 `}
-</MarkdownConfigured></CJ>}/>
+</MarkdownConfiguredExplicit></CJ>}/>
 </CardElement>
 {/* E: Scientific Experience */}
 
@@ -271,7 +272,7 @@ openByDefault={false}
 titleBoxClassName=""
 title = { <T>Teaching Experience</T> }
 children = {
-<CJ><MarkdownConfigured>  
+<CJ><MarkdownConfiguredExplicit>  
 {`
 ###### Curricula
 - **University of Hamburg:** multiple lecturer and teaching assistant roles in Research Software Engineering, Python for Computational Science, Deep Learning for NLP, Web Interfaces for Language Processing Systems, Applications with Aspects on Language Technology, Software Engineering I, Deep Learning for Unstructured Data, Statistical Methods of Language Technology, Machine Learning I, Practical Applications in NLP.  
@@ -280,7 +281,7 @@ children = {
 ###### Thesis Supervision
 I provide dedicated supervision for student helpers, inters and academic theses, including ten Bachelor’s theses, eleven Master’s theses and three independent studies up to date. I regularly lead one-on-one progress meetings on a weekly or bi-weekly basis, ensuring consistent academic development, timely completion, and overall project success
 `}
-</MarkdownConfigured></CJ>}/>
+</MarkdownConfiguredExplicit></CJ>}/>
 </CardElement>
 {/* E: Teaching Experience */}
 
@@ -290,7 +291,7 @@ openByDefault={false}
 titleBoxClassName=""
 title = { <T>Awards & Grants</T> }
 children = {
-<CJ><MarkdownConfigured>  
+<CJ><MarkdownConfiguredExplicit>  
 {`
 - 2022: Mentor for a student research project awarded €10,000.  
 - 2019: Awarded over €3,000 by the German DAAD office for international research in India.  
@@ -299,7 +300,7 @@ children = {
 - 2013–2016: KDSL Graduate School Fellowship.  
 - 2013: Travel grant of €1,000 from Freunde der TU-Darmstadt e.V.
 `}
-</MarkdownConfigured></CJ>}/>
+</MarkdownConfiguredExplicit></CJ>}/>
 </CardElement>
 {/* E: Awards & Grants */}
 
@@ -309,12 +310,12 @@ openByDefault={false}
 titleBoxClassName=""
 title = { <T>Publications & Code</T> }
 children = {
-<CJ><MarkdownConfigured>  
+<CJ><MarkdownConfiguredExplicit>  
 {`
 - [(Co-)authored over 30+ peer-reviewed papers.](./?tab=Publications)
 - Contributed to 50+ open source project repositories on various version control platforms (github, bitbucket, sourceforge, ...) of which I am maintainer/creator of 20+ projects.
 `}
-</MarkdownConfigured></CJ>}/>
+</MarkdownConfiguredExplicit></CJ>}/>
 </CardElement>
 {/* E: Awards & Grants */}
 
@@ -334,13 +335,13 @@ children = {
   <a
     role="button"
     href="./pdf/cv-1page-nopic.pdf"
-    className="w-48 px-8 mx-8 my-2 btn btn-primary text-primary-content shadow"
+    className="w-64 px-2 py-2 mx-8 my-2 btn btn-primary text-primary-content shadow"
     children={<span className="text-primary-content">Short (1-page) PDF</span>}
   />
   <a
     role="button"
     href="./pdf/cv-full.pdf"
-    className="w-48 px-8 mx-8 my-2 btn btn-secondary"
+    className="w-64 px-2 py-2 mx-8 my-2 btn btn-secondary"
     children={<span className="text-secondary-content">Full PDF</span>}
   />
   </div>
