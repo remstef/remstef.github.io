@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "academicons/css/academicons.min.css";
+@import "computer-modern/cmu-bright.css";
 @plugin "daisyui" {
   /* themes: light --default, dark --prefersdark, cupcake; */
   themes: all;
@@ -9,9 +10,28 @@
 @theme inline {
   /* Other theme variables... */
   --font-roboslab: var(--font-robotoslab);
-  --font-montse: var(--font-montserrat);
-  --font-body: var(--font-geist);
-  --font-sans: var(--font-geist);
+  --font-montserrat: var(--font-montserrat);
+  --font-cmubright: "CMU Bright";
+
+  --font-pixel-square: var(--font-geist-pixel-square);
+  --font-pixel-grid: var(--font-geist-pixel-grid);
+  --font-pixel-circle: var(--font-geist-pixel-circle);
+  --font-pixel-triangle: var(--font-geist-pixel-triangle);
+  --font-pixel-line: var(--font-geist-pixel-line);
+
+  --font-sans: var(--font-geist-pixel-line), "CMU Bright";
+  /* var(--font-geist-sans); */
+  /* , var(--font-montserrat), var(--font-roboto), var(--font-robotoflex), ui-sans-serif, system-ui, sans-serif; */
+  --font-serif: Times;
+  /* , var(--font-robotoserif), ui-serif, Georgia, serif; */
+  --font-mono: var(--font-geist-pixel-line);
+  /* var(--font-geist-mono); */
+  /* , Monaco, var(--font-robotoslab), 'Courier New', ui-monospace, monospace; */
+}
+
+.mytext {
+  font-family: var(--font-robotoslab);
+  font-weight: 100;
 }
 
 @keyframes slideDownAndFadeIn {

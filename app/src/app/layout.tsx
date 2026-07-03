@@ -1,9 +1,12 @@
 import { AlertsContainer } from "@/components/alerts";
 import { NavigationBar } from "@/components/navbar";
 import { AlertsProvider } from "@/context/alerts-state";
+import { GeistMono } from "geist/font/mono";
+import { GeistPixelCircle, GeistPixelGrid, GeistPixelLine, GeistPixelSquare, GeistPixelTriangle } from 'geist/font/pixel';
+import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import { Geist, Montserrat, Roboto, Roboto_Flex, Roboto_Serif, Roboto_Slab } from 'next/font/google';
+import { Montserrat, Roboto, Roboto_Flex, Roboto_Serif, Roboto_Slab } from 'next/font/google';
 import "./globals.css";
 
 import { config } from '@fortawesome/fontawesome-svg-core';
@@ -15,38 +18,32 @@ config.autoAddCss = false
 // Fonts: Inter
 
 const roboto = Roboto({
-  weight: '400',
+  weight: ['100','200','300','400'],
   subsets: ['latin'],
   variable: '--font-roboto'
 });
 
 const robotoSlab = Roboto_Slab({
-  weight: '400',
+  weight: ['100','200','300','400'],
   subsets: ['latin'],
   variable: '--font-robotoslab'
 });
 
 const robotoFlex = Roboto_Flex({
-  weight: '400',
+  weight: ['100','200','300','400'],
   subsets: ['latin'],
   variable: '--font-robotoflex'
 });
 
 const robotoSerif = Roboto_Serif({
-  weight: '400',
+  weight: ['100','200','300','400'],
   subsets: ['latin'],
   variable: '--font-robotoserif'
 });
 
-const geist = Geist({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-geist'
-});
-
 const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['100','200','300','400','500','600','700','800',],
   variable: '--font-montserrat'
 });
 
@@ -61,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${roboto.variable} ${geist.variable} ${montserrat.variable} ${robotoSlab.variable} ${robotoFlex.variable} ${robotoSerif.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${montserrat.variable} ${roboto.variable} ${robotoSlab.variable} ${robotoFlex.variable} ${robotoSerif.variable} ${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${GeistPixelGrid.variable} ${GeistPixelCircle.variable} ${GeistPixelTriangle.variable} ${GeistPixelLine.variable}`} suppressHydrationWarning>
       <AlertsProvider>
         <body className="flex flex-col h-screen bg-base-200">
           <ThemeProvider>
