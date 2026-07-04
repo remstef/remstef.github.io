@@ -51,7 +51,7 @@ export default function About() {
                 <div className="avatar">
                   <div className="rounded-xl max-w-64">
                     <img
-                      src={`${process.env.PAGES_BASE_PATH}${profilePicture}`}
+                      src={`${process.env.NEXT_PUBLIC_BASE_PATH}${profilePicture}`}
                       alt={"Profile Picture - " + theProtagonistsName}
                     />
                   </div>

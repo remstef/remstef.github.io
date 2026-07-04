@@ -13,7 +13,7 @@ export default function Publications() {
       <CardElement>
         <div className="font-cmubright">
           <HtmlLoader
-            filename={`${process.env.PAGES_BASE_PATH}/biblio-chicago-li.html`}
+            filename={`${process.env.NEXT_PUBLIC_BASE_PATH}/biblio-chicago-li.html`}
           />
         </div>
       </CardElement>

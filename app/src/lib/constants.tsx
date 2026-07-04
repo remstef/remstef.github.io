@@ -13,7 +13,7 @@ export const profilePicture: Readonly<string> =
 
 export const showConstructionAlert: Readonly<boolean> = true;
 
-export const seoUrlLocation = `https://remstef.github.com${process.env.PAGES_BASE_PATH}`;
+export const seoUrlLocation = `${process.env.NEXT_PUBLIC_WEBSITE_URL}`;
 
 export const seoTitle = "Steffen Remus";
 

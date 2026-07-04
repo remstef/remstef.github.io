@@ -73,7 +73,7 @@ export default function CV() {
             children={
               <CJ>
                 <MarkdownLoader
-                  filename={`${process.env.PAGES_BASE_PATH}/summary.md`}
+                  filename={`${process.env.NEXT_PUBLIC_BASE_PATH}/summary.md`}
                 />
               </CJ>
             }

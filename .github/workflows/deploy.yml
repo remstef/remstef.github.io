@@ -64,7 +64,9 @@ jobs:
         run: pnpm run build
         working-directory: ./app
         env:
-          PAGES_BASE_PATH: ${{ steps.setup_pages.outputs.base_path }}
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.setup_pages.outputs.base_path }}
+          NEXT_PUBLIC_SERVER_URL: ${{ steps.setup_pages.outputs.origin }}
+          NEXT_PUBLIC_WEBSITE_URL: ${{ steps.setup_pages.outputs.base_url }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

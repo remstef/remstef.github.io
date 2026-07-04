@@ -29,7 +29,12 @@ const navItems = [
   // {
   //   id: "test",
   //   label: "Test & Debug",
-  //   href: "/testanddebug",
+  //   href: "/private/testanddebug",
+  // },
+  // {
+  //   id: "home",
+  //   label: "Home",
+  //   href: "/private/home",
   // },
 ];
 
