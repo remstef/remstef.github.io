@@ -1,0 +1,65 @@
+@import "tailwindcss";
+@import "academicons/css/academicons.min.css";
+@import "computer-modern/cmu-bright.css";
+@plugin "daisyui" {
+  /* themes: light --default, dark --prefersdark, cupcake; */
+  themes: all;
+}
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  /* Other theme variables... */
+  --font-roboslab: var(--font-robotoslab);
+  --font-montserrat: var(--font-montserrat);
+  --font-cmubright: "CMU Bright";
+
+  /* 
+  --font-pixel-square: var(--font-geist-pixel-square);
+  --font-pixel-grid: var(--font-geist-pixel-grid);
+  --font-pixel-circle: var(--font-geist-pixel-circle);
+  --font-pixel-triangle: var(--font-geist-pixel-triangle); 
+  */
+  --font-pixel: var(--font-geist-pixel-line);
+
+  --font-sans:
+    var(--font-montserrat), "CMU Bright", var(--font-roboto),
+    var(--font-geist-sans), var(--font-robotoflex), ui-sans-serif, system-ui,
+    sans-serif;
+  --font-serif: Times, var(--font-robotoserif), ui-serif, Georgia, serif;
+  --font-mono:
+    Monaco, var(--font-robotoslab), var(--font-geist-mono), "Courier New",
+    ui-monospace, monospace;
+}
+
+.mytext {
+  font-family: var(--font-robotoslab);
+  font-weight: 100;
+}
+
+@keyframes slideDownAndFadeIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.alert-slide-in {
+  animation: slideDownAndFadeIn 0.5s ease-out;
+}
+
+.alert-fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
