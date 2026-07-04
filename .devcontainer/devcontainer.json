@@ -1,0 +1,50 @@
+{
+  "name": "Next.js Development",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:24",
+  "features": {
+    "ghcr.io/devcontainers/features/node:2": {
+      "version": "24"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-typescript-next"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit"
+        },
+        "eslint.validate": [
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact"
+        ],
+        "tailwindCSS.includeLanguages": {
+          "javascript": "javascript",
+          "html": "html",
+          "typescript": "typescript",
+          "css": "css",
+          "markdown": "markdown",
+          "json": "json",
+          "jsonc": "json",
+          "yaml": "yaml",
+          "graphql": "graphql"
+        },
+        "tailwindCSS.emmetCompletions": true
+      }
+    }
+  },
+  // "postCreateCommand": "npm install",
+  "forwardPorts": [ 3000 ],
+  "containerEnv": {
+    "NEXT_TELEMETRY_DISABLED": "1"
+  },
+  "remoteUser": "node"
+}
