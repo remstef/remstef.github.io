@@ -82,7 +82,7 @@ export default function About() {
         <div className="font-pixel w-full text-2xl mb-2 sm:text-center">
           Visibility
         </div>
-        <div className="mx-8 text-3xl text-center flex flex-wrap items-center">
+        <div className="mx-2 sm:mx-8 text-3xl text-center flex flex-wrap items-center">
           <Link
             className="flex-1 m-2"
             href="https://lt.informatik.uni-hamburg.de/people/steffen-remus"
