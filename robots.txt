@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://remstef.github.io/sitemap.xml
