@@ -82,9 +82,9 @@ export default function About() {
         <div className="font-pixel w-full text-2xl mb-2 sm:text-center">
           Visibility
         </div>
-        <div className="mx-2 sm:mx-8 text-3xl text-center flex flex-wrap items-center">
+        <div className="mx-1 sm:mx-8 text-3xl text-center flex flex-wrap items-center">
           <Link
-            className="flex-1 m-2"
+            className="flex-1 mx-1 sm:mx-2"
             href="https://lt.informatik.uni-hamburg.de/people/steffen-remus"
             title="University Profile"
           >
@@ -94,7 +94,7 @@ export default function About() {
             />
           </Link>
           <Link
-            className="flex-1 m-2"
+            className="flex-1 mx-1 sm:mx-2"
             href="https://www.linkedin.com/in/steffen-remus-54a62498"
             title="LinkedIn Profile"
           >
@@ -104,7 +104,7 @@ export default function About() {
             />
           </Link>
           <Link
-            className="flex-1 m-2"
+            className="flex-1 mx-1 sm:mx-2"
             href="https://github.com/remstef"
             title="Github Profile"
           >
@@ -114,14 +114,14 @@ export default function About() {
             />
           </Link>
           <Link
-            className="flex-1 m-2"
+            className="flex-1 mx-1 sm:mx-2"
             href="https://scholar.google.com/citations?user=nDGCpDYAAAAJ"
             title="Google Scholar Profile"
           >
             <i className="link link-primary link-hover no-underline ai ai-google-scholar-square"></i>
           </Link>
           <Link
-            className="flex-1 m-2"
+            className="flex-1 mx-1 sm:mx-2"
             href="https://orcid.org/0000-0003-4303-8781"
             title="OrcId Profile"
           >
