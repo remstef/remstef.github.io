@@ -96,7 +96,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   generator: "Next.js",
-  applicationName: "Steffen Remus Next.js App",
+  applicationName: `${seoAuthor} Next.js App`,
   referrer: "origin-when-cross-origin",
   authors: [{ name: seoAuthor, url: seoUrlLocation }],
   creator: seoAuthor,
