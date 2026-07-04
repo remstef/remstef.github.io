@@ -1,7 +1,6 @@
 import CardElement from "@/components/card-element";
 import { CollapseElement } from "@/components/collapse-element";
 import { MarkdownConfiguredExplicit } from "@/components/markdown-configured";
-import { MarkdownLoader } from "@/components/markdown-loader";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
@@ -55,7 +54,8 @@ export default function CV() {
 &nbsp;&nbsp;&nbsp;<i className="fa fa-linkedin-square"></i>&nbsp;  [LinkedIn](https://www.linkedin.com/in/steffen-remus-54a62498)  
 &nbsp;&nbsp;&nbsp;<i className="fa fa-university"></i>&nbsp;  [Institutional](https://lt.informatik.uni-hamburg.de/people/steffen-remus)  
 &nbsp;&nbsp;&nbsp;<i className="ai ai-orcid"></i>&nbsp;  [OrcId](https://orcid.org/0000-0003-4303-8781)  
-&nbsp;&nbsp;&nbsp;<i className="ai ai-google-scholar-square"></i>&nbsp;  [Google Scholar](https://scholar.google.com/citations?user=nDGCpDYAAAAJ)  
+&nbsp;&nbsp;&nbsp;<i className="ai ai-google-scholar-square"></i>&nbsp;  [Google Scholar](https://scholar.google.com/citations?user=nDGCpDYAAAAJ)
+
 `}
                 </MarkdownConfiguredExplicit>
               </CJ>
@@ -72,9 +72,19 @@ export default function CV() {
             title={<T>Professional Summary</T>}
             children={
               <CJ>
-                <MarkdownLoader
-                  filename={`${process.env.NEXT_PUBLIC_BASE_PATH}/summary.md`}
-                />
+                <MarkdownConfiguredExplicit>
+                  {`
+A highly dedicated research engineer with over 10 years of professional hands-on experience in:
+
+- Developing machine learning algorithms and managing large-scale data engineering projects, with a primary focus on natural language processing.
+- Software engineering, utilizing industry-standard tools and processes.
+- Leading and managing individuals and teams, fostering individual growth and collaboration.
+- Administering and maintaining server infrastructure.
+
+I actively share my expertise through my current role as a (co-) lecturer and advisor, and as a freelance consultant for industry partners. As a researcher, I thrive in fast-paced environments and I am committed to staying at the forefront of advancements in machine learning and AI. I approach challenges with patience and a strong attention to detail, and I excel in bridging technical expertise with effective communication, ensuring strong teamwork and maintaining high levels of motivation. My leadership style is collaborative and adaptive, focusing on fostering a positive team environment, encouraging open communication, and empowering individuals to reach their full potential.
+
+`}
+                </MarkdownConfiguredExplicit>
               </CJ>
             }
           />
