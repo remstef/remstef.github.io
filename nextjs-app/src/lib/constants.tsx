@@ -8,6 +8,8 @@ export const theProtagonistsName: Readonly<string> = "Steffen Remus";
 
 export const theProtagonistsAlternateName: Readonly<string> = "@remstef";
 
+export const theProtagonistsIdentifier: Readonly<string | number | null> = 5611665;
+
 export const theProtagonistsAlternateProfiles = {
   "Institutional" : "https://lt.informatik.uni-hamburg.de/people/steffen-remus",
   "LinkedIn": "https://www.linkedin.com/in/steffen-remus-54a62498",
@@ -17,12 +19,12 @@ export const theProtagonistsAlternateProfiles = {
 } 
 
 export const theProtagonistsDescription: Readonly<string> = `
-Dr. rer. nat., Postdoctoral researcher in the Language Technology Group, University of Hamburg, Germany. 
-Working on supervised and unsupervised methods on the 
-intersection of machine learning, generative AI, and computational linguistics, 
-with a focus on (distributional) semantics, information 
-extraction, information retrieval, knowledge induction and 
-focused web crawling. 
+Dr. rer. nat., Postdoctoral researcher in the Language Technology Group, University of Hamburg, Germany.
+Working on supervised and unsupervised methods on the
+intersection of machine learning, generative AI, and computational linguistics,
+with a focus on (distributional) semantics, information
+extraction, information retrieval, knowledge induction and
+focused web crawling.
 `
 
 export const showInitials: Readonly<string | null> = null; // "S.R."; // show initials or photo?
@@ -36,7 +38,7 @@ export const seoUrlLocation = `${process.env.NEXT_PUBLIC_WEBSITE_URL}`;
 
 export const seoTitle = "Steffen Remus";
 
-export const seoDescription = "Website of Steffen Remus";
+export const seoDescription = `Website of ${theProtagonistsName} / ${theProtagonistsAlternateName}: ${theProtagonistsDescription.replaceAll('\n', ' ')}`;
 
 export const seoKeywords =
   "dr steffen remus, steffen remus phd, dr, dr, phd, rer nat, steffen remus, steffen, remus, language technology, language, technology, ai, ki, artificial intelligence, artificial, intelligence, künstliche intelligenz, künstliche, intelligenz, lt, hamburg, news, chris biemann, biemann, lingustics, computational linguistics, computational, resources, research, researcher, scientist, ki, ai, artificial intelligence, generative ai, genai, generative, large language models, langauge models, machine learning, ml, clustering, supervised classification, supervised, classificatio, unsupervised, deep learning";
@@ -52,7 +54,7 @@ export const seoRichResultsJsonLD = {
     "@type": "Person",
     "name": theProtagonistsName,
     "alternateName": theProtagonistsAlternateName,
-    "identifier": theProtagonistsAlternateName,
+    "identifier": theProtagonistsIdentifier,
     "description": theProtagonistsDescription.replaceAll('\n', ' '),
     "image": seoUrlLocation+profilePicture,
     "sameAs": Object.values(theProtagonistsAlternateProfiles)

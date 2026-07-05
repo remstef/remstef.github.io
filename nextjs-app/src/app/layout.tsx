@@ -8,7 +8,8 @@ import {
   seoKeywords,
   seoRichResultsJsonLD,
   seoTitle,
-  seoUrlLocation
+  seoUrlLocation,
+  theProtagonistsIdentifier
 } from "@/lib/constants";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GeistMono } from "geist/font/mono";
@@ -95,6 +96,15 @@ export const metadata: Metadata = {
     ],
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: 'summary',
+    title: seoTitle,
+    description: seoDescription,
+    siteId: '@remstef',
+    creator: seoAuthor,
+    creatorId: theProtagonistsIdentifier?.toString(),
+    images: [ `${seoUrlLocation}${profilePicture}` ], // Must be an absolute URL
   },
   generator: "Next.js",
   applicationName: `${seoAuthor} Next.js App`,
