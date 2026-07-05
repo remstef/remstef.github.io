@@ -6,8 +6,9 @@ import {
   seoAuthor,
   seoDescription,
   seoKeywords,
+  seoRichResultsJsonLD,
   seoTitle,
-  seoUrlLocation,
+  seoUrlLocation
 } from "@/lib/constants";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GeistMono } from "geist/font/mono";
@@ -132,6 +133,16 @@ export default function RootLayout({
       className={`${montserrat.variable} ${roboto.variable} ${robotoSlab.variable} ${robotoFlex.variable} ${robotoSerif.variable} ${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${GeistPixelGrid.variable} ${GeistPixelCircle.variable} ${GeistPixelTriangle.variable} ${GeistPixelLine.variable}`}
       suppressHydrationWarning
     >
+      {/* <Head> */}
+        {/* Add JSON-LD */}
+        {/* <script type="application/ld+json" dangerouslySetInnerHTML={{__html: seoRichResultsJsonLD}} /> */}
+        {/* <script type="application/ld+json">
+          { JSON.stringify(seoRichResultsJsonLD) }
+        </script> */}
+      {/* </Head> */}
+      <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(seoRichResultsJsonLD) }} />
+      </head>
       <GoogleTagManager gtmId="G-1KHTNS4NY2" />
       <AlertsProvider>
         <body className="flex flex-col h-screen bg-base-200">

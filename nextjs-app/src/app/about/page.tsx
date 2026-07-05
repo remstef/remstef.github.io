@@ -86,7 +86,7 @@ export default function About() {
           <Link
             className="flex-1 mx-1 sm:mx-2"
             href="https://lt.informatik.uni-hamburg.de/people/steffen-remus"
-            title="University Profile"
+            title="Institutional Profile"
           >
             <FontAwesomeIcon
               className="link link-primary link-hover"
