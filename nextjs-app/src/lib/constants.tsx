@@ -8,8 +8,7 @@ export const theProtagonistsName: Readonly<string> = "Steffen Remus";
 
 export const theProtagonistsAlternateName: Readonly<string> = "@remstef";
 
-export const theProtagonistsIdentifier: Readonly<string | number | null> =
-  5611665;
+export const theProtagonistsIdentifier: Readonly<string> = "5611665";
 
 export const theProtagonistsAlternateProfiles = {
   Institutional: "https://lt.informatik.uni-hamburg.de/people/steffen-remus",
@@ -49,14 +48,14 @@ export const seoAuthor = "Steffen Remus";
 export const seoRichResultsJsonLD = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
-  dateCreated: "2026-07-01T12:34:00-05:00",
+  dateCreated: "2026-07-01T20:02:59.721Z",
   dateModified: new Date(),
   mainEntity: {
     "@type": "Person",
     name: theProtagonistsName,
     alternateName: theProtagonistsAlternateName,
     identifier: theProtagonistsIdentifier,
-    description: theProtagonistsDescription.replaceAll("\n", " "),
+    description: `${theProtagonistsName}, ${theProtagonistsDescription.replaceAll("\n", " ").trim()}`,
     image: seoUrlLocation + profilePicture,
     sameAs: Object.values(theProtagonistsAlternateProfiles),
   },
