@@ -8,7 +8,7 @@ import {
   seoKeywords,
   seoTitle,
   seoUrlLocation,
-  theProtagonistsIdentifier
+  theProtagonistsIdentifier,
 } from "@/lib/constants";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GeistMono } from "geist/font/mono";
@@ -97,13 +97,13 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: 'summary',
+    card: "summary_large_image",
     title: seoTitle,
     description: seoDescription,
-    siteId: '@remstef',
+    siteId: theProtagonistsIdentifier?.toString(),
     creator: seoAuthor,
     creatorId: theProtagonistsIdentifier?.toString(),
-    images: [ `${seoUrlLocation}${profilePicture}` ], // Must be an absolute URL
+    images: [`${seoUrlLocation}${profilePicture}`], // Must be an absolute URL
   },
   generator: "Next.js",
   applicationName: `${seoAuthor} Next.js App`,
@@ -124,12 +124,25 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
       noimageindex: false,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
 };
+
+{
+  /* Somehow Next.js' next/Head, <Head>...</Head>, doesn't seem to work */
+}
+{
+  /* <head> */
+}
+{
+  /*  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(seoRichResultsJsonLD) }} /> */
+}
+{
+  /* </head> */
+}
 
 export default function RootLayout({
   children,
@@ -142,24 +155,17 @@ export default function RootLayout({
       className={`${montserrat.variable} ${roboto.variable} ${robotoSlab.variable} ${robotoFlex.variable} ${robotoSerif.variable} ${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${GeistPixelGrid.variable} ${GeistPixelCircle.variable} ${GeistPixelTriangle.variable} ${GeistPixelLine.variable}`}
       suppressHydrationWarning
     >
-      {/* Somehow Next.js' next/Head, <Head>...</Head>, doesn't seem to work */}
-      {/* <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(seoRichResultsJsonLD) }} />
-      </head> */}
       <GoogleTagManager gtmId="G-1KHTNS4NY2" />
       <AlertsProvider>
         <body className="flex flex-col h-screen bg-base-200">
-          {/* <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(seoRichResultsJsonLD) }} /> */}
           <ThemeProvider>
             <AlertsContainer />
-            {/* Header */}
             <header className="bg-base-100 shadow-sm shrink-0">
               <NavigationBar />
             </header>
             <main className="flex-1 overflow-y-auto m-1">
               <div className="flex justify-center p-4">{children}</div>
             </main>
-            {/* Footer */}
             <footer className="footer sm:footer-horizontal footer-center bg-base-100 shadow-sm text-center p-1 text-sm shrink-0">
               <div className="flex items-center w-full">
                 <span className="flex-1 text-center">
