@@ -6,7 +6,6 @@ import {
   seoAuthor,
   seoDescription,
   seoKeywords,
-  seoRichResultsJsonLD,
   seoTitle,
   seoUrlLocation,
   theProtagonistsIdentifier
@@ -143,12 +142,14 @@ export default function RootLayout({
       className={`${montserrat.variable} ${roboto.variable} ${robotoSlab.variable} ${robotoFlex.variable} ${robotoSerif.variable} ${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${GeistPixelGrid.variable} ${GeistPixelCircle.variable} ${GeistPixelTriangle.variable} ${GeistPixelLine.variable}`}
       suppressHydrationWarning
     >
-      <head>  {/* Somehow Next.js' next/Head, <Head>...</Head>, doesn't seem to work */}
+      {/* Somehow Next.js' next/Head, <Head>...</Head>, doesn't seem to work */}
+      {/* <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(seoRichResultsJsonLD) }} />
-      </head>
+      </head> */}
       <GoogleTagManager gtmId="G-1KHTNS4NY2" />
       <AlertsProvider>
         <body className="flex flex-col h-screen bg-base-200">
+          {/* <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(seoRichResultsJsonLD) }} /> */}
           <ThemeProvider>
             <AlertsContainer />
             {/* Header */}
