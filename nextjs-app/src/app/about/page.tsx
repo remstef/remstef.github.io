@@ -36,7 +36,7 @@ export default function About() {
                   </span>
                 </Link>
                 &nbsp; I work on supervised and unsupervised methods on the
-                intersection of machine learning and computational linguistics,
+                intersection of machine learning, generative AI, and computational linguistics,
                 with a focus on (distributional) semantics, information
                 extraction, information retrieval, knowledge induction and
                 focused web crawling.
