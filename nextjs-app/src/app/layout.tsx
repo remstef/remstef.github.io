@@ -143,14 +143,7 @@ export default function RootLayout({
       className={`${montserrat.variable} ${roboto.variable} ${robotoSlab.variable} ${robotoFlex.variable} ${robotoSerif.variable} ${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${GeistPixelGrid.variable} ${GeistPixelCircle.variable} ${GeistPixelTriangle.variable} ${GeistPixelLine.variable}`}
       suppressHydrationWarning
     >
-      {/* <Head> */}
-        {/* Add JSON-LD */}
-        {/* <script type="application/ld+json" dangerouslySetInnerHTML={{__html: seoRichResultsJsonLD}} /> */}
-        {/* <script type="application/ld+json">
-          { JSON.stringify(seoRichResultsJsonLD) }
-        </script> */}
-      {/* </Head> */}
-      <head>
+      <head>  {/* Somehow Next.js' next/Head, <Head>...</Head>, doesn't seem to work */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(seoRichResultsJsonLD) }} />
       </head>
       <GoogleTagManager gtmId="G-1KHTNS4NY2" />
