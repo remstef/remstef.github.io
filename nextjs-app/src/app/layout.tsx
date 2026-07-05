@@ -6,6 +6,7 @@ import {
   seoAuthor,
   seoDescription,
   seoKeywords,
+  seoRichResultsJsonLD,
   seoTitle,
   seoUrlLocation,
   theProtagonistsIdentifier,
@@ -33,6 +34,8 @@ import "./globals.css";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import Head from "next/head";
+import Script from "next/script";
 config.autoAddCss = false;
 
 // Fonts: Inter, OpenSans, GoogleSans
@@ -155,6 +158,9 @@ export default function RootLayout({
       className={`${montserrat.variable} ${roboto.variable} ${robotoSlab.variable} ${robotoFlex.variable} ${robotoSerif.variable} ${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${GeistPixelGrid.variable} ${GeistPixelCircle.variable} ${GeistPixelTriangle.variable} ${GeistPixelLine.variable}`}
       suppressHydrationWarning
     >
+      <Head>
+        <Script strategy="beforeInteractive" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(seoRichResultsJsonLD) }} />
+      </Head>
       <GoogleTagManager gtmId="G-1KHTNS4NY2" />
       <AlertsProvider>
         <body className="flex flex-col h-screen bg-base-200">
