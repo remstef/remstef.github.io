@@ -3,6 +3,7 @@ import { CollapseElement } from "@/components/collapse-element";
 import { MarkdownConfiguredExplicit } from "@/components/markdown-configured";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
@@ -389,29 +390,29 @@ I provide dedicated supervision for student helpers, inters and academic theses,
             titleBoxClassName=""
             show_open_close_icon={false}
             title={
-              <span className="text-2xl text-center w-full mr-3">
+              <span className="font-pixel text-xl text-center w-full mr-3">
                 Download CV as PDF
               </span>
             }
             children={
               <div className="flex justify-center">
                 <div className="flex-1 justify-center content-center items-center text-center">
-                  <a
+                  <Link
                     role="button"
                     href="./pdf/cv-1page-nopic.pdf"
                     className="w-64 px-2 py-2 mx-8 my-2 btn btn-primary text-primary-content shadow"
                     children={
-                      <span className="text-primary-content">
+                      <span className="font-pixel text-primary-content">
                         Short (1-page) PDF
                       </span>
                     }
                   />
-                  <a
+                  <Link
                     role="button"
                     href="./pdf/cv-full.pdf"
                     className="w-64 px-2 py-2 mx-8 my-2 btn btn-secondary"
                     children={
-                      <span className="text-secondary-content">Full PDF</span>
+                      <span className="font-pixel text-secondary-content">Full PDF</span>
                     }
                   />
                 </div>
