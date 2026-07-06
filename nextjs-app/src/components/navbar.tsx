@@ -1,7 +1,7 @@
 "use client";
 
 import { theProtagonistsName } from "@/lib/constants";
-import { forceCloseAllSummaryStyleDropdowns } from "@/lib/utils";
+import { closeDetailsSummaryDropdown, registerCloseCurrentDetailsSummaryDropdown } from "@/lib/utils";
 import { Url } from "next/dist/shared/lib/router/router";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -48,6 +48,7 @@ export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {
         <details className="dropdown">
           <summary
             role="button"
+            onClick={registerCloseCurrentDetailsSummaryDropdown}
             className="btn btn-ghost lg:hidden [list-style:none] appearance-none [&::-webkit-details-marker]:hidden content-center"
           >
             <svg
@@ -76,8 +77,8 @@ export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {
                   role="button"
                   tabIndex={0}
                   href={pageItem.href}
-                  onNavigate={forceCloseAllSummaryStyleDropdowns}
-                  // onClick={(e) => {e.preventDefault(); setActiveTab(tab); forceCloseAllSummaryStyleDropdowns();}}
+                  // onNavigate={closeDetailsSummaryDropdown}
+                  onClick={closeDetailsSummaryDropdown}
                   className={
                     `btn btn-ghost ${currentPathIsActivePath(pageItem.href) ? "underline" : "font-normal"}` /* flex justify-start items-center */
                   }
@@ -86,19 +87,16 @@ export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {
                 </Link>
               </li>
             ))}
-            <li>
-              {/* flex justify-start items-center */}
+            {/* <li>
               <div className="sm:hidden justify-center">
                 <ThemeSwap innersize={5} />
               </div>
-            </li>
+            </li> */}
           </ul>
         </details>
 
-        <div className="hidden sm:flex">
-          <ThemeSwap innersize={5} />
-        </div>
         <ThemeSwitchDropdown />
+        <ThemeSwap innersize={5} />
       </div>
 
       <div className="navbar-center hidden lg:flex">

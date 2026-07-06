@@ -1,7 +1,6 @@
 "use client";
 
 import { defaultDarkTheme, defaultLightTheme } from "@/lib/constants";
-import { forceCloseAllSummaryStyleDropdowns } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -13,7 +12,6 @@ export function ThemeSwap({ innersize = 5 }: Readonly<{ innersize?: Number }>) {
     const newTheme =
       theme === defaultDarkTheme ? defaultLightTheme : defaultDarkTheme;
     setTheme(newTheme);
-    forceCloseAllSummaryStyleDropdowns();
   };
 
   // Avoid Hydration Mismatch

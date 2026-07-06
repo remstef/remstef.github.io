@@ -1,6 +1,6 @@
 "use client";
 
-import { forceCloseAllSummaryStyleDropdowns } from "@/lib/utils";
+import { closeDetailsSummaryDropdown, registerCloseCurrentDetailsSummaryDropdown } from "@/lib/utils";
 import themes from "daisyui/theme/object.js";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -25,6 +25,7 @@ export function ThemeSwitchDropdown() {
       <summary
         role="button"
         className="btn btn-ghost [list-style:none] appearance-none [&::-webkit-details-marker]:hidden content-center"
+        onClick={registerCloseCurrentDetailsSummaryDropdown}
       >
         <div className="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-md border border-gray-400 p-1 transition-colors">
           <div className="bg-base-content size-1 rounded-full"></div>
@@ -43,9 +44,9 @@ export function ThemeSwitchDropdown() {
               tabIndex={0}
               role="button"
               className="btn group btn-sm flex justify-start items-center gap-1.5 px-1.5 btn-ghost"
-              onClick={() => {
+              onClick={(e) => {
                 setTheme(theme_);
-                forceCloseAllSummaryStyleDropdowns();
+                closeDetailsSummaryDropdown(e as unknown as React.MouseEvent<HTMLAnchorElement>);
               }}
             >
               <div
