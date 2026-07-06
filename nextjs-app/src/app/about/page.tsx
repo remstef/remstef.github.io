@@ -9,6 +9,7 @@ import { faGithub, faSquareLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faUniversity } from "@fortawesome/free-solid-svg-icons/faUniversity";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -50,9 +51,14 @@ export default function About() {
               {!showInitials ? (
                 <div className="avatar">
                   <div className="rounded-xl max-w-64">
-                    <img
+                    <Image
                       src={`${process.env.NEXT_PUBLIC_BASE_PATH}${profilePicture}`}
+                      width={500}
+                      height={500}
+                      loading="eager"
+                      placeholder="empty"
                       alt={"Profile Picture - " + theProtagonistsName}
+                      unoptimized={true}
                     />
                   </div>
                 </div>
