@@ -18,16 +18,15 @@ export function AvatarInitials(){
 export function AvatarPicture(){
   return (
     <div className="avatar">
-      <div className="rounded-xl max-w-64">
+      <div className="rounded-xl w-48 xl:w-64 relative overflow-hidden">
         <Image
           src={`${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimized}`}
-          width={320}
-          height={320}
           placeholder="empty"
           // placeholder="blur"
           // blurDataURL={`${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureXS}`}
           alt={"Profile Picture - " + theProtagonistsName}
           unoptimized={true}
+          fill={true}
           // decoding="sync"
           // preload={true}
           loading="eager"
