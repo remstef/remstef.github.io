@@ -14,6 +14,9 @@ import {
   theProtagonistsIdentifier,
   theProtagonistsName,
 } from "@/lib/constants";
+import { themeNames } from "@/lib/daisyui-theme-names";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GeistMono } from "geist/font/mono";
 import {
@@ -34,10 +37,6 @@ import {
   Roboto_Slab,
 } from "next/font/google";
 import "./globals.css";
-
-import { config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import themes from "daisyui/theme/object.js";
 config.autoAddCss = false;
 
 // Fonts: Inter, OpenSans, GoogleSans
@@ -139,16 +138,6 @@ export const metadata: Metadata = {
 {
   /* Somehow Next.js' next/Head, <Head>...</Head>, doesn't seem to work */
 }
-{
-  /* <head> */
-}
-{
-  /*  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(seoRichResultsJsonLD) }} /> */
-}
-{
-  /* </head> */
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -172,9 +161,12 @@ export default function RootLayout({
       <AlertsProvider>
         <body className="flex flex-col h-screen bg-base-200">
           <ThemeProvider
-            themes={Object.keys(themes)}
+            themes={themeNames}
             defaultTheme={defaultLightTheme}
             enableSystem={false}
+            // value={themeMapping}
+            // defaultTheme="system"
+            // enableSystem={true}
           >
             <AlertsContainer />
             <header className="bg-base-100 shadow-sm shrink-0">
