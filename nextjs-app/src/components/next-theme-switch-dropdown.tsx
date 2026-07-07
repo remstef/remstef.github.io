@@ -1,10 +1,10 @@
 "use client";
 
+import { themeNames } from "@/lib/daisyui-theme-names";
 import {
   closeDetailsSummaryDropdown,
   registerCloseCurrentDetailsSummaryDropdown,
 } from "@/lib/utils";
-import themes from "daisyui/theme/object.js";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -41,7 +41,7 @@ export function ThemeSwitchDropdown() {
         tabIndex={-1}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-[75vw] sm:w-[50vw] lg:w-[40vw] xl:w-[35vw] 2xl:w-[30vw] h-[65vh] sm:h-[50vh] p-2 shadow overflow-auto"
       >
-        {Object.keys(themes).map((theme_, i_) => (
+        {themeNames.map((theme_, i_) => (
           <li key={`theme_${i_}`}>
             <div
               tabIndex={0}
