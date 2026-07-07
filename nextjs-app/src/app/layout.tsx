@@ -11,7 +11,7 @@ import {
   seoTitle,
   seoUrlLocation,
   theProtagonistsIdentifier,
-  theProtagonistsName
+  theProtagonistsName,
 } from "@/lib/constants";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GeistMono } from "geist/font/mono";
@@ -159,7 +159,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(seoRichResultsJsonLD) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(seoRichResultsJsonLD),
+          }}
+        />
       </head>
       <GoogleTagManager gtmId="G-1KHTNS4NY2" />
       <AlertsProvider>

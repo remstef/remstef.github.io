@@ -1,11 +1,15 @@
 "use client";
 
-import { profilePictureOptimized, showInitialsOrPicture, theProtagonistsInitials, theProtagonistsName } from "@/lib/constants";
+import {
+  profilePictureOptimized,
+  showInitialsOrPicture,
+  theProtagonistsInitials,
+  theProtagonistsName,
+} from "@/lib/constants";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-
-export function AvatarInitials(){
+export function AvatarInitials() {
   return (
     <div className="avatar avatar-placeholder">
       <div className="bg-neutral text-neutral-content w-48 rounded-full">
@@ -15,7 +19,7 @@ export function AvatarInitials(){
   );
 }
 
-export function AvatarPicture(){
+export function AvatarPicture() {
   return (
     <div className="avatar">
       <div className="rounded-xl max-w-64">
@@ -44,12 +48,12 @@ export function ProfilePicture() {
   useEffect(() => {
     setMounted(true);
   }, []);
-  
+
   // show box with initials if page is not fully loaded yet
-  if (!mounted || showInitialsOrPicture === 'initials') return <AvatarInitials />;
+  if (!mounted || showInitialsOrPicture === "initials")
+    return <AvatarInitials />;
 
   // else (showInitialsOrPicture === 'picture')
   // show box with Image
   return <AvatarPicture />;
-  
 }

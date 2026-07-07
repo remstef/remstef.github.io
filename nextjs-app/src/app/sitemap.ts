@@ -1,6 +1,6 @@
 export const dynamic = "force-static";
 
-import { profilePicture } from "@/lib/constants";
+import { profilePictureOptimized } from "@/lib/constants";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -16,7 +16,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
-      images: [`${process.env.NEXT_PUBLIC_WEBSITE_URL}${profilePicture}`],
+      images: [
+        `${process.env.NEXT_PUBLIC_WEBSITE_URL}${profilePictureOptimized}`,
+      ],
     },
     {
       url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/cv`,

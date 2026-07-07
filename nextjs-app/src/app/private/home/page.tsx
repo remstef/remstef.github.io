@@ -18,9 +18,7 @@ export default function Home() {
   return (
     <ResponsiveCardsContainer>
       <>
-      <pre>
-        {JSON.stringify(seoRichResultsJsonLD)}
-      </pre>
+        <pre>{JSON.stringify(seoRichResultsJsonLD)}</pre>
       </>
     </ResponsiveCardsContainer>
   );

@@ -412,7 +412,9 @@ I provide dedicated supervision for student helpers, inters and academic theses,
                     href="./pdf/cv-full.pdf"
                     className="w-64 px-2 py-2 mx-8 my-2 btn btn-secondary"
                     children={
-                      <span className="font-pixel text-secondary-content">Full PDF</span>
+                      <span className="font-pixel text-secondary-content">
+                        Full PDF
+                      </span>
                     }
                   />
                 </div>

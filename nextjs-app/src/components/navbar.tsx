@@ -1,7 +1,10 @@
 "use client";
 
 import { theProtagonistsName } from "@/lib/constants";
-import { closeDetailsSummaryDropdown, registerCloseCurrentDetailsSummaryDropdown } from "@/lib/utils";
+import {
+  closeDetailsSummaryDropdown,
+  registerCloseCurrentDetailsSummaryDropdown,
+} from "@/lib/utils";
 import { Url } from "next/dist/shared/lib/router/router";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

@@ -1,6 +1,9 @@
 "use client";
 
-import { closeDetailsSummaryDropdown, registerCloseCurrentDetailsSummaryDropdown } from "@/lib/utils";
+import {
+  closeDetailsSummaryDropdown,
+  registerCloseCurrentDetailsSummaryDropdown,
+} from "@/lib/utils";
 import themes from "daisyui/theme/object.js";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -46,7 +49,9 @@ export function ThemeSwitchDropdown() {
               className="btn group btn-sm flex justify-start items-center gap-1.5 px-1.5 btn-ghost"
               onClick={(e) => {
                 setTheme(theme_);
-                closeDetailsSummaryDropdown(e as unknown as React.MouseEvent<HTMLAnchorElement>);
+                closeDetailsSummaryDropdown(
+                  e as unknown as React.MouseEvent<HTMLAnchorElement>,
+                );
               }}
             >
               <div
