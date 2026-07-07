@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 
 export function ThemeSwap({ innersize = 5 }: Readonly<{ innersize?: Number }>) {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, forcedTheme, resolvedTheme, systemTheme, themes } =
+    useTheme();
 
   const handleThemeChange = () => {
     const newTheme =
