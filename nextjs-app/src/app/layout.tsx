@@ -2,6 +2,7 @@ import { AlertsContainer } from "@/components/alerts";
 import { NavigationBar } from "@/components/navbar";
 import { AlertsProvider } from "@/context/alerts-state";
 import {
+  defaultLightTheme,
   seoAuthor,
   seoDescription,
   seoKeywords,
@@ -36,6 +37,7 @@ import "./globals.css";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import themes from "daisyui/theme/object.js";
 config.autoAddCss = false;
 
 // Fonts: Inter, OpenSans, GoogleSans
@@ -169,7 +171,11 @@ export default function RootLayout({
       <GoogleTagManager gtmId="G-1KHTNS4NY2" />
       <AlertsProvider>
         <body className="flex flex-col h-screen bg-base-200">
-          <ThemeProvider>
+          <ThemeProvider
+            themes={Object.keys(themes)}
+            defaultTheme={defaultLightTheme}
+            enableSystem={false}
+          >
             <AlertsContainer />
             <header className="bg-base-100 shadow-sm shrink-0">
               <NavigationBar />
