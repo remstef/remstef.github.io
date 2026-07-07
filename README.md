@@ -46,6 +46,8 @@ pnpm install geist
 pnpm install computer-modern
 # google tag
 pnpm add @next/third-parties@latest next@latest
+
+ pnpm install -D sharp
 ```
 
 create .env file with the following content:

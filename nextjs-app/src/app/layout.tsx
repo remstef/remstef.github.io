@@ -2,14 +2,16 @@ import { AlertsContainer } from "@/components/alerts";
 import { NavigationBar } from "@/components/navbar";
 import { AlertsProvider } from "@/context/alerts-state";
 import {
-  profilePicture,
   seoAuthor,
   seoDescription,
   seoKeywords,
+  seoProfilePictureOpenGraph,
+  seoProfilePictureTwitterCard,
   seoRichResultsJsonLD,
   seoTitle,
   seoUrlLocation,
   theProtagonistsIdentifier,
+  theProtagonistsName
 } from "@/lib/constants";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GeistMono } from "geist/font/mono";
@@ -88,10 +90,10 @@ export const metadata: Metadata = {
     siteName: seoTitle,
     images: [
       {
-        url: `${seoUrlLocation}${profilePicture}`,
-        width: 1000,
-        height: 1000,
-        alt: seoAuthor,
+        url: `${seoUrlLocation}${seoProfilePictureOpenGraph}`,
+        width: 320,
+        height: 320,
+        alt: theProtagonistsName,
       },
     ],
     locale: "en_US",
@@ -104,7 +106,7 @@ export const metadata: Metadata = {
     siteId: theProtagonistsIdentifier?.toString(),
     creator: seoAuthor,
     creatorId: theProtagonistsIdentifier?.toString(),
-    images: [`${seoUrlLocation}${profilePicture}`], // Must be an absolute URL
+    images: [`${seoUrlLocation}${seoProfilePictureTwitterCard}`], // Must be an absolute URL
   },
   generator: "Next.js",
   applicationName: `${seoAuthor} Next.js App`,

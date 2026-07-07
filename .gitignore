@@ -2,6 +2,7 @@
 __ignoredresources__
 *.code-workspace
 .DS_Store
+nextjs-app/public/optimized-images
 
 # Logs
 logs

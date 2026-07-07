@@ -6,6 +6,8 @@ export const defaultTheme: Readonly<string | null> = defaultLightTheme; // set t
 
 export const theProtagonistsName: Readonly<string> = "Steffen Remus";
 
+export const theProtagonistsInitials: Readonly<string> = "S.R.";
+
 export const theProtagonistsAlternateName: Readonly<string> = "@remstef";
 
 export const theProtagonistsIdentifier: Readonly<string> = "5611665";
@@ -27,12 +29,33 @@ extraction, information retrieval, knowledge induction and
 focused web crawling.
 `;
 
-export const showInitials: Readonly<string | null> = null; // "S.R."; // show initials or photo?
+export const showInitialsOrPicture: Readonly<'picture' | 'initials'> = 'picture';
 
-export const profilePicture: Readonly<string> =
-  "/img/passfoto-v2-ss-unblurred-squared.jpg";
+export const profilePictureRaw: Readonly<string> =
+  "/raw-images/passfoto-v2-ss-unblurred-squared.jpg";
+
+export const profilePictureOptimized: Readonly<string> = 
+  profilePictureRaw.substring(0, profilePictureRaw.lastIndexOf('.')).replace('/raw-images', 'optimized-images') + '-320.webp'
+
+export const profilePictureOptimizedL: Readonly<string> =
+  profilePictureRaw.substring(0, profilePictureRaw.lastIndexOf('.')).replace('/raw-images', 'optimized-images') + '-640.webp'
+
+export const profilePictureOptimizedXL: Readonly<string> =
+  profilePictureRaw.substring(0, profilePictureRaw.lastIndexOf('.')).replace('/raw-images', 'optimized-images') + '-1280.webp'
+
+export const profilePictureOptimizedS: Readonly<string> =
+  profilePictureRaw.substring(0, profilePictureRaw.lastIndexOf('.')).replace('/raw-images', 'optimized-images') + '-160.webp'
+
+  export const profilePictureOptimizedXS: Readonly<string> =
+  profilePictureRaw.substring(0, profilePictureRaw.lastIndexOf('.')).replace('/raw-images', 'optimized-images') + '-80.webp'
 
 export const showConstructionAlert: Readonly<boolean> = true;
+
+export const seoProfilePictureOpenGraph: Readonly<string> =
+  profilePictureRaw.substring(0, profilePictureRaw.lastIndexOf('.')).replace('/raw-images', 'optimized-images') + '-320-opengraph-image.png';
+
+export const seoProfilePictureTwitterCard: Readonly<string> =
+  profilePictureRaw.substring(0, profilePictureRaw.lastIndexOf('.')).replace('/raw-images', 'optimized-images') + '-320-twitter-image.png';
 
 export const seoUrlLocation = `${process.env.NEXT_PUBLIC_WEBSITE_URL}`;
 
@@ -56,7 +79,7 @@ export const seoRichResultsJsonLD = {
     alternateName: theProtagonistsAlternateName,
     identifier: theProtagonistsIdentifier,
     description: `${theProtagonistsName}, ${theProtagonistsDescription.replaceAll("\n", " ").trim()}`,
-    image: seoUrlLocation + profilePicture,
+    image: seoUrlLocation + profilePictureOptimized,
     sameAs: Object.values(theProtagonistsAlternateProfiles),
   },
 };

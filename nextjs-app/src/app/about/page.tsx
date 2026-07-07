@@ -1,15 +1,10 @@
 import CardElement from "@/components/card-element";
+import { ProfilePicture } from "@/components/profile-picture";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
-import {
-  profilePicture,
-  showInitials,
-  theProtagonistsName,
-} from "@/lib/constants";
 import { faGithub, faSquareLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faUniversity } from "@fortawesome/free-solid-svg-icons/faUniversity";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -44,45 +39,14 @@ export default function About() {
               </p>
             </div>
           </div>
-
-          {/* picture or initials of myself */}
+          {/* picture or initials of the protagonist */}
           <div className="justify-center lg:w-1/3 2xl:w-1/4">
             <div className="text-center">
-              {!showInitials ? (
-                <div className="avatar">
-                  <div className="rounded-xl max-w-64">
-                    <Image
-                      src={`${process.env.NEXT_PUBLIC_BASE_PATH}${profilePicture}`}
-                      width={500}
-                      height={500}
-                      loading="eager"
-                      placeholder="empty"
-                      alt={"Profile Picture - " + theProtagonistsName}
-                      unoptimized={true}
-                    />
-                  </div>
-                </div>
-              ) : (
-                <div className="avatar avatar-placeholder">
-                  <div className="bg-neutral text-neutral-content w-48 rounded-full">
-                    <span className="text-3xl">{showInitials}</span>
-                  </div>
-                </div>
-              )}
+              <ProfilePicture />
             </div>
           </div>
         </div>
       </CardElement>
-      {/*  
-      <CardElement>
-        <div className="w-full text-2xl mb-2 sm:text-center">More About Me</div>
-        <div className="flex justify-center">
-          <div className="lg:w-2/3 sm:max-w text-lg text-justify break-words whitespace-normal [hyphens:auto]">
-            <MarkdownLoader filename="./aboutme.md" />
-          </div>
-        </div>
-      </CardElement>
-      */}
       {/*  */}
       <CardElement>
         <div className="font-pixel w-full text-2xl mb-2 sm:text-center">
