@@ -1,25 +1,21 @@
-import "@/../public/biblio-chicago.css";
 import CardElement from "@/components/card-element";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
-import { readFile } from "fs/promises";
 import type { Metadata } from "next";
-import path from "path";
 
 export const metadata: Metadata = {
   title: "Publications",
 };
-
-const html = await readFile(
-  path.join(process.cwd(), "/public/biblio-chicago-li.html"),
-  { encoding: "utf8" },
-);
 
 export default function Publications() {
   return (
     <ResponsiveCardsContainer>
       <CardElement>
         <div className="font-cmubright">
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <iframe
+            src="/biblio-chicago-li.html"
+            width="100%"
+            height="100%"
+          ></iframe>
         </div>
       </CardElement>
     </ResponsiveCardsContainer>
