@@ -12,7 +12,7 @@ export const theProtagonistsAlternateName: Readonly<string> = "@remstef";
 
 export const theProtagonistsIdentifier: Readonly<string> = "5611665";
 
-export const theProtagonistsAlternateProfiles = {
+export const theProtagonistsAlternateProfiles: Readonly<{}> = {
   Institutional: "https://lt.informatik.uni-hamburg.de/people/steffen-remus",
   LinkedIn: "https://www.linkedin.com/in/steffen-remus-54a62498",
   Github: "https://github.com/remstef",
@@ -35,32 +35,45 @@ export const showInitialsOrPicture: Readonly<"picture" | "initials"> =
 export const profilePictureRaw: Readonly<string> =
   "/raw-images/passfoto-v2-ss-unblurred-squared.jpg";
 
-export const profilePictureOptimized: Readonly<string> =
-  profilePictureRaw
-    .substring(0, profilePictureRaw.lastIndexOf("."))
-    .replace("/raw-images", "optimized-images") + "-320.webp";
+export const pictureOptimization: Readonly<{
+  format: Array<string>;
+  size: Array<number>;
+}> = {
+  format: ["avif", "webp"],
+  size: [80, 160, 320, 640, 1280],
+};
 
-export const profilePictureOptimizedL: Readonly<string> =
-  profilePictureRaw
-    .substring(0, profilePictureRaw.lastIndexOf("."))
-    .replace("/raw-images", "optimized-images") + "-640.webp";
+// Create nested object for access: optimizedPicture[format][size].location
+// Usage: profilePictureOptimizedNested['avif'][80].location
+export const profilePictureOptimized: Record<
+  string,
+  Record<number, { location: string; size: number; format: string }>
+> = pictureOptimization.size.reduce(
+  (acc, size) => {
+    pictureOptimization.format.forEach((format) => {
+      const location =
+        profilePictureRaw
+          .substring(0, profilePictureRaw.lastIndexOf("."))
+          .replace("/raw-images", "/optimized-images") + `-${size}.${format}`;
+      if (!acc[format]) acc[format] = {};
+      acc[format][size] = { location, size, format };
+    });
+    return acc;
+  },
+  {} as Record<
+    string,
+    Record<number, { location: string; size: number; format: string }>
+  >,
+);
 
-export const profilePictureOptimizedXL: Readonly<string> =
-  profilePictureRaw
-    .substring(0, profilePictureRaw.lastIndexOf("."))
-    .replace("/raw-images", "optimized-images") + "-1280.webp";
-
-export const profilePictureOptimizedS: Readonly<string> =
-  profilePictureRaw
-    .substring(0, profilePictureRaw.lastIndexOf("."))
-    .replace("/raw-images", "optimized-images") + "-160.webp";
-
-export const profilePictureOptimizedXS: Readonly<string> =
-  profilePictureRaw
-    .substring(0, profilePictureRaw.lastIndexOf("."))
-    .replace("/raw-images", "optimized-images") + "-80.webp";
-
-export const showConstructionAlert: Readonly<boolean> = true;
+// create a flat version of profilePictureOptimized for simplified access
+export const profilePictureOptimizedFlat: Array<{
+  location: string;
+  size: number;
+  format: string;
+}> = Object.values(profilePictureOptimized).flatMap((obj) =>
+  Object.values(obj),
+);
 
 export const seoProfilePictureOpenGraph: Readonly<string> =
   profilePictureRaw
@@ -72,18 +85,20 @@ export const seoProfilePictureTwitterCard: Readonly<string> =
     .substring(0, profilePictureRaw.lastIndexOf("."))
     .replace("/raw-images", "optimized-images") + "-320-twitter-image.png";
 
-export const seoUrlLocation = `${process.env.NEXT_PUBLIC_WEBSITE_URL}`;
+export const showConstructionAlert: Readonly<boolean> = true;
 
-export const seoTitle = "Steffen Remus";
+export const seoUrlLocation: Readonly<string> = `${process.env.NEXT_PUBLIC_WEBSITE_URL}`;
 
-export const seoDescription = `Website of ${theProtagonistsName} / ${theProtagonistsAlternateName}: ${theProtagonistsDescription.replaceAll("\n", " ")}`;
+export const seoTitle: Readonly<string> = "Steffen Remus";
 
-export const seoKeywords =
+export const seoDescription: Readonly<string> = `Website of ${theProtagonistsName} / ${theProtagonistsAlternateName}: ${theProtagonistsDescription.replaceAll("\n", " ")}`;
+
+export const seoKeywords: Readonly<string> =
   "dr. rer. nat. steffen remus, dr steffen remus, steffen remus phd, phd, dr, dr. rer. nat., steffen remus, steffen, remus, language technology, language, technology, ai, ki, artificial intelligence, artificial, intelligence, künstliche intelligenz, künstliche, intelligenz, lt, hamburg, news, chris biemann, biemann, lingustics, computational linguistics, computational, resources, research, researcher, scientist, ki, ai, artificial intelligence, generative ai, genai, generative, large language models, langauge models, machine learning, ml, clustering, supervised classification, supervised, classification, unsupervised, deep learning";
 
-export const seoAuthor = "Steffen Remus";
+export const seoAuthor: Readonly<string> = "Steffen Remus";
 
-export const seoRichResultsJsonLD = {
+export const seoRichResultsJsonLD: Readonly<{}> = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   dateCreated: "2026-07-01T20:02:59.721Z",
@@ -94,7 +109,7 @@ export const seoRichResultsJsonLD = {
     alternateName: theProtagonistsAlternateName,
     identifier: theProtagonistsIdentifier,
     description: `${theProtagonistsName}, ${theProtagonistsDescription.replaceAll("\n", " ").trim()}`,
-    image: seoUrlLocation + profilePictureOptimized,
+    image: seoUrlLocation + profilePictureOptimized["webp"][80].location,
     sameAs: Object.values(theProtagonistsAlternateProfiles),
   },
 };

@@ -3,7 +3,7 @@ import {
   AlertInfoIcon,
   AlertSuccessIcon,
   AlertWarningIcon,
-} from "@/lib/utils";
+} from "@/components/alert-icons";
 import React from "react";
 
 export function GenericAlert({
