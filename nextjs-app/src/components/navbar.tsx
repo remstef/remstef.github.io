@@ -117,7 +117,7 @@ export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {
         <span
           role="button"
           tabIndex={0}
-          className="btn btn-ghost text-xl"
+          className="btn btn-ghost text-xl font-normal"
           // onClick={
           // //   () => showAlert({
           // //      type: "info",
