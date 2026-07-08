@@ -17,17 +17,17 @@ const navItems = [
   {
     id: "about",
     label: "About",
-    href: "/about",
+    hrefs: ["/about", "/"],
   },
   {
     id: "publications",
     label: "Publications",
-    href: "/publications",
+    hrefs: ["/publications"],
   },
   {
     id: "cv",
     label: "CV",
-    href: "/cv",
+    hrefs: ["/cv"],
   },
   // {
   //   id: "test",
@@ -43,7 +43,8 @@ const navItems = [
 
 export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {
   const pathname = usePathname();
-  const currentPathIsActivePath = (path: Url) => pathname === path;
+  const currentPathIsActivePath = (paths: Array<Url>) =>
+    paths.some((p) => pathname === p);
 
   return (
     <div className="navbar">
@@ -79,37 +80,31 @@ export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {
                 <Link
                   role="button"
                   tabIndex={0}
-                  href={pageItem.href}
-                  // onNavigate={closeDetailsSummaryDropdown}
+                  href={pageItem.hrefs[0]}
                   onClick={closeDetailsSummaryDropdown}
                   className={
-                    `btn btn-ghost ${currentPathIsActivePath(pageItem.href) ? "underline" : "font-normal"}` /* flex justify-start items-center */
+                    `btn btn-ghost ${currentPathIsActivePath(pageItem.hrefs) ? "underline" : "font-normal"}` /* flex justify-start items-center */
                   }
                 >
                   {pageItem.label}
                 </Link>
               </li>
             ))}
-            {/* <li>
-              <div className="sm:hidden justify-center">
-                <ThemeSwap innersize={5} />
-              </div>
-            </li> */}
           </ul>
         </details>
-
+        {/*   */}
         <ThemeSwitchDropdown />
         <ThemeSwap innersize={5} />
       </div>
-
+      {/*   */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal">
           {navItems.map((pageItem) => (
             <li key={pageItem.id}>
               <Link
-                href={pageItem.href}
+                href={pageItem.hrefs[0]}
                 // onClick={(e) => {e.preventDefault(); setActiveTab(tab);}}
-                className={`px-2 btn btn-ghost ${currentPathIsActivePath(pageItem.href) ? "underline" : "font-normal"}`}
+                className={`px-2 btn btn-ghost ${currentPathIsActivePath(pageItem.hrefs) ? "underline" : "font-normal"}`}
               >
                 {pageItem.label}
               </Link>
@@ -117,7 +112,7 @@ export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {
           ))}
         </ul>
       </div>
-
+      {/*   */}
       <div className="navbar-end">
         <span
           role="button"

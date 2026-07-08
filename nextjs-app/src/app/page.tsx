@@ -1,7 +1,5 @@
-"use client";
-
-import { redirect } from "next/navigation";
+import AboutContent from "./about/_page-content";
 
 export default function Page() {
-  redirect("./about");
+  return <AboutContent />;
 }
