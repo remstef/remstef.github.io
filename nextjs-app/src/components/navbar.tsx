@@ -103,7 +103,6 @@ export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {
             <li key={pageItem.id}>
               <Link
                 href={pageItem.hrefs[0]}
-                // onClick={(e) => {e.preventDefault(); setActiveTab(tab);}}
                 className={`px-2 btn btn-ghost ${currentPathIsActivePath(pageItem.hrefs) ? "underline" : "font-normal"}`}
               >
                 {pageItem.label}
