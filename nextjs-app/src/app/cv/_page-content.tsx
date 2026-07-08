@@ -384,7 +384,7 @@ I provide dedicated supervision for student helpers, inters and academic theses,
             <CJ>
               <MarkdownConfiguredExplicit>
                 {`
-- [(Co-)authored over 30+ peer-reviewed papers.](./?tab=Publications)
+- [(Co-)authored over 30+ peer-reviewed papers.](./publications)
 - Contributed to 50+ open source project repositories on various version control platforms (github, bitbucket, sourceforge, ...) of which I am maintainer/creator of 20+ projects.
 `}
               </MarkdownConfiguredExplicit>
