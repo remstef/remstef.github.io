@@ -32,9 +32,7 @@ export function AlertsProvider({ children }: { children: React.ReactNode }) {
   >([]);
 
   React.useEffect(() => {
-    /* check if its needed, maybe for the construction alert */
-
-    // make an alert appear after 3 seconds, and disappear after 3 seconds again
+    /*  make an alert appear after 3 seconds, and disappear after 3 seconds again */
     if (showConstructionAlert) {
       setTimeout(
         () =>
@@ -86,7 +84,7 @@ export function AlertsProvider({ children }: { children: React.ReactNode }) {
 export function useAlerts() {
   const context = React.useContext(AlertContext);
   if (!context) {
-    throw new Error("useAlerts must be used within a AlertsProvider");
+    throw new Error("'useAlerts' must be used within an 'AlertsProvider'!");
   }
   return context;
 }

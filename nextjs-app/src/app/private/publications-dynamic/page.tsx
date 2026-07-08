@@ -1,25 +1,20 @@
-import "@/../public/biblio-chicago.css";
 import CardElement from "@/components/card-element";
+import { HtmlLoader } from "@/components/html-loader";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
-import { readFile } from "fs/promises";
 import type { Metadata } from "next";
-import path from "path";
 
 export const metadata: Metadata = {
   title: "Publications",
 };
-
-const html = await readFile(
-  path.join(process.cwd(), "/public/biblio-chicago-li.html"),
-  { encoding: "utf8" },
-);
 
 export default function Publications() {
   return (
     <ResponsiveCardsContainer>
       <CardElement>
         <div className="font-cmubright">
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <HtmlLoader
+            filename={`${process.env.NEXT_PUBLIC_BASE_PATH}/biblio-chicago-li.html`}
+          />
         </div>
       </CardElement>
     </ResponsiveCardsContainer>
