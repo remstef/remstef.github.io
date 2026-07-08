@@ -4,6 +4,8 @@ export const defaultLightTheme: Readonly<string> = "caramellatte"; // "garden"; 
 
 export const defaultTheme: Readonly<string | null> = defaultLightTheme; // set to null to use user system preference
 
+export const theProtagonistsFullName: Readonly<string> = "Steffen Remus"; // "Steffen Remus, Dr.rer.nat. (Ph.D.)";
+
 export const theProtagonistsName: Readonly<string> = "Steffen Remus";
 
 export const theProtagonistsInitials: Readonly<string> = "S.R.";
@@ -89,12 +91,12 @@ export const showConstructionAlert: Readonly<boolean> = true;
 
 export const seoUrlLocation: Readonly<string> = `${process.env.NEXT_PUBLIC_WEBSITE_URL}`;
 
-export const seoTitle: Readonly<string> = "Steffen Remus";
+export const seoTitle: Readonly<string> = theProtagonistsFullName;
 
-export const seoDescription: Readonly<string> = `Website of ${theProtagonistsName} / ${theProtagonistsAlternateName}: ${theProtagonistsDescription.replaceAll("\n", " ")}`;
+export const seoDescription: Readonly<string> = `Website of ${theProtagonistsFullName} / ${theProtagonistsAlternateName}: ${theProtagonistsDescription.replaceAll("\n", " ")}`;
 
 export const seoKeywords: Readonly<string> =
-  "dr. rer. nat. steffen remus, dr steffen remus, steffen remus phd, phd, dr, dr. rer. nat., steffen remus, steffen, remus, language technology, language, technology, ai, ki, artificial intelligence, artificial, intelligence, künstliche intelligenz, künstliche, intelligenz, lt, hamburg, news, chris biemann, biemann, lingustics, computational linguistics, computational, resources, research, researcher, scientist, ki, ai, artificial intelligence, generative ai, genai, generative, large language models, langauge models, machine learning, ml, clustering, supervised classification, supervised, classification, unsupervised, deep learning";
+  "dr. rer. nat. steffen remus, dr steffen remus, steffen remus phd, phd, dr, dr. rer. nat., steffen remus, steffen, remus, language technology, language, technology, ai, ki, artificial intelligence, artificial, intelligence, künstliche intelligenz, künstliche, intelligenz, lt, hamburg, news, chris biemann, biemann, lingustics, computational linguistics, computational, resources, research, researcher, scientist, ki, ai, artificial intelligence, generative ai, genai, generative, large language models, langauge models, machine learning, ml, clustering, supervised classification, supervised, classification, unsupervised, deep learning, hamburg germany, hamburg, university of hamburg, universität hamburg, universität, sprachtechnologie, nlp, natural language processing, information retrieval, information extraction, knowledge graph, knowledge induction";
 
 export const seoAuthor: Readonly<string> = "Steffen Remus";
 
