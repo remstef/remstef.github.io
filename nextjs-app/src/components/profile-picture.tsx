@@ -1,11 +1,9 @@
 "use client";
 
 import {
+  pictureOptimization,
   profilePictureOptimized,
-  profilePictureOptimizedL,
-  profilePictureOptimizedS,
-  profilePictureOptimizedXL,
-  profilePictureOptimizedXS,
+  profilePictureOptimizedFlat,
   showInitialsOrPicture,
   theProtagonistsInitials,
   theProtagonistsName,
@@ -28,7 +26,7 @@ export function AvatarPicture() {
     <div className="avatar">
       <div className="rounded-xl w-48 xl:w-64 relative overflow-hidden">
         <Image
-          src={`${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimized}`}
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimized["webp"][320].location}`}
           placeholder="empty"
           // placeholder="blur"
           // blurDataURL={`${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureXS}`}
@@ -49,20 +47,16 @@ export function AvatarPictureSrcSet() {
     <div className="avatar">
       <div className="rounded-xl w-48 xl:w-64 relative overflow-hidden">
         <img
-          src={`${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimized}`} // Fallback
-          srcSet={`
-${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimizedXS} 80w,
-${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimizedS} 160w,
-${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimized} 320w,
-${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimizedL} 640w,
-${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimizedXL} 1280w,
-${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimizedXS.replace(".webp", ".avif")} 80w,
-${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimizedS.replace(".webp", ".avif")} 160w,
-${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimized.replace(".webp", ".avif")} 320w,
-${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimizedL.replace(".webp", ".avif")} 640w,
-${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimizedXL.replace(".webp", ".avif")} 1280w
-          `.trim()}
-          sizes="(max-width: 1280px) 80px, 160px, 320px, 640px, 1280px"
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH}${profilePictureOptimized["webp"][80].location}`} // Fallback
+          // img-80.webp 80w, img-160.webp 160w, img-80.avif 80w, img-160.avif 160w,
+          srcSet={profilePictureOptimizedFlat
+            .map(
+              (p) =>
+                `${process.env.NEXT_PUBLIC_BASE_PATH}${p.location} ${p.size}w`,
+            )
+            .join(", ")}
+          // "(max-width: 1280px) 80px, 160px, 320px, 640px, 1280px"
+          sizes={`(max-width: ${pictureOptimization.size[pictureOptimization.size.length - 1]}px) ${pictureOptimization.size.map((s) => `${s}px`).join(", ")}`}
           alt="Pre-optimized image"
           loading="lazy"
         />

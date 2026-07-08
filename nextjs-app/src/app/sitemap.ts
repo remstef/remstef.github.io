@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
       images: [
-        `${process.env.NEXT_PUBLIC_WEBSITE_URL}${profilePictureOptimized}`,
+        `${process.env.NEXT_PUBLIC_WEBSITE_URL}${profilePictureOptimized["webp"][320].location}`,
       ],
     },
     {
