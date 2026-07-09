@@ -1,6 +1,6 @@
 "use client";
 
-import { showConstructionAlert } from "@/lib/constants";
+import { constructionAlert } from "@/lib/constants";
 import React from "react";
 
 type alert = {
@@ -32,14 +32,14 @@ export function AlertsProvider({ children }: { children: React.ReactNode }) {
   >([]);
 
   React.useEffect(() => {
-    /*  make an alert appear after 3 seconds, and disappear after 3 seconds again */
-    if (showConstructionAlert) {
+    if (constructionAlert.active) {
+      /*  make an alert appear after 3 seconds */
       setTimeout(
         () =>
           showAlert(
-            "info",
-            "Note, this site is under construction and might not be complete.",
-            3,
+            constructionAlert.typeOfAlert,
+            constructionAlert.message,
+            constructionAlert.seconds,
           ),
         3000,
       );

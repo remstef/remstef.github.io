@@ -87,7 +87,17 @@ export const seoProfilePictureTwitterCard: Readonly<string> =
     .substring(0, profilePictureRaw.lastIndexOf("."))
     .replace("/raw-images", "optimized-images") + "-320-twitter-image.png";
 
-export const showConstructionAlert: Readonly<boolean> = true;
+export const constructionAlert: Readonly<{
+  active: boolean;
+  typeOfAlert: string;
+  message: string;
+  seconds: number;
+}> = {
+  active: true,
+  typeOfAlert: "warning",
+  message: "This site is under construction.",
+  seconds: 3,
+};
 
 export const seoUrlLocation: Readonly<string> = `${process.env.NEXT_PUBLIC_WEBSITE_URL}`;
 
