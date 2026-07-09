@@ -37,7 +37,11 @@
           "yaml": "yaml",
           "graphql": "graphql"
         },
-        "tailwindCSS.emmetCompletions": true
+        "tailwindCSS.emmetCompletions": true,
+        "files.associations": {
+          "*.css": "tailwindcss",
+          "*.scss": "tailwindcss"
+        }
       }
     }
   },
