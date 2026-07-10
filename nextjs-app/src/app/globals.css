@@ -31,14 +31,21 @@
     ui-monospace, monospace;
 }
 
-/* Firefox-mobile-specific: use a bolder pixel font variant */
+/* Firefox mobile only - use bolder pixel font */
 @-moz-document url-prefix() {
+  .firefox-mobile {
+    --font-pixel: var(--font-geist-pixel-square);
+  }
+}
+
+/* Firefox-mobile-specific: use a bolder pixel font variant */
+/* @-moz-document url-prefix() {
   .firefox-mobile .font-pixel,
   .firefox-mobile [class*="font-pixel"],
   .firefox-mobile [class*="pixel"] {
     font-family: var(--font-geist-pixel-square) !important;
   }
-}
+} */
 /* @-moz-document url-prefix() {
   @media (pointer: coarse) and (max-width: 768px) and (max-height: 768px) {
     .font-pixel,
