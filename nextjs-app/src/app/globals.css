@@ -38,6 +38,13 @@
   }
 }
 
+/* Firefox mobile and desktop fallback */
+@-moz-document url-prefix() {
+  :root {
+    --font-pixel: var(--font-geist-pixel-square);
+  }
+}
+
 .mytext {
   font-family: var(--font-robotoslab);
   font-weight: 100;
