@@ -19,6 +19,7 @@
   --font-pixel-circle: var(--font-geist-pixel-circle);
   --font-pixel-triangle: var(--font-geist-pixel-triangle); 
   */
+
   --font-pixel: var(--font-geist-pixel-line);
 
   --font-sans:
@@ -29,6 +30,16 @@
   --font-mono:
     Monaco, var(--font-robotoslab), var(--font-geist-mono), "Courier New",
     ui-monospace, monospace;
+}
+
+/* Firefox mobile only - use bolder pixel font */
+@-moz-document url-prefix() {
+  [data-firefox-mobile="true"] .font-pixel,
+  [data-firefox-mobile="true"] [class*="font-pixel"],
+  [data-firefox-mobile="true"] [class*="pixel"] {
+    font-family: var(--font-geist-pixel-square) !important;
+    color: hsl(var(--foreground)) !important;
+  }
 }
 
 .mytext {
