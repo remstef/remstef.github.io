@@ -31,6 +31,13 @@
     ui-monospace, monospace;
 }
 
+/* Firefox-specific: use a bolder pixel font variant */
+@supports (-moz-orient: inline) {
+  :root {
+    --font-pixel: var(--font-geist-pixel-square);
+  }
+}
+
 .mytext {
   font-family: var(--font-robotoslab);
   font-weight: 100;
