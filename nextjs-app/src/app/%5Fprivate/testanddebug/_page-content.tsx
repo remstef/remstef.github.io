@@ -12,15 +12,28 @@ import { ThemeSwap } from "@/components/next-theme-swap";
 // import { ThemeSwitchDropdown } from "@/components/theme-switch-dropdown";
 import { ThemeSwitchDropdown } from "@/components/next-theme-switch-dropdown";
 import { useAlerts } from "@/context/alerts-state";
+import { SharedStateContextProvider, useSharedStateContext } from "@/context/shared-state";
 import { useUserAgent } from "@/context/user-agent-detector";
 import Link from "next/link";
 import { useEffect } from "react";
+
+export function X() {
+  const sharedState = useSharedStateContext();
+
+  return (
+    <MarkdownConfiguredExplicit>
+      { "sharedState = " + JSON.stringify(sharedState, null, 2) }
+    </MarkdownConfiguredExplicit>
+  );
+
+}
 
 export default function TestAndDebugContent() {
 
   // [userAgent, detectedAsFirefoxMobile] = useUserAgent();
   const { userAgent } = useUserAgent();
   const { listOfActiveAlerts, showAlert, removeAlert } = useAlerts();
+  const sharedState = useSharedStateContext();
 
   // showAlert(
   //       "warning",
@@ -46,6 +59,14 @@ export default function TestAndDebugContent() {
 
   return (
     <ResponsiveCardsContainer>
+      <CardElement title={<span>Bar</span>}>
+        <MarkdownConfiguredExplicit>
+          { "sharedState = " + JSON.stringify(sharedState, null, 2) }
+        </MarkdownConfiguredExplicit>
+        <SharedStateContextProvider>
+          <X/>
+        </SharedStateContextProvider>
+      </CardElement>
       <CardElement title={<span>Foo</span>}>
         <div>
           <span>Hello World</span>
