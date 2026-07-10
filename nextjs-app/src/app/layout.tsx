@@ -161,7 +161,7 @@ export default function RootLayout({
       <GoogleTagManager gtmId="G-1KHTNS4NY2" />
       <AlertsProvider>
         <UserAgentProvider>
-          <body className="flex flex-col h-dvh overflow-hidden bg-base-200">
+          <body className="flex flex-col h-dvh overflow-hidden bg-base-200 text-base-content">
             <ThemeProvider
               themes={themeNames}
               defaultTheme={defaultLightTheme}
