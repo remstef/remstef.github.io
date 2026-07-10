@@ -19,7 +19,7 @@
   --font-pixel-circle: var(--font-geist-pixel-circle);
   --font-pixel-triangle: var(--font-geist-pixel-triangle); 
   */
-  --font-pixel: var(--font-geist-pixel-line);
+  --font-pixel: var(--font-geist-pixel-square);
 
   --font-sans:
     var(--font-montserrat), "CMU Bright", var(--font-roboto),
@@ -43,14 +43,14 @@
 } */
 
 /* Firefox mobile only - use bolder pixel font */
-/* @-moz-document url-prefix() {
-  [data-firefox-mobile="true"] .font-pixel,
-  [data-firefox-mobile="true"] [class*="font-pixel"],
-  [data-firefox-mobile="true"] [class*="pixel"] {
-    font-family: var(--font-geist-pixel-square) !important;
+@-moz-document url-prefix() {
+  [data-firefox-mobile="false"] .font-pixel,
+  [data-firefox-mobile="false"] [class*="font-pixel"],
+  [data-firefox-mobile="false"] [class*="pixel"] {
+    font-family: var(--font-geist-pixel-line) !important;
     color: hsl(var(--foreground)) !important;
   }
-} */
+}
 
 /* Firefox-mobile-specific: use a bolder pixel font variant */
 /* @-moz-document url-prefix() {
@@ -61,11 +61,11 @@
   }
 } */
 /* @-moz-document url-prefix() {
-  @media (pointer: coarse) and (max-width: 768px) and (max-height: 768px) {
+  @media (pointer: coarse) and (max-width: 768px) {
     .font-pixel,
     [class*="font-pixel"],
     [class*="pixel"] {
-      font-family: var(--font-geist-pixel-square) !important;
+      font-weight: 500 !important;
     }
   }
 } */

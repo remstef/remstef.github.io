@@ -38,7 +38,7 @@ export default function TestAndDebugContent() {
 
       showAlert(
         "info",
-        `${userAgent?.detectedAsFirefoxMobile ? "Firefox mobile detected" : "Firefox not detected"}`,
+        `${userAgent?.detectedAsFirefoxMobile ? "Firefox mobile detected" : "Firefox mobile not detected"}`,
         30,
       );
     } 
