@@ -22,18 +22,15 @@ export function UserAgentProvider({ children }: { children: React.ReactNode }) {
     const isFirefox = navigator.userAgent.includes("Mozilla") || navigator.userAgent.includes("Firefox");
     const isMobile = /Android|webOS|iOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     const isFirefoxMobile = isFirefox && isMobile;
+    document.documentElement.setAttribute('data-firefox-mobile', String(isFirefoxMobile));
     if (isFirefoxMobile) {
       document.documentElement.classList.add('firefox-mobile');
-      
-
       // // Apply to all elements with pixel font classes
       // const elements = document.querySelectorAll('[class*="font-pixel"]');
       // elements.forEach(el => {
       //   (el as HTMLElement).style.fontFamily = 'var(--font-montserrat) !important';
       // });
-
     }
-    document.documentElement.setAttribute('data-firefox-mobile', String(isFirefoxMobile));
     setUserAgent({userAgentString: navigator.userAgent, detectedAsFirefoxMobile: isFirefoxMobile})
   }, []);
 

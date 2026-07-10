@@ -19,7 +19,7 @@
   --font-pixel-circle: var(--font-geist-pixel-circle);
   --font-pixel-triangle: var(--font-geist-pixel-triangle); 
   */
-  --font-pixel: var(--font-geist-pixel-square);
+  --font-pixel: var(--font-geist-pixel-line);
 
   --font-sans:
     var(--font-montserrat), "CMU Bright", var(--font-roboto),
@@ -44,10 +44,10 @@
 
 /* Firefox mobile only - use bolder pixel font */
 @-moz-document url-prefix() {
-  [data-firefox-mobile="false"] .font-pixel,
-  [data-firefox-mobile="false"] [class*="font-pixel"],
-  [data-firefox-mobile="false"] [class*="pixel"] {
-    font-family: var(--font-geist-pixel-line) !important;
+  [data-firefox-mobile="true"] .font-pixel,
+  [data-firefox-mobile="true"] [class*="font-pixel"],
+  [data-firefox-mobile="true"] [class*="pixel"] {
+    font-family: var(--font-geist-pixel-square) !important;
     color: hsl(var(--foreground)) !important;
   }
 }
