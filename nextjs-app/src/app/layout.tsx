@@ -1,5 +1,6 @@
 import { AlertsContainer } from "@/components/alerts";
 import { NavigationBar } from "@/components/navbar";
+import UserAgentDetector from "@/components/user-agent-detector";
 import { AlertsProvider } from "@/context/alerts-state";
 import {
   defaultLightTheme,
@@ -158,6 +159,7 @@ export default function RootLayout({
         />
       </head>
       <GoogleTagManager gtmId="G-1KHTNS4NY2" />
+      <UserAgentDetector />
       <AlertsProvider>
         <body className="flex flex-col h-dvh overflow-hidden bg-base-200">
           <ThemeProvider
