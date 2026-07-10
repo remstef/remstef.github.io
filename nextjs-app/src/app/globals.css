@@ -43,14 +43,14 @@
 } */
 
 /* Firefox mobile only - use bolder pixel font */
-@-moz-document url-prefix() {
+/* @-moz-document url-prefix() {
   [data-firefox-mobile="true"] .font-pixel,
   [data-firefox-mobile="true"] [class*="font-pixel"],
   [data-firefox-mobile="true"] [class*="pixel"] {
     font-family: var(--font-geist-pixel-square) !important;
     color: hsl(var(--foreground)) !important;
   }
-}
+} */
 
 /* Firefox-mobile-specific: use a bolder pixel font variant */
 /* @-moz-document url-prefix() {

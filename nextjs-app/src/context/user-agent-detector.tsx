@@ -24,7 +24,14 @@ export function UserAgentProvider({ children }: { children: React.ReactNode }) {
     const isFirefoxMobile = isFirefox && isMobile;
     if (isFirefoxMobile) {
       // document.documentElement.classList.add('firefox-mobile');
-      document.documentElement.setAttribute('data-firefox-mobile', 'true');
+      // document.documentElement.setAttribute('data-firefox-mobile', 'true');
+
+      // Apply to all elements with pixel font classes
+      const elements = document.querySelectorAll('[class*="font-pixel"], [class*="pixel"]');
+      elements.forEach(el => {
+        el.style.fontFamily = 'var(--font-montserrat) !important';
+      });
+
     }
     setUserAgent({userAgentString: navigator.userAgent, detectedAsFirefoxMobile: isFirefoxMobile})
   }, []);
