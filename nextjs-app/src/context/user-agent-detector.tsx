@@ -23,7 +23,8 @@ export function UserAgentProvider({ children }: { children: React.ReactNode }) {
     const isMobile = /Android|webOS|iOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     const isFirefoxMobile = isFirefox && isMobile;
     if (isFirefoxMobile) {
-      document.documentElement.classList.add('firefox-mobile');
+      // document.documentElement.classList.add('firefox-mobile');
+      document.documentElement.setAttribute('data-firefox-mobile', 'true');
     }
     setUserAgent({userAgentString: navigator.userAgent, detectedAsFirefoxMobile: isFirefoxMobile})
   }, []);

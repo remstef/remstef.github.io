@@ -32,13 +32,23 @@
 }
 
 /* Firefox mobile only - use bolder pixel font */
-@-moz-document url-prefix() {
+/* @-moz-document url-prefix() {
   .firefox-mobile {
-    /* --font-pixel: var(--font-geist-pixel-square); */
+    /* --font-pixel: var(--font-geist-pixel-square);
     --font-pixel: var(--font-montserrat);
     color: hsl(
       var(--foreground)
-    ) !important; /* Use Tailwind's foreground color */
+    ) !important; /* Use Tailwind's foreground color
+  }
+} */
+
+/* Firefox mobile only - use bolder pixel font */
+@-moz-document url-prefix() {
+  [data-firefox-mobile="true"] .font-pixel,
+  [data-firefox-mobile="true"] [class*="font-pixel"],
+  [data-firefox-mobile="true"] [class*="pixel"] {
+    font-family: var(--font-geist-pixel-square) !important;
+    color: hsl(var(--foreground)) !important;
   }
 }
 
