@@ -34,7 +34,8 @@
 /* Firefox mobile only - use bolder pixel font */
 @-moz-document url-prefix() {
   .firefox-mobile {
-    --font-pixel: var(--font-geist-pixel-square);
+    /* --font-pixel: var(--font-geist-pixel-square); */
+    --font-pixel: var(--font-montserrat);
     color: hsl(
       var(--foreground)
     ) !important; /* Use Tailwind's foreground color */
