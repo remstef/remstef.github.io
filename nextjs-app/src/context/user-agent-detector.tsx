@@ -25,11 +25,6 @@ export function UserAgentProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.setAttribute('data-firefox-mobile', String(isFirefoxMobile));
     if (isFirefoxMobile) {
       document.documentElement.classList.add('firefox-mobile');
-      // // Apply to all elements with pixel font classes
-      // const elements = document.querySelectorAll('[class*="font-pixel"]');
-      // elements.forEach(el => {
-      //   (el as HTMLElement).style.fontFamily = 'var(--font-montserrat) !important';
-      // });
     }
     setUserAgent({userAgentString: navigator.userAgent, detectedAsFirefoxMobile: isFirefoxMobile})
   }, []);
