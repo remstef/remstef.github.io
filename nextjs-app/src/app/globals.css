@@ -35,6 +35,7 @@
 @-moz-document url-prefix() {
   .firefox-mobile {
     --font-pixel: var(--font-geist-pixel-square);
+    color: inherit !important; /* Use inherited color from parent */
   }
 }
 
