@@ -159,8 +159,8 @@ export default function RootLayout({
         />
       </head>
       <GoogleTagManager gtmId="G-1KHTNS4NY2" />
-      <UserAgentDetector />
       <AlertsProvider>
+        <UserAgentDetector />
         <body className="flex flex-col h-dvh overflow-hidden bg-base-200">
           <ThemeProvider
             themes={themeNames}
