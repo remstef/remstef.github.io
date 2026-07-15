@@ -74,9 +74,9 @@ const montserrat = Montserrat({
 
 // SEO
 export const metadata: Metadata = {
-  metadataBase: new URL(seoUrlLocation),
+  // metadataBase: new URL(seoUrlLocation),
   title: { default: seoTitle, template: `%s | ${seoTitle}` },
-  description: `${seoDescription} ${seoKeywords}`,
+  description: `${seoDescription}`,
   keywords: seoKeywords,
   alternates: {
     canonical: seoUrlLocation,

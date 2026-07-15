@@ -50,3 +50,15 @@ export function registerCloseCurrentDetailsSummaryDropdown(
   });
   return;
 }
+
+export function getPathRelativeToAppFolder(fileMetaUrl: string): string {
+  const filePath = new URL(fileMetaUrl).pathname;
+  const normalized = filePath.replaceAll("\\", "/");
+
+  const marker = "/src/app";
+  const i = normalized.lastIndexOf(marker);
+  const j = normalized.lastIndexOf("/");
+
+  if (i === -1) return "";
+  return normalized.slice(i + marker.length, j); // e.g. /, /about, /cv, ...
+}
