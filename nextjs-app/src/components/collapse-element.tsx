@@ -17,7 +17,7 @@ export function CollapseElement({
   show_open_close_icon?: boolean | undefined | null | false | 0;
 }>) {
   const [mounted, setMounted] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   // const { listOfActiveAlerts, showAlert, removeAlert } = useAlerts();
 
   // Avoid Hydration Mismatch, i.e. content should be visible to crawlers by default, then, once mounted, collapsed
@@ -26,8 +26,10 @@ export function CollapseElement({
   }, []);
 
   useEffect(() => {
-    setIsOpen(!mounted || openByDefault);
-    // showAlert('info', `${title?.toString()} mounted ${mounted}; open ${openByDefault}`);
+    if(mounted){
+      setIsOpen(openByDefault);
+      // showAlert('info', `${title?.toString()} mounted ${mounted}; open ${openByDefault}`);
+    }
   }, [openByDefault, mounted]);
 
   return (
