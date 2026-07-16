@@ -47,7 +47,7 @@ const html = await readFile(
 export default function Publications() {
   return (
     <ResponsiveCardsContainer>
-      <CardElement>
+      <CardElement title="Publications">
         <div className="font-cmubright">
           <div dangerouslySetInnerHTML={{ __html: html }} />
         </div>

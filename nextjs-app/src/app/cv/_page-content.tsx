@@ -33,11 +33,14 @@ export function CvContent() {
 
   return (
     <ResponsiveCardsContainer>
-      {/* <HashSection> */}
       {/* BEGIN */}
+      <CardElement title="Curriculum Vitae">
+        {/* <h2 className="font-pixel text-xl text-center w-full mb-3">
+          Curriculum Vitae
+        </h2> */}
 
-      {/* B: CONTACT INFORMATION */}
-      <CardElement>
+        {/* B: CONTACT INFORMATION */}
+        <hr className="mt-2 text-base-300" />
         <section id="contact" />
         <CollapseElement
           openByDefault={activeSection === "contact"}
@@ -65,11 +68,10 @@ export function CvContent() {
             </CJ>
           }
         />
-      </CardElement>
-      {/* E: CONTACT INFORMATION */}
+        <hr className="text-base-300" />
+        {/* E: CONTACT INFORMATION */}
 
-      {/* B: PROFESSIONAL SUMMARY */}
-      <CardElement>
+        {/* B: PROFESSIONAL SUMMARY */}
         <section id="summary" />
         <CollapseElement
           openByDefault={activeSection === "summary"}
@@ -93,11 +95,10 @@ I actively share my expertise through my current role as a (co-) lecturer and ad
             </CJ>
           }
         />
-      </CardElement>
-      {/* E: PROFESSIONAL SUMMARY */}
+        <hr className="text-base-300" />
+        {/* E: PROFESSIONAL SUMMARY */}
 
-      {/* B: Skills */}
-      <CardElement>
+        {/* B: Skills */}
         <section id="skills" />
         <CollapseElement
           openByDefault={activeSection === "skills"}
@@ -155,11 +156,10 @@ I actively share my expertise through my current role as a (co-) lecturer and ad
             </CJ>
           }
         />
-      </CardElement>
-      {/* E: Skills */}
+        <hr className="text-base-300" />
+        {/* E: Skills */}
 
-      {/* B: Professional Experience */}
-      <CardElement>
+        {/* B: Professional Experience */}
         <section id="experience" />
         <CollapseElement
           openByDefault={activeSection === "experience"}
@@ -245,11 +245,10 @@ Co-authored 6 peer-reviewed papers; organized a one-day IBM Watson workshop.
             </CJ>
           }
         />
-      </CardElement>
-      {/* E: Professional Experience */}
+        <hr className="text-base-300" />
+        {/* E: Professional Experience */}
 
-      {/* B: Education */}
-      <CardElement>
+        {/* B: Education */}
         <section id="education" />
         <CollapseElement
           openByDefault={activeSection === "education"}
@@ -279,11 +278,10 @@ Co-authored 6 peer-reviewed papers; organized a one-day IBM Watson workshop.
             </CJ>
           }
         />
-      </CardElement>
-      {/* E: Education */}
+        <hr className="text-base-300" />
+        {/* E: Education */}
 
-      {/* B: Scientific Experience */}
-      <CardElement>
+        {/* B: Scientific Experience */}
         <section id="scientific" />
         <CollapseElement
           openByDefault={activeSection === "scientific"}
@@ -320,11 +318,10 @@ Co-authored 6 peer-reviewed papers; organized a one-day IBM Watson workshop.
             </CJ>
           }
         />
-      </CardElement>
-      {/* E: Scientific Experience */}
+        <hr className="text-base-300" />
+        {/* E: Scientific Experience */}
 
-      {/* B: Teaching Experience */}
-      <CardElement>
+        {/* B: Teaching Experience */}
         <section id="teaching" />
         <CollapseElement
           openByDefault={activeSection === "teaching"}
@@ -345,11 +342,10 @@ I provide dedicated supervision for student helpers, inters and academic theses,
             </CJ>
           }
         />
-      </CardElement>
-      {/* E: Teaching Experience */}
+        <hr className="text-base-300" />
+        {/* E: Teaching Experience */}
 
-      {/* B: Awards & Grants */}
-      <CardElement>
+        {/* B: Awards & Grants */}
         <section id="awardsgrants" />
         <CollapseElement
           openByDefault={activeSection === "awardsgrants"}
@@ -370,11 +366,10 @@ I provide dedicated supervision for student helpers, inters and academic theses,
             </CJ>
           }
         />
-      </CardElement>
-      {/* E: Awards & Grants */}
+        <hr className="text-base-300" />
+        {/* E: Awards & Grants */}
 
-      {/* B: Publications & Code */}
-      <CardElement>
+        {/* B: Publications & Code */}
         <section id="publicationsandcode" />
         <CollapseElement
           openByDefault={activeSection === "publicationsandcode"}
@@ -391,8 +386,9 @@ I provide dedicated supervision for student helpers, inters and academic theses,
             </CJ>
           }
         />
+        {/* E: Publications & Code */}
       </CardElement>
-      {/* E: Publications & Code */}
+      {/* END */}
 
       {/* B: CV as PDF */}
       <CardElement>
@@ -447,9 +443,6 @@ children = {
 }/></CardElement>
 */}
       {/* E: All as MD */}
-
-      {/* END */}
-      {/* </HashSection> */}
     </ResponsiveCardsContainer>
   );
 }
