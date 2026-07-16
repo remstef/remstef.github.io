@@ -12,6 +12,8 @@ export const theProtagonistsInitials: Readonly<string> = "S.R.";
 
 export const theProtagonistsAlternateName: Readonly<string> = "@remstef";
 
+export const theProtagonistsAtHandle: Readonly<string> = "@remstef";
+
 export const theProtagonistsIdentifier: Readonly<string> = "5611665";
 
 export const theProtagonistsAlternateProfiles: Readonly<{}> = {
@@ -101,14 +103,85 @@ export const constructionAlert: Readonly<{
 
 export const seoUrlLocation: Readonly<string> = `${process.env.NEXT_PUBLIC_WEBSITE_URL}`;
 
-export const seoTitle: Readonly<string> = theProtagonistsFullName;
+export const seoTitle: Readonly<string> = `${theProtagonistsFullName} (${theProtagonistsAtHandle}) - NLP, ML, AI & Software Engineer`;
 
 export const seoDescription: Readonly<string> = `Website of ${theProtagonistsFullName} / ${theProtagonistsAlternateName}: ${theProtagonistsDescription.replaceAll("\n", " ")}`;
 
-export const seoKeywords: Readonly<string> =
-  "dr. rer. nat. steffen remus, dr steffen remus, steffen remus phd, phd, dr, dr. rer. nat., steffen remus, steffen, remus, language technology, language, technology, ai, ki, artificial intelligence, artificial, intelligence, künstliche intelligenz, künstliche, intelligenz, lt, hamburg, news, chris biemann, biemann, lingustics, computational linguistics, computational, resources, research, researcher, scientist, ki, ai, artificial intelligence, generative ai, genai, generative, large language models, langauge models, machine learning, ml, clustering, supervised classification, supervised, classification, unsupervised, deep learning, hamburg germany, hamburg, university of hamburg, universität hamburg, universität, sprachtechnologie, nlp, natural language processing, information retrieval, information extraction, knowledge graph, knowledge induction, pre-training, fine-tuning, big data";
+export const seoKeywordList: Readonly<Array<string>> = [
+  "dr. rer. nat. steffen remus",
+  "dr steffen remus",
+  "steffen remus phd",
+  "phd",
+  "dr",
+  "dr. rer. nat.",
+  "steffen remus",
+  "steffen",
+  "remus",
+  "language technology",
+  "language",
+  "technology",
+  "ai",
+  "ki",
+  "artificial intelligence",
+  "artificial",
+  "intelligence",
+  "künstliche intelligenz",
+  "künstliche",
+  "intelligenz",
+  "lt",
+  "hamburg",
+  "news",
+  "chris biemann",
+  "biemann",
+  "lingustics",
+  "computational linguistics",
+  "computational",
+  "resources",
+  "research",
+  "researcher",
+  "scientist",
+  "ki",
+  "ai",
+  "artificial intelligence",
+  "generative ai",
+  "genai",
+  "generative",
+  "large language models",
+  "langauge models",
+  "machine learning",
+  "ml",
+  "clustering",
+  "supervised classification",
+  "supervised",
+  "classification",
+  "unsupervised",
+  "deep learning",
+  "hamburg germany",
+  "hamburg",
+  "university of hamburg",
+  "universität hamburg",
+  "universität",
+  "sprachtechnologie",
+  "nlp",
+  "natural language processing",
+  "information retrieval",
+  "information extraction",
+  "knowledge graph",
+  "knowledge induction",
+  "pre-training",
+  "fine-tuning",
+  "big data",
+  "natural language processing engineer",
+  "NLP Engineer"
+];
 
+export const seoKeywords: Readonly<string> = seoKeywordList.join(", ");
+  
 export const seoAuthor: Readonly<string> = "Steffen Remus";
+
+export const seoAuthorAtHandle: Readonly<string> = "@remstef";
+
+export const seoAuthorUrl: Readonly<string> = seoUrlLocation;
 
 export const seoRichResultsJsonLD: Readonly<{}> = {
   "@context": "https://schema.org",

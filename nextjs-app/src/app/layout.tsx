@@ -5,6 +5,8 @@ import { UserAgentProvider } from "@/context/user-agent-detector";
 import {
   defaultLightTheme,
   seoAuthor,
+  seoAuthorAtHandle,
+  seoAuthorUrl,
   seoDescription,
   seoKeywords,
   seoProfilePictureOpenGraph,
@@ -12,8 +14,9 @@ import {
   seoRichResultsJsonLD,
   seoTitle,
   seoUrlLocation,
+  theProtagonistsAtHandle,
   theProtagonistsIdentifier,
-  theProtagonistsName,
+  theProtagonistsName
 } from "@/lib/constants";
 import { themeNames } from "@/lib/daisyui-theme-names";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -74,12 +77,12 @@ const montserrat = Montserrat({
 
 // SEO
 export const metadata: Metadata = {
-  // metadataBase: new URL(seoUrlLocation),
+  // metadataBase: new URL(seoUrlLocation), metadatabase is not needed since we unfold location urls manually where they are needed
   title: { default: seoTitle, template: `%s | ${seoTitle}` },
   description: `${seoDescription}`,
   keywords: seoKeywords,
   alternates: {
-    canonical: seoUrlLocation,
+    canonical: seoUrlLocation, // default needs to be overwritten for each page
     // languages: {
     //   'en-US': 'https://example.com/en-US',
     //   'de-DE': 'https://example.com/de-DE'
@@ -88,8 +91,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: seoTitle,
     description: seoDescription,
-    url: seoUrlLocation,
-    siteName: seoTitle,
+    url: seoUrlLocation, // default needs to be overwritten for each page
+    siteName: `${theProtagonistsName} (${theProtagonistsAtHandle})`,
     images: [
       {
         url: `${seoUrlLocation}${seoProfilePictureOpenGraph}`,
@@ -105,21 +108,24 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: seoTitle,
     description: seoDescription,
-    siteId: theProtagonistsIdentifier?.toString(),
-    creator: seoAuthor,
-    creatorId: theProtagonistsIdentifier?.toString(),
+    site: theProtagonistsAtHandle, // default needs to be overwritten for each page
+    siteId: theProtagonistsIdentifier, // default needs to be overwritten for each page
+    creator: seoAuthorAtHandle,
+    creatorId: theProtagonistsIdentifier,
     images: [`${seoUrlLocation}${seoProfilePictureTwitterCard}`], // Must be an absolute URL
   },
   generator: "Next.js",
   applicationName: `${seoAuthor} Next.js App`,
   referrer: "origin-when-cross-origin",
-  authors: [{ name: seoAuthor, url: seoUrlLocation }],
+  authors: [{ name: seoAuthor, url: seoAuthorUrl }],
   creator: seoAuthor,
   publisher: seoAuthor,
   formatDetection: {
-    email: false,
-    address: false,
     telephone: false,
+    date: true,
+    address: true,
+    email: false,
+    url: true,
   },
   robots: {
     index: true,
