@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 export function CollapseElement({
@@ -10,17 +10,25 @@ export function CollapseElement({
   titleBoxClassName = "hover:bg-base-200",
   show_open_close_icon = true,
 }: Readonly<{
-  children: React.ReactNode;
-  title: React.ReactNode;
+  children: ReactNode;
+  title: ReactNode;
   openByDefault?: boolean;
   titleBoxClassName?: string | undefined | null | false | 0;
   show_open_close_icon?: boolean | undefined | null | false | 0;
 }>) {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  // const { listOfActiveAlerts, showAlert, removeAlert } = useAlerts();
 
-  React.useEffect(() => {
-    setIsOpen(openByDefault);
-  }, [openByDefault]);
+  // Avoid Hydration Mismatch, i.e. content should be visible to crawlers by default, then, once mounted, collapsed
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    setIsOpen(!mounted || openByDefault);
+    // showAlert('info', `${title?.toString()} mounted ${mounted}; open ${openByDefault}`);
+  }, [openByDefault, mounted]);
 
   return (
     <>

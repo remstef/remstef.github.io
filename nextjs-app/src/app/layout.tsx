@@ -7,8 +7,8 @@ import {
   seoAuthor,
   seoAuthorAtHandle,
   seoAuthorUrl,
-  seoDescription,
   seoKeywords,
+  seoMetaDescriptionDefault,
   seoProfilePictureOpenGraph,
   seoProfilePictureTwitterCard,
   seoRichResultsJsonLD,
@@ -16,7 +16,7 @@ import {
   seoUrlLocation,
   theProtagonistsAtHandle,
   theProtagonistsIdentifier,
-  theProtagonistsName
+  theProtagonistsName,
 } from "@/lib/constants";
 import { themeNames } from "@/lib/daisyui-theme-names";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -78,8 +78,8 @@ const montserrat = Montserrat({
 // SEO
 export const metadata: Metadata = {
   // metadataBase: new URL(seoUrlLocation), metadatabase is not needed since we unfold location urls manually where they are needed
-  title: { default: seoTitle, template: `%s | ${seoTitle}` },
-  description: `${seoDescription}`,
+  title: { default: seoTitle, template: `%s | ${seoTitle}` }, // template only affects pages below the current path, not the current path (page.tsx)
+  description: `${seoMetaDescriptionDefault}`,
   keywords: seoKeywords,
   alternates: {
     canonical: seoUrlLocation, // default needs to be overwritten for each page
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: seoTitle,
-    description: seoDescription,
+    description: seoMetaDescriptionDefault, // default description
     url: seoUrlLocation, // default needs to be overwritten for each page
     siteName: `${theProtagonistsName} (${theProtagonistsAtHandle})`,
     images: [
@@ -107,7 +107,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: seoTitle,
-    description: seoDescription,
+    description: seoMetaDescriptionDefault,
     site: theProtagonistsAtHandle, // default needs to be overwritten for each page
     siteId: theProtagonistsIdentifier, // default needs to be overwritten for each page
     creator: seoAuthorAtHandle,

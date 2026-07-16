@@ -12,7 +12,10 @@ import { ThemeSwap } from "@/components/next-theme-swap";
 // import { ThemeSwitchDropdown } from "@/components/theme-switch-dropdown";
 import { ThemeSwitchDropdown } from "@/components/next-theme-switch-dropdown";
 import { useAlerts } from "@/context/alerts-state";
-import { SharedStateContextProvider, useSharedStateContext } from "@/context/shared-state";
+import {
+  SharedStateContextProvider,
+  useSharedStateContext,
+} from "@/context/shared-state";
 import { useUserAgent } from "@/context/user-agent-detector";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -22,14 +25,12 @@ export function X() {
 
   return (
     <MarkdownConfiguredExplicit>
-      { "sharedState = " + JSON.stringify(sharedState, null, 2) }
+      {"sharedState = " + JSON.stringify(sharedState, null, 2)}
     </MarkdownConfiguredExplicit>
   );
-
 }
 
 export default function TestAndDebugContent() {
-
   // [userAgent, detectedAsFirefoxMobile] = useUserAgent();
   const { userAgent } = useUserAgent();
   const { listOfActiveAlerts, showAlert, removeAlert } = useAlerts();
@@ -41,30 +42,26 @@ export default function TestAndDebugContent() {
   //       30,
   //     );
 
-  useEffect(()=>{
-    if(userAgent){
-      showAlert(
-        "info",
-        `Your on: ${userAgent?.userAgentString}`,
-        30,
-      );
+  useEffect(() => {
+    if (userAgent) {
+      showAlert("info", `Your on: ${userAgent?.userAgentString}`, 30);
 
       showAlert(
         "info",
         `${userAgent?.detectedAsFirefoxMobile ? "Firefox mobile detected" : "Firefox mobile not detected"}`,
         30,
       );
-    } 
-  }, [ userAgent ] );
+    }
+  }, [userAgent]);
 
   return (
     <ResponsiveCardsContainer>
       <CardElement title={<span>Bar</span>}>
         <MarkdownConfiguredExplicit>
-          { "sharedState = " + JSON.stringify(sharedState, null, 2) }
+          {"sharedState = " + JSON.stringify(sharedState, null, 2)}
         </MarkdownConfiguredExplicit>
         <SharedStateContextProvider>
-          <X/>
+          <X />
         </SharedStateContextProvider>
       </CardElement>
       <CardElement title={<span>Foo</span>}>
