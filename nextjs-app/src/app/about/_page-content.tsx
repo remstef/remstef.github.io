@@ -18,19 +18,18 @@ export default function AboutContent() {
             <div className="p-4 pr-8 justify-center text-justify wrap-break-word whitespace-normal [hyphens:auto]">
               <h2 className="text-2xl my-2">Steffen Remus</h2>
               <p className="pl-4">
-                <span>Dr. rer. nat.</span>
-                ,&nbsp;
+                <span>Dr.&nbsp;rer.&nbsp;nat.&nbsp;(Ph.D.)</span>,&nbsp;
                 <Link href="https://www.inf.uni-hamburg.de/en/inst/ab/lt/people/steffen-remus.html">
                   <span className="link link-primary link-hover">
-                    Postdoctoral researcher in the Language Technology Group,
+                    Research scientist in the Language Technology Group,
                     University of Hamburg, Germany.
                   </span>
                 </Link>
                 &nbsp; I work on supervised and unsupervised methods on the
-                intersection of machine learning, generative AI, and
+                intersection of machine learning, generative AI & LLMs, and
                 computational linguistics, with a focus on (distributional)
-                semantics, information extraction, information retrieval,
-                knowledge induction and focused web crawling.
+                semantics, clustering, information extraction, information
+                retrieval, and knowledge induction.
               </p>
             </div>
           </div>
@@ -42,9 +41,26 @@ export default function AboutContent() {
           </div>
         </div>
       </CardElement>
+      <CardElement>
+        <div className="font-pixel mb-1 w-full text-2xl text-center">
+          Summary
+        </div>
+        <div className="font-pixel px-8 mb-2 w-full text-justify wrap-break-word whitespace-normal [hyphens:auto]">
+          <p>
+            Passionate about software engineering, machine learning, natural
+            language processing and web application development. I have a proven
+            track record in the development & provision of technical support for
+            AI applications utilising ML or GenAI technologies, scalable data
+            pipelines, and CI/CD-driven lifecycles, and am experienced in cloud
+            technologies such as AWS/GCP/Azure, containerized deployments,
+            observability and interdisciplinary/cross-functional technical
+            mentoring.
+          </p>
+        </div>
+      </CardElement>
       {/*  */}
       <CardElement>
-        <div className="font-pixel w-full text-2xl mb-2 sm:text-center">
+        <div className="font-pixel w-full text-2xl mb-2 text-center">
           Visibility
         </div>
         <div className="mx-1 sm:mx-8 text-3xl text-center flex flex-wrap items-center">

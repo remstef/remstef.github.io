@@ -26,7 +26,7 @@ export function CollapseElement({
   }, []);
 
   useEffect(() => {
-    if(mounted){
+    if (mounted) {
       setIsOpen(openByDefault);
       // showAlert('info', `${title?.toString()} mounted ${mounted}; open ${openByDefault}`);
     }
