@@ -17,7 +17,7 @@ const navItems = [
   {
     id: "about",
     label: "About",
-    hrefs: ["/about", "/"],
+    hrefs: ["/", "/about"],
   },
   {
     id: "publications",
