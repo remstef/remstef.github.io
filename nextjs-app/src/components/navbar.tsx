@@ -49,6 +49,7 @@ export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {
   return (
     <div className="navbar">
       <div className="navbar-start">
+        {/* MOBILE VERSION */}
         <details className="dropdown">
           <summary
             role="button"
@@ -77,17 +78,26 @@ export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {
           >
             {navItems.map((pageItem) => (
               <li key={pageItem.id}>
-                <Link
-                  role="button"
-                  tabIndex={0}
-                  href={pageItem.hrefs[0]}
-                  onClick={closeDetailsSummaryDropdown}
-                  className={
-                    `btn btn-ghost ${currentPathIsActivePath(pageItem.hrefs) ? "underline" : "font-normal"}` /* flex justify-start items-center */
-                  }
-                >
-                  {pageItem.label}
-                </Link>
+                {currentPathIsActivePath(pageItem.hrefs) ? 
+                  <Link 
+                    role="button"
+                    tabIndex={0}
+                    className="btn btn-ghost underline"
+                    href={pageItem.hrefs[0]} 
+                    onClick={closeDetailsSummaryDropdown} 
+                    children={<h2>{pageItem.label}</h2>} 
+                  />
+                  
+                :
+                  <Link 
+                    role="button"
+                    tabIndex={0}
+                    className="btn btn-ghost font-normal"
+                    href={pageItem.hrefs[0]} 
+                    onClick={closeDetailsSummaryDropdown} 
+                    children={<div>{pageItem.label}</div>} 
+                  />
+                }
               </li>
             ))}
           </ul>
@@ -96,39 +106,25 @@ export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {
         <ThemeSwitchDropdown />
         <ThemeSwap innersize={5} />
       </div>
-      {/*   */}
+      {/* DESKTOP VERSION */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal">
           {navItems.map((pageItem) => (
             <li key={pageItem.id}>
-              <Link
-                href={pageItem.hrefs[0]}
-                className={`px-2 btn btn-ghost ${currentPathIsActivePath(pageItem.hrefs) ? "underline" : "font-normal"}`}
-              >
-                {pageItem.label}
-              </Link>
+              {currentPathIsActivePath(pageItem.hrefs) ? 
+                <Link className="px-2 btn btn-ghost underline" href={pageItem.hrefs[0]} children={<h2>{pageItem.label}</h2>} />
+              :
+                <Link className="px-2 btn btn-ghost font-normal" href={pageItem.hrefs[0]} children={<div>{pageItem.label}</div>} />
+              }
             </li>
           ))}
         </ul>
       </div>
       {/*   */}
       <div className="navbar-end">
-        <span
-          role="button"
-          tabIndex={0}
-          className="btn btn-ghost text-xl font-normal"
-          // onClick={
-          // //   () => showAlert({
-          // //      type: "info",
-          // //      message: "This is an info message!",
-          // //      autoDismissSeconds: 3
-          // // })
-          //   () => setActiveTab(null)
-          // }
-        >
-          <Link href="/">{theProtagonistsName}</Link>
-        </span>
-        {/* <div className="px-2 font-semibold text-xl">{theProtagonistsName}</div> */}
+        <Link href="/" role="button" tabIndex={0} className="btn btn-ghost text-xl font-normal">
+          <h1>{theProtagonistsName}</h1>
+        </Link>
       </div>
     </div>
   );
