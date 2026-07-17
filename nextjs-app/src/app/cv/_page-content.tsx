@@ -68,7 +68,7 @@ export function CvContent() {
             </CJ>
           }
         />
-        <hr className="text-base-300" />
+        <hr className="mt-2 text-base-300" />
         {/* E: CONTACT INFORMATION */}
 
         {/* B: PROFESSIONAL SUMMARY */}
@@ -95,7 +95,7 @@ I actively share my expertise through my current role as a (co-) lecturer and ad
             </CJ>
           }
         />
-        <hr className="text-base-300" />
+        <hr className="mt-2 text-base-300" />
         {/* E: PROFESSIONAL SUMMARY */}
 
         {/* B: Skills */}
@@ -156,7 +156,7 @@ I actively share my expertise through my current role as a (co-) lecturer and ad
             </CJ>
           }
         />
-        <hr className="text-base-300" />
+        <hr className="mt-2 text-base-300" />
         {/* E: Skills */}
 
         {/* B: Professional Experience */}
@@ -245,7 +245,7 @@ Co-authored 6 peer-reviewed papers; organized a one-day IBM Watson workshop.
             </CJ>
           }
         />
-        <hr className="text-base-300" />
+        <hr className="mt-2 text-base-300" />
         {/* E: Professional Experience */}
 
         {/* B: Education */}
@@ -278,7 +278,7 @@ Co-authored 6 peer-reviewed papers; organized a one-day IBM Watson workshop.
             </CJ>
           }
         />
-        <hr className="text-base-300" />
+        <hr className="mt-2 text-base-300" />
         {/* E: Education */}
 
         {/* B: Scientific Experience */}
@@ -318,7 +318,7 @@ Co-authored 6 peer-reviewed papers; organized a one-day IBM Watson workshop.
             </CJ>
           }
         />
-        <hr className="text-base-300" />
+        <hr className="mt-2 text-base-300" />
         {/* E: Scientific Experience */}
 
         {/* B: Teaching Experience */}
@@ -342,7 +342,7 @@ I provide dedicated supervision for student helpers, inters and academic theses,
             </CJ>
           }
         />
-        <hr className="text-base-300" />
+        <hr className="mt-2 text-base-300" />
         {/* E: Teaching Experience */}
 
         {/* B: Awards & Grants */}
@@ -366,7 +366,7 @@ I provide dedicated supervision for student helpers, inters and academic theses,
             </CJ>
           }
         />
-        <hr className="text-base-300" />
+        <hr className="mt-2 text-base-300" />
         {/* E: Awards & Grants */}
 
         {/* B: Publications & Code */}

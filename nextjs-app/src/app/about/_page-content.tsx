@@ -1,6 +1,7 @@
 import CardElement from "@/components/card-element";
 import { ProfilePicture } from "@/components/profile-picture";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
+import { theProtagonistsAlternateProfiles } from "@/lib/constants";
 import { faGithub, faSquareLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faUniversity } from "@fortawesome/free-solid-svg-icons/faUniversity";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,7 +20,7 @@ export default function AboutContent() {
               <h2 className="text-2xl my-2">Steffen Remus</h2>
               <p className="pl-4">
                 <span>Dr.&nbsp;rer.&nbsp;nat.&nbsp;(Ph.D.)</span>,&nbsp;
-                <Link href="https://www.inf.uni-hamburg.de/en/inst/ab/lt/people/steffen-remus.html">
+                <Link href={theProtagonistsAlternateProfiles.Institutional}>
                   <span className="link link-primary link-hover">
                     Research scientist in the Language Technology Group,
                     University of Hamburg, Germany.
@@ -45,17 +46,17 @@ export default function AboutContent() {
         <div className="font-pixel mb-1 w-full text-2xl text-center">
           Summary
         </div>
-        <div className="font-pixel px-8 mb-2 w-full text-justify wrap-break-word whitespace-normal [hyphens:auto]">
-          <p>
+        <div className="px-8 mb-2 w-full flex justify-center">
+          <div className="font-pixel text-justify flex w-full lg:w-7/8 2xl:w-6/8 wrap-break-word whitespace-normal [hyphens:auto]">
             Passionate about software engineering, machine learning, natural
             language processing and web application development. I have a proven
             track record in the development & provision of technical support for
             AI applications utilising ML or GenAI technologies, scalable data
-            pipelines, and CI/CD-driven lifecycles, and am experienced in cloud
+            pipelines, and CI/CD-driven lifecycles, and I am experienced in cloud
             technologies such as AWS/GCP/Azure, containerized deployments,
             observability and interdisciplinary/cross-functional technical
             mentoring.
-          </p>
+          </div>
         </div>
       </CardElement>
       {/*  */}
@@ -66,7 +67,7 @@ export default function AboutContent() {
         <div className="mx-1 sm:mx-8 text-3xl text-center flex flex-wrap items-center">
           <Link
             className="flex-1 mx-1 sm:mx-2"
-            href="https://lt.informatik.uni-hamburg.de/people/steffen-remus"
+            href={theProtagonistsAlternateProfiles.Institutional}
             title="Institutional Profile"
           >
             <FontAwesomeIcon
@@ -76,7 +77,7 @@ export default function AboutContent() {
           </Link>
           <Link
             className="flex-1 mx-1 sm:mx-2"
-            href="https://www.linkedin.com/in/steffen-remus-54a62498"
+            href={theProtagonistsAlternateProfiles.LinkedIn}
             title="LinkedIn Profile"
           >
             <FontAwesomeIcon
@@ -86,7 +87,7 @@ export default function AboutContent() {
           </Link>
           <Link
             className="flex-1 mx-1 sm:mx-2"
-            href="https://github.com/remstef"
+            href={theProtagonistsAlternateProfiles.Github}
             title="Github Profile"
           >
             <FontAwesomeIcon
@@ -96,14 +97,14 @@ export default function AboutContent() {
           </Link>
           <Link
             className="flex-1 mx-1 sm:mx-2"
-            href="https://scholar.google.com/citations?user=nDGCpDYAAAAJ"
+            href={theProtagonistsAlternateProfiles["Google Scholar"]}
             title="Google Scholar Profile"
           >
             <i className="link link-primary link-hover no-underline ai ai-google-scholar-square"></i>
           </Link>
           <Link
             className="flex-1 mx-1 sm:mx-2"
-            href="https://orcid.org/0000-0003-4303-8781"
+            href={theProtagonistsAlternateProfiles.ORCiD}
             title="OrcId Profile"
           >
             <i className="link link-primary link-hover no-underline ai ai-orcid"></i>

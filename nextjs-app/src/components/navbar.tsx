@@ -1,6 +1,6 @@
 "use client";
 
-import { theProtagonistsName } from "@/lib/constants";
+import { MODE_DEV, theProtagonistsName } from "@/lib/constants";
 import {
   closeDetailsSummaryDropdown,
   registerCloseCurrentDetailsSummaryDropdown,
@@ -15,16 +15,19 @@ interface INavbarProps {}
 
 const navItems = [
   {
+    pos: 1,
     id: "about",
     label: "About",
     hrefs: ["/", "/about"],
   },
   {
+    pos: 2,
     id: "publications",
     label: "Publications",
     hrefs: ["/publications"],
   },
   {
+    pos: 10,
     id: "cv",
     label: "CV",
     hrefs: ["/cv"],
@@ -40,6 +43,37 @@ const navItems = [
   //   href: "/private/home",
   // },
 ];
+
+if(MODE_DEV){
+  navItems.push(
+    {
+      pos: 4,
+      id: "teaching",
+      label: "Teaching",
+      hrefs: ["/teaching"],
+    },
+    {
+      pos: 5,
+      id: "professions",
+      label: "Professional Experience",
+      hrefs: ["/professions"],
+    },
+    {
+      pos: 6,
+      id: "scientific",
+      label: "Scientific Experience",
+      hrefs: ["/scientific"],
+    },
+    {
+      pos: 11,
+      id: "cvmd",
+      label: "CV(md)",
+      hrefs: ["/cvmd"],
+    },
+  );
+}
+// sort by position 
+navItems.sort((a, b) => a.pos - b.pos);
 
 export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {
   const pathname = usePathname();

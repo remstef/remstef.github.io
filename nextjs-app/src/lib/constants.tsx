@@ -1,3 +1,10 @@
+
+export const MODE_DEV: Readonly<boolean> = process.env.NODE_ENV === "development"
+
+export const MODE_PRODUCTION: Readonly<boolean> = process.env.NODE_ENV === "production"
+
+export const MODE_TEST: Readonly<boolean> = process.env.NODE_ENV === "test"
+
 export const defaultDarkTheme: Readonly<string> = "dim"; //"forest"; // "business";
 
 export const defaultLightTheme: Readonly<string> = "caramellatte"; // "garden"; // "nord";
@@ -16,7 +23,13 @@ export const theProtagonistsAtHandle: Readonly<string> = "@remstef";
 
 export const theProtagonistsIdentifier: Readonly<string> = "5611665";
 
-export const theProtagonistsAlternateProfiles: Readonly<{}> = {
+export const theProtagonistsAlternateProfiles: Readonly<{
+  Institutional: string;
+  LinkedIn: string;
+  Github: string;
+  "Google Scholar": string;
+  ORCiD: string;
+}> = {
   Institutional: "https://lt.informatik.uni-hamburg.de/people/steffen-remus",
   LinkedIn: "https://www.linkedin.com/in/steffen-remus-54a62498",
   Github: "https://github.com/remstef",
