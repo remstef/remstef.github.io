@@ -1,9 +1,10 @@
+export const MODE_DEV: Readonly<boolean> =
+  process.env.NODE_ENV === "development";
 
-export const MODE_DEV: Readonly<boolean> = process.env.NODE_ENV === "development"
+export const MODE_PRODUCTION: Readonly<boolean> =
+  process.env.NODE_ENV === "production";
 
-export const MODE_PRODUCTION: Readonly<boolean> = process.env.NODE_ENV === "production"
-
-export const MODE_TEST: Readonly<boolean> = process.env.NODE_ENV === "test"
+export const MODE_TEST: Readonly<boolean> = process.env.NODE_ENV === "test";
 
 export const defaultDarkTheme: Readonly<string> = "dim"; //"forest"; // "business";
 

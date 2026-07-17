@@ -52,8 +52,8 @@ export default function AboutContent() {
             language processing and web application development. I have a proven
             track record in the development & provision of technical support for
             AI applications utilising ML or GenAI technologies, scalable data
-            pipelines, and CI/CD-driven lifecycles, and I am experienced in cloud
-            technologies such as AWS/GCP/Azure, containerized deployments,
+            pipelines, and CI/CD-driven lifecycles, and I am experienced in
+            cloud technologies such as AWS/GCP/Azure, containerized deployments,
             observability and interdisciplinary/cross-functional technical
             mentoring.
           </div>

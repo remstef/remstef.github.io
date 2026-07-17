@@ -31,7 +31,6 @@ export function ProfessionsContent() {
     <ResponsiveCardsContainer>
       {/* BEGIN */}
       <CardElement title="Professional Experience">
-
         {/* B: ... */}
         <hr className="mt-2 text-base-300" />
         <section id="x" />
@@ -41,10 +40,8 @@ export function ProfessionsContent() {
         <hr className="text-base-300" />
         <section id="y" />
         {/* E: ... */}
-
       </CardElement>
       {/* END */}
-
     </ResponsiveCardsContainer>
   );
 }

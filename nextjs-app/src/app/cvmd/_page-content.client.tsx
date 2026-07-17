@@ -1,9 +1,11 @@
+"use client";
+
 import CardElement from "@/components/card-element";
 import { CollapseElement } from "@/components/collapse-element";
 import { MarkdownConfiguredExplicit } from "@/components/markdown-configured";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
+import { useHash } from "@/hooks/hash-section";
 import { ReactNode } from "react";
-import { resolved } from "./_markdownfiles";
 
 const Titlespan = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
@@ -30,14 +32,14 @@ const CJ = Contentdivjustified;
 //   { encoding: "utf8" },
 // );
 
+export interface MarkdownFile {
+  fname: string;
+  fnamefull: string;
+  content: string;
+}
 
-
-
-
-export function CvContent() {
-  // const [activeSection, setActiveSection] = useHash("");
-
-  const md = resolved;
+export function CvContent({ md }: { md: MarkdownFile[] }) {
+  const [activeSection, setActiveSection] = useHash("");
 
   return (
     <ResponsiveCardsContainer>
@@ -50,30 +52,27 @@ export function CvContent() {
           Curriculum Vitae
         </h2> */}
         <hr className="mt-2 text-base-300" />
-        {
-          md.map(obj => 
-              <div key={obj.fname}>
-                <section id={`${obj.fname}`} />
-                <CollapseElement
-                  openByDefault={true}
-                  show_open_close_icon={true}
-                  titleBoxClassName=""
-                  title={<T>{`${obj.fname}`}</T>}
-                  children={
-                    <CJ>
-                      <MarkdownConfiguredExplicit>
-                        {`${obj.content}`}
-                      </MarkdownConfiguredExplicit>
-                    </CJ>
-                  }
-                />
-                <hr className="mt-2 text-base-300" />
-              </div>
-          )
-        }
+        {md.map((obj) => (
+          <div key={obj.fname}>
+            <section id={`${obj.fname}`} />
+            <CollapseElement
+              openByDefault={true}
+              show_open_close_icon={true}
+              titleBoxClassName=""
+              title={<T>{`${obj.fname}`}</T>}
+              children={
+                <CJ>
+                  <MarkdownConfiguredExplicit>
+                    {`${obj.content}`}
+                  </MarkdownConfiguredExplicit>
+                </CJ>
+              }
+            />
+            <hr className="mt-2 text-base-300" />
+          </div>
+        ))}
       </CardElement>
       {/* END */}
-
     </ResponsiveCardsContainer>
   );
 }
