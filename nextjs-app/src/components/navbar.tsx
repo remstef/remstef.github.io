@@ -64,6 +64,12 @@ if(MODE_DEV){
       label: "Scientific Experience",
       hrefs: ["/scientific"],
     },
+    {
+      pos: 11,
+      id: "cvmd",
+      label: "CV(md)",
+      hrefs: ["/cvmd"],
+    },
   );
 }
 // sort by position 
