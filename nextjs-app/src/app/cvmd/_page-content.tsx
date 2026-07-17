@@ -67,7 +67,7 @@ export function CvContent() {
                     </CJ>
                   }
                 />
-                <hr className="text-base-300" />
+                <hr className="mt-2 text-base-300" />
               </div>
           )
         }
