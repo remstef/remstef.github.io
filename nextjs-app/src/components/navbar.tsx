@@ -44,7 +44,7 @@ const navItems = [
   // },
 ];
 
-if(MODE_DEV){
+if (MODE_DEV) {
   navItems.push(
     {
       pos: 4,
@@ -72,7 +72,7 @@ if(MODE_DEV){
     },
   );
 }
-// sort by position 
+// sort by position
 navItems.sort((a, b) => a.pos - b.pos);
 
 export const NavigationBar: React.FunctionComponent<INavbarProps> = (props) => {

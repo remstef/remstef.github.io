@@ -31,7 +31,6 @@ export function TeachingContent() {
     <ResponsiveCardsContainer>
       {/* BEGIN */}
       <CardElement title="Teaching Experience">
-
         {/* B: ... */}
         <hr className="mt-2 text-base-300" />
         <section id="theses" />
@@ -46,10 +45,8 @@ export function TeachingContent() {
         <hr className="text-base-300" />
         <section id="curriculaTUD" />
         {/* E: ... */}
-
       </CardElement>
       {/* END */}
-
     </ResponsiveCardsContainer>
   );
 }
