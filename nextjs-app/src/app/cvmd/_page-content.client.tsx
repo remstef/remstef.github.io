@@ -7,7 +7,7 @@ import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 import { useHash } from "@/hooks/hash-section";
 import Link from "next/link";
 import { ReactNode } from "react";
-import MarkdownFile from "./_markdown";
+import MarkdownFile from "../_markdown/_markdown-file";
 
 const Titlespan = ({ children }: Readonly<{ children: ReactNode }>) => {
   return <span className="font-fancy text-xl m-2" children={children} />;

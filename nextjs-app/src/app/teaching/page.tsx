@@ -1,8 +1,8 @@
 import {
-  seoUrlLocation,
-  theProtagonistsAtHandle,
-  theProtagonistsFullName,
-  theProtagonistsIdentifier,
+    seoUrlLocation,
+    theProtagonistsAtHandle,
+    theProtagonistsFullName,
+    theProtagonistsIdentifier,
 } from "@/lib/constants";
 import { getPathRelativeToAppFolder } from "@/lib/utils";
 import { Metadata } from "next";
@@ -10,7 +10,7 @@ import { TeachingContent } from "./_page-content";
 
 const currentpath: string = getPathRelativeToAppFolder(import.meta.url);
 const currentPageTitle: string = "Teaching";
-const currentPageDescription: string = `Teaching experience of Steffen Remus, Ph.D. (@remstef) an NLP, ML, AI & Software Engineer with a Dr.rer.nat. from the University of Hamburg.`;
+const currentPageDescription: string = `Teaching experience of Steffen Remus, Ph.D. (@remstef) an NLP, ML, AI & Software Engineer.`;
 
 // metadata overrides
 export const metadata: Metadata = {
