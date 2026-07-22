@@ -35,7 +35,7 @@ export const staticMarkdown: Array<MarkdownFile> = (
       const metadataobj =
         bindex >= 0 && bindex < eindex
           ? JSON.parse(content.slice(bindex + bmarker.length, eindex).trim())
-          : { title: key, pos: -1 };
+          : { title: key, pos: -1, sectionid: key };
 
       return {
         filename: fname,

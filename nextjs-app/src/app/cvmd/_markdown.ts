@@ -6,6 +6,7 @@ export default interface MarkdownFile {
   content: string;
   metadata?: {
     title?: string;
+    sectionid?: string;
     pos?: number;
   };
 }
