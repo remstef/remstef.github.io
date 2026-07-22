@@ -407,21 +407,31 @@ I provide dedicated supervision for student helpers, inters and academic theses,
               <div className="flex-1 justify-center content-center items-center text-center">
                 <Link
                   role="button"
-                  href="./pdf/cv-1page-nopic.pdf"
-                  className="w-64 px-2 py-2 mx-8 my-2 btn btn-primary text-primary-content shadow"
+                  href="./pdf/cv-resume-1page.pdf"
+                  className="w-64 px-2 py-2 mx-8 my-2 btn"
                   children={
-                    <span className="font-pixel text-primary-content">
-                      Short (1-page) PDF
+                    <span className="font-pixel">
+                      Short Resume PDF
                     </span>
                   }
                 />
                 <Link
                   role="button"
-                  href="./pdf/cv-full.pdf"
-                  className="w-64 px-2 py-2 mx-8 my-2 btn btn-secondary"
+                  href="./pdf/cv-resume-full.pdf"
+                  className="w-64 px-2 py-2 mx-8 my-2 btn"
                   children={
-                    <span className="font-pixel text-secondary-content">
-                      Full PDF
+                    <span className="font-pixel">
+                      Full Resume PDF
+                    </span>
+                  }
+                />
+                <Link
+                  role="button"
+                  href="./pdf/cv-tabular-1page.pdf"
+                  className="w-64 px-2 py-2 mx-8 my-2 btn"
+                  children={
+                    <span className="font-pixel">
+                      Short Tabular PDF
                     </span>
                   }
                 />
