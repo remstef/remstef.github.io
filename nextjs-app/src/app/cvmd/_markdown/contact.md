@@ -1,3 +1,9 @@
+<!-- BEGIN:METADATAJSON
+{
+  "title": "Contact",
+  "pos": 1
+}
+END:METADATAJSON -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 ##### Steffen Remus, Dr.rer.nat.

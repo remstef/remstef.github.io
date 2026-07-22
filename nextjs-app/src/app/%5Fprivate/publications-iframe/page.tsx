@@ -18,13 +18,11 @@ export default function Publications() {
   return (
     <ResponsiveCardsContainer>
       <CardElement>
-        <div className="font-cmubright">
-          <iframe
-            src="/biblio-chicago-li.html"
-            width="100%"
-            height="100%"
-          ></iframe>
-        </div>
+        <iframe
+          src="/biblio-chicago-li.html"
+          width="100%"
+          height="100%"
+        ></iframe>
       </CardElement>
     </ResponsiveCardsContainer>
   );

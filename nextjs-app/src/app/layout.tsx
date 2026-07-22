@@ -177,13 +177,13 @@ export default function RootLayout({
               // enableSystem={true}
             >
               <AlertsContainer />
-              <header className="bg-base-100 shadow-sm shrink-0 z-10 text-base-content">
+              <header className="bg-base-100 shadow-sm shrink-0 z-10 text-base-content font-header">
                 <NavigationBar />
               </header>
-              <main className="flex-1 overflow-y-auto m-1 relative text-base-content">
+              <main className="flex-1 overflow-y-auto m-1 relative text-base-content font-main-text">
                 <div className="flex justify-center p-4">{children}</div>
               </main>
-              <footer className="footer sm:footer-horizontal footer-center bg-base-100 shadow-sm text-center p-1 text-sm shrink-0 z-10 text-base-content">
+              <footer className="footer sm:footer-horizontal footer-center bg-base-100 shadow-sm text-center p-1 text-sm shrink-0 z-10 text-base-content font-footer">
                 <div className="flex items-center w-full">
                   <span className="flex-1 text-center">
                     © {new Date().getFullYear()}

@@ -1,3 +1,10 @@
+<!-- BEGIN:METADATAJSON
+{
+  "title": "Professional Summary",
+  "pos": 2
+}
+END:METADATAJSON -->
+
 A highly dedicated research engineer with over 10 years of professional hands-on experience in:
 
 - Developing machine learning algorithms and managing large-scale data engineering projects, with a primary focus on natural language processing.

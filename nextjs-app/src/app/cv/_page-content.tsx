@@ -11,7 +11,7 @@ import { ReactNode } from "react";
 const Titlespan = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
     // <span className="font-montserrat font-light text-xl" children={children} />
-    <span className="font-pixel text-xl" children={children} />
+    <span className="font-fancy text-xl" children={children} />
   );
 };
 const T = Titlespan;
@@ -21,7 +21,7 @@ const Contentdivjustified = ({
 }: Readonly<{ children: ReactNode }>) => {
   return (
     <div
-      className="font-cmubright text-justify wrap-break-word whitespace-normal [hyphens:auto]"
+      className="text-justify wrap-break-word whitespace-normal [hyphens:auto]"
       children={children}
     />
   );
@@ -35,7 +35,7 @@ export function CvContent() {
     <ResponsiveCardsContainer>
       {/* BEGIN */}
       <CardElement title="Curriculum Vitae">
-        {/* <h2 className="font-pixel text-xl text-center w-full mb-3">
+        {/* <h2 className="text-xl text-center w-full mb-3">
           Curriculum Vitae
         </h2> */}
 
@@ -391,14 +391,14 @@ I provide dedicated supervision for student helpers, inters and academic theses,
       {/* END */}
 
       {/* B: CV as PDF */}
-      <CardElement>
+      <CardElement className="font-fancy">
         <section id="downloadcv" />
         <CollapseElement
           openByDefault={false}
           titleBoxClassName=""
           show_open_close_icon={activeSection === "downloadcv"}
           title={
-            <span className="font-pixel text-xl text-center w-full mr-3">
+            <span className="text-xl text-center w-full mr-3">
               Download CV as PDF
             </span>
           }
@@ -407,23 +407,21 @@ I provide dedicated supervision for student helpers, inters and academic theses,
               <div className="flex-1 justify-center content-center items-center text-center">
                 <Link
                   role="button"
-                  href="./pdf/cv-1page-nopic.pdf"
-                  className="w-64 px-2 py-2 mx-8 my-2 btn btn-primary text-primary-content shadow"
-                  children={
-                    <span className="font-pixel text-primary-content">
-                      Short (1-page) PDF
-                    </span>
-                  }
+                  href="./pdf/cv-resume-1page.pdf"
+                  className="w-64 px-2 py-2 mx-8 my-2 btn"
+                  children={<span>Short Resume PDF</span>}
                 />
                 <Link
                   role="button"
-                  href="./pdf/cv-full.pdf"
-                  className="w-64 px-2 py-2 mx-8 my-2 btn btn-secondary"
-                  children={
-                    <span className="font-pixel text-secondary-content">
-                      Full PDF
-                    </span>
-                  }
+                  href="./pdf/cv-resume-full.pdf"
+                  className="w-64 px-2 py-2 mx-8 my-2 btn"
+                  children={<span>Full Resume PDF</span>}
+                />
+                <Link
+                  role="button"
+                  href="./pdf/cv-tabular-1page.pdf"
+                  className="w-64 px-2 py-2 mx-8 my-2 btn"
+                  children={<span>Short Tabular PDF</span>}
                 />
               </div>
             </div>
