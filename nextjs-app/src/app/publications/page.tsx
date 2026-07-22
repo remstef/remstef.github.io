@@ -48,9 +48,7 @@ export default function Publications() {
   return (
     <ResponsiveCardsContainer>
       <CardElement title="Publications">
-        <div className="font-cmubright">
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </div>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </CardElement>
     </ResponsiveCardsContainer>
   );

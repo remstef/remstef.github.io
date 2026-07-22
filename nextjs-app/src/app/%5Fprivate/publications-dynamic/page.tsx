@@ -19,11 +19,9 @@ export default function Publications() {
   return (
     <ResponsiveCardsContainer>
       <CardElement>
-        <div className="font-cmubright">
-          <HtmlLoader
-            filename={`${process.env.NEXT_PUBLIC_BASE_PATH}/biblio-chicago-li.html`}
-          />
-        </div>
+        <HtmlLoader
+          filename={`${process.env.NEXT_PUBLIC_BASE_PATH}/biblio-chicago-li.html`}
+        />
       </CardElement>
     </ResponsiveCardsContainer>
   );

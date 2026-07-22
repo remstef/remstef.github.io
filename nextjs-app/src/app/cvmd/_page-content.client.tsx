@@ -9,8 +9,7 @@ import { ReactNode } from "react";
 
 const Titlespan = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
-    // <span className="font-montserrat font-light text-xl" children={children} />
-    <span className="font-pixel text-xl" children={children} />
+    <span className="font-fancy text-xl" children={children} />
   );
 };
 const T = Titlespan;
@@ -48,7 +47,7 @@ export function CvContent({ md }: { md: MarkdownFile[] }) {
       </CardElement> */}
       {/* BEGIN */}
       <CardElement title="Curriculum Vitae">
-        {/* <h2 className="font-pixel text-xl text-center w-full mb-3">
+        {/* <h2 className="text-xl text-center w-full mb-3">
           Curriculum Vitae
         </h2> */}
         <hr className="mt-2 text-base-300" />

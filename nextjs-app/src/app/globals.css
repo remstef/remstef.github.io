@@ -22,10 +22,18 @@
 
   --font-pixel: var(--font-geist-pixel-line);
 
-  --font-sans:
+  --font-main-text: "CMU Bright";
+
+  --font-fancy: var(--font-geist-pixel-line);
+
+  --font-header: var(--font-montserrat);
+
+  --font-footer: var(--font-montserrat);
+
+  /* --font-sans:
     var(--font-montserrat), "CMU Bright", var(--font-roboto),
     var(--font-geist-sans), var(--font-robotoflex), ui-sans-serif, system-ui,
-    sans-serif;
+    sans-serif; */
   --font-serif: Times, var(--font-robotoserif), ui-serif, Georgia, serif;
   --font-mono:
     Monaco, var(--font-robotoslab), var(--font-geist-mono), "Courier New",

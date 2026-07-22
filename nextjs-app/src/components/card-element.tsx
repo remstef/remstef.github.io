@@ -4,16 +4,20 @@ import { twMerge } from "tailwind-merge";
 export default function CardElement({
   children,
   title,
-  cardClassName = "bg-base-100",
+  className,
+  classNameBody,
+  classNameTitle,
 }: Readonly<{
   children: React.ReactNode;
   title?: React.ReactNode;
-  cardClassName?: string | undefined | null | false | 0;
+  className?: string | undefined | null | false | 0;
+  classNameBody?: string | undefined | null | false | 0;
+  classNameTitle?: string | undefined | null | false | 0;
 }>) {
   return (
-    <div className={twMerge("card m-1 shadow-xl", cardClassName)}>
-      <div className="card-body">
-        {title ? <h2 className="card-title">{title}</h2> : null}
+    <div className={twMerge("card m-1 shadow-xl bg-base-100", className)}>
+      <div className={twMerge("card-body", classNameBody)}>
+        {title ? <h2 className={twMerge("card-title", classNameTitle)}>{title}</h2> : null}
         {children}
       </div>
     </div>
