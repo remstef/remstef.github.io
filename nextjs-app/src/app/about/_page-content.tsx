@@ -43,9 +43,7 @@ export default function AboutContent() {
         </div>
       </CardElement>
       <CardElement>
-        <div className="mb-1 w-full text-2xl text-center">
-          Summary
-        </div>
+        <div className="mb-1 w-full text-2xl text-center">Summary</div>
         <div className="px-8 mb-2 w-full flex justify-center">
           <div className="text-justify flex w-full lg:w-7/8 2xl:w-6/8 wrap-break-word whitespace-normal [hyphens:auto]">
             Passionate about software engineering, machine learning, natural
@@ -61,9 +59,7 @@ export default function AboutContent() {
       </CardElement>
       {/*  */}
       <CardElement>
-        <div className="w-full text-2xl mb-2 text-center">
-          Visibility
-        </div>
+        <div className="w-full text-2xl mb-2 text-center">Visibility</div>
         <div className="mx-1 sm:mx-8 text-3xl text-center flex flex-wrap items-center">
           <Link
             className="flex-1 mx-1 sm:mx-2"

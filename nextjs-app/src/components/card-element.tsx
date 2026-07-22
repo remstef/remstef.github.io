@@ -17,7 +17,9 @@ export default function CardElement({
   return (
     <div className={twMerge("card m-1 shadow-xl bg-base-100", className)}>
       <div className={twMerge("card-body", classNameBody)}>
-        {title ? <h2 className={twMerge("card-title", classNameTitle)}>{title}</h2> : null}
+        {title ? (
+          <h2 className={twMerge("card-title", classNameTitle)}>{title}</h2>
+        ) : null}
         {children}
       </div>
     </div>

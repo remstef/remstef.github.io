@@ -409,31 +409,19 @@ I provide dedicated supervision for student helpers, inters and academic theses,
                   role="button"
                   href="./pdf/cv-resume-1page.pdf"
                   className="w-64 px-2 py-2 mx-8 my-2 btn"
-                  children={
-                    <span>
-                      Short Resume PDF
-                    </span>
-                  }
+                  children={<span>Short Resume PDF</span>}
                 />
                 <Link
                   role="button"
                   href="./pdf/cv-resume-full.pdf"
                   className="w-64 px-2 py-2 mx-8 my-2 btn"
-                  children={
-                    <span>
-                      Full Resume PDF
-                    </span>
-                  }
+                  children={<span>Full Resume PDF</span>}
                 />
                 <Link
                   role="button"
                   href="./pdf/cv-tabular-1page.pdf"
                   className="w-64 px-2 py-2 mx-8 my-2 btn"
-                  children={
-                    <span>
-                      Short Tabular PDF
-                    </span>
-                  }
+                  children={<span>Short Tabular PDF</span>}
                 />
               </div>
             </div>

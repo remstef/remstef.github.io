@@ -8,9 +8,7 @@ import { useHash } from "@/hooks/hash-section";
 import { ReactNode } from "react";
 
 const Titlespan = ({ children }: Readonly<{ children: ReactNode }>) => {
-  return (
-    <span className="font-fancy text-xl" children={children} />
-  );
+  return <span className="font-fancy text-xl" children={children} />;
 };
 const T = Titlespan;
 
