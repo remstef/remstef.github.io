@@ -5,7 +5,7 @@ export default interface MarkdownFile {
   dirname: string;
   content: string;
   metadata?: {
-    title?: string,
-    pos?: number
+    title?: string;
+    pos?: number;
   };
 }

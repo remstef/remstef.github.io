@@ -37,7 +37,6 @@ export function CvContent({ md }: { md: MarkdownFile[] }) {
     <ResponsiveCardsContainer>
       {/* BEGIN */}
       <CardElement title="Curriculum Vitae">
-        
         {/* <h2 className="text-xl text-center w-full mb-3">
           Curriculum Vitae
         </h2> */}
