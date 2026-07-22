@@ -1,6 +1,7 @@
 <!-- BEGIN:METADATAJSON
 {
-  "title": "Contact",
+  "title": "Contact Information",
+  "sectionid": "contact",
   "pos": 1
 }
 END:METADATAJSON -->

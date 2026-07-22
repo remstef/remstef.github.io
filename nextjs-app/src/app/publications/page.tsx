@@ -14,7 +14,7 @@ import path from "path";
 
 const currentpath: string = getPathRelativeToAppFolder(import.meta.url);
 const currentPageTitle: string = "Publications";
-const currentPageDescription: string = `List of publications (bibliography) of Steffen Remus, Ph.D. (@remstef) an NLP, ML, AI & Software Engineer with a Dr.rer.nat. from the University of Hamburg.`;
+const currentPageDescription: string = `List of publications of Steffen Remus, Ph.D. (@remstef) an NLP, ML, AI & Software Engineer.`;
 
 // metadata overrides
 export const metadata: Metadata = {

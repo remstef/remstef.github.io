@@ -10,7 +10,7 @@ import CvContent from "./_page.server";
 
 const currentpath: string = getPathRelativeToAppFolder(import.meta.url);
 const currentPageTitle: string = "CV";
-const currentPageDescription: string = `CV (curriculum vitae, Lebenslauf) of Steffen Remus, Ph.D. (@remstef) an NLP, ML, AI & Software Engineer with a Dr.rer.nat. from the University of Hamburg.`;
+const currentPageDescription: string = `CV (curriculum vitae, Lebenslauf) of Steffen Remus, Ph.D. (@remstef) an NLP, ML, AI & Software Engineer.`;
 
 // metadata overrides
 export const metadata: Metadata = {
