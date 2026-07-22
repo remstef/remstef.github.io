@@ -6,9 +6,10 @@ import { MarkdownConfiguredExplicit } from "@/components/markdown-configured";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 import { useHash } from "@/hooks/hash-section";
 import { ReactNode } from "react";
+import MarkdownFile from "./_markdown";
 
 const Titlespan = ({ children }: Readonly<{ children: ReactNode }>) => {
-  return <span className="font-fancy text-xl" children={children} />;
+  return <span className="font-fancy text-xl m-2" children={children} />;
 };
 const T = Titlespan;
 
@@ -17,7 +18,7 @@ const Contentdivjustified = ({
 }: Readonly<{ children: ReactNode }>) => {
   return (
     <div
-      className="font-cmubright text-justify wrap-break-word whitespace-normal [hyphens:auto]"
+      className="my-2 pb-2 text-justify wrap-break-word whitespace-normal [hyphens:auto]"
       children={children}
     />
   );
@@ -29,34 +30,28 @@ const CJ = Contentdivjustified;
 //   { encoding: "utf8" },
 // );
 
-export interface MarkdownFile {
-  fname: string;
-  fnamefull: string;
-  content: string;
-}
-
 export function CvContent({ md }: { md: MarkdownFile[] }) {
   const [activeSection, setActiveSection] = useHash("");
 
   return (
     <ResponsiveCardsContainer>
-      {/* <CardElement>
-        {JSON.stringify(md, null, 2)}
-      </CardElement> */}
       {/* BEGIN */}
       <CardElement title="Curriculum Vitae">
+        
         {/* <h2 className="text-xl text-center w-full mb-3">
           Curriculum Vitae
         </h2> */}
+
         <hr className="mt-2 text-base-300" />
         {md.map((obj) => (
-          <div key={obj.fname}>
-            <section id={`${obj.fname}`} />
+          <div key={obj.filename}>
+            <section id={`${obj.key}`} />
+            {/* <pre>{JSON.stringify(obj, null, 2)}</pre> */}
             <CollapseElement
-              openByDefault={true}
+              openByDefault={activeSection === obj.key}
               show_open_close_icon={true}
               titleBoxClassName=""
-              title={<T>{`${obj.fname}`}</T>}
+              title={<T>{`${obj.metadata?.title}`}</T>}
               children={
                 <CJ>
                   <MarkdownConfiguredExplicit>

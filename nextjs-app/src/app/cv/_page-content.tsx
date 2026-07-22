@@ -21,7 +21,7 @@ const Contentdivjustified = ({
 }: Readonly<{ children: ReactNode }>) => {
   return (
     <div
-      className="font-cmubright text-justify wrap-break-word whitespace-normal [hyphens:auto]"
+      className="text-justify wrap-break-word whitespace-normal [hyphens:auto]"
       children={children}
     />
   );
