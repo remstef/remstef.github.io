@@ -18,6 +18,7 @@ import {
 } from "@/context/shared-state";
 import { useUserAgent } from "@/context/user-agent-detector";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 export function X() {
@@ -32,6 +33,7 @@ export function X() {
 
 export default function TestAndDebugContent() {
   // [userAgent, detectedAsFirefoxMobile] = useUserAgent();
+  const pathname = usePathname();
   const { userAgent } = useUserAgent();
   const { listOfActiveAlerts, showAlert, removeAlert } = useAlerts();
   const sharedState = useSharedStateContext();
@@ -56,6 +58,7 @@ export default function TestAndDebugContent() {
 
   return (
     <ResponsiveCardsContainer>
+      <CardElement>{pathname}</CardElement>
       <CardElement title={<span>Bar</span>}>
         <MarkdownConfiguredExplicit>
           {"sharedState = " + JSON.stringify(sharedState, null, 2)}

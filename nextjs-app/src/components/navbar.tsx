@@ -32,16 +32,6 @@ const navItems = [
     label: "CV",
     hrefs: ["/cv"],
   },
-  // {
-  //   id: "test",
-  //   label: "Test & Debug",
-  //   href: "/private/testanddebug",
-  // },
-  // {
-  //   id: "home",
-  //   label: "Home",
-  //   href: "/private/home",
-  // },
 ];
 
 if (MODE_DEV) {
@@ -65,10 +55,16 @@ if (MODE_DEV) {
       hrefs: ["/scientific"],
     },
     {
-      pos: 11,
-      id: "cvmd",
-      label: "CV(md)",
-      hrefs: ["/cvmd"],
+      pos: 7,
+      id: "test",
+      label: "Private Test & Debug",
+      hrefs: ["/_private/testanddebug"],
+    },
+    {
+      pos: 8,
+      id: "home",
+      label: "Private",
+      hrefs: ["/_private"],
     },
   );
 }

@@ -10,7 +10,7 @@ import { ReactNode } from "react";
 import MarkdownFile from "../_markdown-utils/_markdown-file";
 
 const Titlespan = ({ children }: Readonly<{ children: ReactNode }>) => {
-  return <span className="font-fancy text-xl m-2" children={children} />;
+  return <span className="font-fancy text-xl my-2" children={children} />;
 };
 const T = Titlespan;
 
