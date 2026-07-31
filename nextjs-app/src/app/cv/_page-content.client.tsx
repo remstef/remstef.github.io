@@ -57,11 +57,11 @@ export function CvContent({ md }: { md: MarkdownFile[] }) {
       {/* END */}
       {/* B: CV as PDF */}
       <CardElement className="font-fancy">
-        <section id="downloadcv" />
+        <section id="download" />
         <CollapseElement
-          openByDefault={false}
           titleBoxClassName=""
-          show_open_close_icon={activeSection === "downloadcv"}
+          openByDefault={activeSection === "download"}
+          show_open_close_icon={false}
           title={
             <span className="text-xl text-center w-full mr-3">
               Download CV as PDF
