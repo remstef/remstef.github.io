@@ -6,56 +6,93 @@
 }
 END:METADATAJSON -->
 
-###### Core Skills & Expertise
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-**Machine Learning & AI**
+##### Core Skills & Expertise
 
-- NLP, Deep Learning, GenAI, Information Extraction, Information Retrieval, LLMs, RAG
+###### Machine Learning & AI:
 
-**Software Engineering**
+- NLP
+- ML
+- GenAI
+- Information Extraction
+- Information Retrieval
+- LLMs
+- RAG
+- Fine Tuning
 
-- CI/CD, TDD, DevOps, Containerization, Microservices, Webservices
+###### Software Engineering:
 
-**Data Engineering**
+- CI/CD
+- TDD
+- Containerization
+- Webservices
+- Orchestration
+- Web Front-End Development
 
-- SQL, NoSQL, Vector Databases, MapReduce, Cluster Management, DFS, ETL
+###### Data Engineering:
 
-**Management & Leadership**
+- SQL
+- NoSQL
+- Vector Databases
+- MapReduce
+- Cluster Management
+- DFS
+- ETL
 
-- Research Collaborations, Teaching, Supervision, Project Management, SCRUM, Workshop Organization
+###### Management & Leadership:
 
-**Problem-Solving & Analysis**
+- Research Collaborations
+- Teaching
+- Supervision
+- Project Management
+- SCRUM
+- Workshop Organization
 
-- Critical Thinking, Algorithmic Design
+###### Problem-Solving & Analysis:
 
----
+- Critical Thinking
+- Algorithmic Design
 
-###### Technical Skills
+##### Technical Skills
 
-**Programming Languages**
+###### Programming Languages:
 
-- Python, Java, JavaScript, R, LaTeX, Scala, C#
+- Python
+- Java
+- JavaScript
+- TypeScript
+- R
+- LaTeX
+- Scala
+- C#
+- HTML/CSS
+- React / Next.js
 
-**Data & ML Frameworks**
+###### Cloud & DevOps:
 
-- PyTorch, Spark, Hadoop, Scikit-Learn
+- AWS
+- GCP
+- Azure
+- Docker
+- Linux
+- SSH
+- CSSH
+- GH Actions
+- Ansible
 
-**Databases**
+##### Languages & Interests
 
-- PostgreSQL, PgVector, Milvus, ChromaDB, Elasticsearch, Redis, ...
+###### Languages:
 
-**Cloud & DevOps**
+- German (native)
+- English (fluent)
+- Spanish (basic)
+- French (basic)
 
-- AWS, GCP, Azure, Docker, Kubernetes, Linux, SSH
+###### Interests:
 
----
-
-###### Languages & Interests
-
-**Languages**
-
-- German (native), English (fluent), Spanish & French (basic)
-
-**Interests**
-
-- Running, Kitesurfing, Road Biking, Technology, Problem-Solving
+- <i className="fa-solid fa-person-running"></i> Running
+- <i className="fa fa-water"></i> Kitesurfing
+- <i className="fa fa-laptop-code"></i> Technology
+- <i className="fa fa-puzzle-piece"></i> Problem-Solving
