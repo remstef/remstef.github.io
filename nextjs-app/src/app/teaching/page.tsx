@@ -5,7 +5,9 @@ import {
   theProtagonistsIdentifier,
 } from "@/lib/constants";
 import { getPathRelativeToAppFolder } from "@/lib/utils";
+import { readFile } from "fs/promises";
 import { Metadata } from "next";
+import path from "path";
 import { TeachingContent } from "./_page-content";
 
 const currentpath: string = getPathRelativeToAppFolder(import.meta.url);
@@ -35,6 +37,23 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Strips <html> and <body> tags from HTML content
+ */
+function stripHtmlBodyTags(html: string): string {
+  let cleaned = html.replace(/<html[^>]*>/gi, "").replace(/<\/html>/gi, "");
+  cleaned = cleaned.replace(/<head[^>]*>/gi, "").replace(/<\/head>/gi, "");
+  cleaned = cleaned.replace(/<body[^>]*>/gi, "").replace(/<\/body>/gi, "");
+  return cleaned.trim();
+}
+
+const htmlRaw = await readFile(
+  path.join(process.cwd(), "/public/biblio-chicago.html"),
+  { encoding: "utf8" },
+);
+
+const supervisionBibHtml = stripHtmlBodyTags(htmlRaw);
+
 export default function CV() {
-  return <TeachingContent />;
+  return <TeachingContent supervisionBibHtml={supervisionBibHtml} />;
 }

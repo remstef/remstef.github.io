@@ -82,3 +82,13 @@
 .alert-fade-out {
   animation: fadeOut 0.5s ease-out forwards;
 }
+
+.biblio li {
+  /* styles for all li inside divs with class="biblio" */
+  margin-bottom: 10px;
+  margin-left: 1em;
+}
+
+.biblio li p:first-child {
+  text-indent: -1em;
+}
