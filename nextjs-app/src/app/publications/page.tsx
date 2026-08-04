@@ -1,4 +1,3 @@
-import "@/../public/biblio-chicago.css";
 import CardElement from "@/components/card-element";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 import {
@@ -39,16 +38,28 @@ export const metadata: Metadata = {
   },
 };
 
-const html = await readFile(
-  path.join(process.cwd(), "/public/biblio-chicago-li.html"),
+/**
+ * Strips <html> and <body> tags from HTML content
+ */
+function stripHtmlBodyTags(html: string): string {
+  let cleaned = html.replace(/<html[^>]*>/gi, "").replace(/<\/html>/gi, "");
+  cleaned = cleaned.replace(/<head[^>]*>/gi, "").replace(/<\/head>/gi, "");
+  cleaned = cleaned.replace(/<body[^>]*>/gi, "").replace(/<\/body>/gi, "");
+  return cleaned.trim();
+}
+
+const htmlRaw = await readFile(
+  path.join(process.cwd(), "/public/biblio-chicago.html"),
   { encoding: "utf8" },
 );
+
+const html = stripHtmlBodyTags(htmlRaw);
 
 export default function Publications() {
   return (
     <ResponsiveCardsContainer>
       <CardElement title="Publications">
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <div className="biblio" dangerouslySetInnerHTML={{ __html: html }} />
       </CardElement>
     </ResponsiveCardsContainer>
   );

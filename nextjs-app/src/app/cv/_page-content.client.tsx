@@ -1,30 +1,12 @@
 "use client";
 
 import CardElement from "@/components/card-element";
-import { CollapseElement } from "@/components/collapse-element";
+import { CJ, CollapseElement, T } from "@/components/collapse-element";
 import { MarkdownConfiguredExplicit } from "@/components/markdown-configured";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 import { useHash } from "@/hooks/hash-section";
 import Link from "next/link";
-import { ReactNode } from "react";
 import MarkdownFile from "../_markdown-utils/_markdown-file";
-
-const Titlespan = ({ children }: Readonly<{ children: ReactNode }>) => {
-  return <span className="font-fancy text-xl my-2" children={children} />;
-};
-const T = Titlespan;
-
-const Contentdivjustified = ({
-  children,
-}: Readonly<{ children: ReactNode }>) => {
-  return (
-    <div
-      className="my-2 pb-2 text-justify wrap-break-word whitespace-normal [hyphens:auto]"
-      children={children}
-    />
-  );
-};
-const CJ = Contentdivjustified;
 
 export function CvContent({ md }: { md: MarkdownFile[] }) {
   const [activeSection, setActiveSection] = useHash("");
