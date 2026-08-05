@@ -10,7 +10,7 @@ import { ProfessionsContent } from "./_page-content";
 
 const currentpath: string = getPathRelativeToAppFolder(import.meta.url);
 const currentPageTitle: string = "Professional Experience";
-const currentPageDescription: string = `Professional experience of Steffen Remus, Ph.D. (@remstef) an NLP, ML, AI & Software Engineer.`;
+const currentPageDescription: string = `Professional experience | Steffen Remus, Ph.D. (@remstef); NLP, ML, AI & Software Engineer.`;
 
 // metadata overrides
 export const metadata: Metadata = {
