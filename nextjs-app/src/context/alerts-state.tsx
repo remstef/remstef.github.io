@@ -31,10 +31,42 @@ export function AlertsProvider({ children }: { children: React.ReactNode }) {
     Array<alert>
   >([]);
 
+  // Add an alert
+  const showAlert = React.useCallback(
+    (
+      type: string = "info",
+      message: React.ReactNode,
+      autoDismissSeconds: number = 8,
+    ) => {
+      const id = Date.now() + Math.random();
+      setListOfActiveAlerts((prev) => [
+        ...prev,
+        { id, type, message, isExiting: false },
+      ]);
+      // Auto-dismiss after X seconds:
+      setTimeout(() => removeAlert(id), autoDismissSeconds * 1000);
+    },
+    [],
+  );
+
+  // Remove an alert (triggers fade-out animation first)
+  const removeAlert = React.useCallback(
+    (id: number) => {
+      setListOfActiveAlerts((prev) =>
+        prev.map((a) => (a.id === id ? { ...a, isExiting: true } : a)),
+      );
+      // Wait for fade-out animation to complete before removing
+      setTimeout(() => {
+        setListOfActiveAlerts((prev) => prev.filter((a) => a.id !== id));
+      }, 500);
+    },
+    [],
+  );
+
   React.useEffect(() => {
     if (constructionAlert.active) {
       /*  make an alert appear after 3 seconds */
-      setTimeout(
+      const timeoutId = setTimeout(
         () =>
           showAlert(
             constructionAlert.typeOfAlert,
@@ -43,34 +75,9 @@ export function AlertsProvider({ children }: { children: React.ReactNode }) {
           ),
         3000,
       );
+      return () => clearTimeout(timeoutId);
     }
-  }, []);
-
-  // Remove an alert (triggers fade-out animation first)
-  function removeAlert(id: number) {
-    setListOfActiveAlerts((prev) =>
-      prev.map((a) => (a.id === id ? { ...a, isExiting: true } : a)),
-    );
-    // Wait for fade-out animation to complete before removing
-    setTimeout(() => {
-      setListOfActiveAlerts((prev) => prev.filter((a) => a.id !== id));
-    }, 500);
-  }
-
-  // Add an alert
-  const showAlert = (
-    type: string = "info",
-    message: React.ReactNode,
-    autoDismissSeconds: number = 8,
-  ) => {
-    const id = Date.now() + Math.random();
-    setListOfActiveAlerts((prev) => [
-      ...prev,
-      { id, type, message, isExiting: false },
-    ]);
-    // Auto-dismiss after X seconds:
-    setTimeout(() => removeAlert(id), autoDismissSeconds * 1000);
-  };
+  }, [showAlert]);
 
   return (
     <AlertContext.Provider

@@ -15,7 +15,7 @@ export const getMarkdownAsObjectsFromDir = async (__subDirname: string) => {
     await Promise.all(
       (
         await readdir(__subDirname)
-      ).map(async (fname) => {
+      ).filter(fname => fname.endsWith(".md")).map(async (fname) => {
         const absfname = path.join(__subDirname, fname);
         const content = await readFile(absfname, { encoding: "utf8" });
         // filename without file suffix
