@@ -119,7 +119,7 @@ export const seoUrlLocation: Readonly<string> = `${process.env.NEXT_PUBLIC_WEBSI
 
 export const seoTitle: Readonly<string> = `${theProtagonistsFullName} (${theProtagonistsAtHandle}) - NLP, ML, AI & Software Engineer`;
 
-export const seoMetaDescriptionDefault: Readonly<string> = `This website is about Steffen Remus, Ph.D. (@remstef) is a professional NLP, ML, AI & Software Engineer and holds a Dr.rer.nat. from the University of Hamburg.`;
+export const seoMetaDescriptionDefault: Readonly<string> = `Steffen Remus, Ph.D. (@remstef); Professional NLP, ML, AI & Software Engineer.`;
 
 export const seoKeywordList: Readonly<Array<string>> = [
   "dr. rer. nat. steffen remus",

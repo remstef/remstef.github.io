@@ -6,11 +6,11 @@ import {
 } from "@/lib/constants";
 import { getPathRelativeToAppFolder } from "@/lib/utils";
 import { Metadata } from "next";
-import CvContent from "./_page.server";
+import CvPage from "./_page.server";
 
 const currentpath: string = getPathRelativeToAppFolder(import.meta.url);
 const currentPageTitle: string = "CV";
-const currentPageDescription: string = `CV (curriculum vitae, Lebenslauf) of Steffen Remus, Ph.D. (@remstef) an NLP, ML, AI & Software Engineer.`;
+const currentPageDescription: string = `CV (curriculum vitae, Lebenslauf) | Steffen Remus, Ph.D. (@remstef); NLP, ML, AI & Software Engineer.`;
 
 // metadata overrides
 export const metadata: Metadata = {
@@ -36,5 +36,5 @@ export const metadata: Metadata = {
 };
 
 export default function CV() {
-  return <CvContent />;
+  return <CvPage />;
 }

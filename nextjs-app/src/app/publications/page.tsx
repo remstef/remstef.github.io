@@ -13,7 +13,7 @@ import path from "path";
 
 const currentpath: string = getPathRelativeToAppFolder(import.meta.url);
 const currentPageTitle: string = "Publications";
-const currentPageDescription: string = `List of publications of Steffen Remus, Ph.D. (@remstef) an NLP, ML, AI & Software Engineer.`;
+const currentPageDescription: string = `List of publications | Steffen Remus, Ph.D. (@remstef); NLP, ML, AI & Software Engineer.`;
 
 // metadata overrides
 export const metadata: Metadata = {

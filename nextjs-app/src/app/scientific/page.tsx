@@ -10,7 +10,7 @@ import { ScientificContent } from "./_page-content";
 
 const currentpath: string = getPathRelativeToAppFolder(import.meta.url);
 const currentPageTitle: string = "Scientific Experience";
-const currentPageDescription: string = `Scientific experience of Steffen Remus, Ph.D. (@remstef) an NLP, ML, AI & Software Engineer.`;
+const currentPageDescription: string = `Scientific experience | Steffen Remus, Ph.D. (@remstef); NLP, ML, AI & Software Engineer.`;
 
 // metadata overrides
 export const metadata: Metadata = {
