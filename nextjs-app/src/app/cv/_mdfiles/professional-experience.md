@@ -42,7 +42,7 @@ _Clients include:_
 
 <details>
 <summary>
-  <b>10/2016 - 06/2023</b> <i>Research Scientist @ HITeC e.V., Hamburg, Germany & Language Technology Group, University of Hamburg, Hamburg, Germany
+  <b>10/2016 - 06/2023</b> <i>Research Scientist @ HITeC e.V., Hamburg, Germany & Language Technology Group, University of Hamburg, Hamburg, Germany</i>
 </summary>
 
 _Outline:_ Conducted original research under the guidance of Prof. Dr. Chris Biemann, participated in project-related events, offered consultancy services for industry partners, developed and delivered courses in machine learning, NLP, and software engineering, supervised theses, student helpers and interns, maintained technical infrastructure and ensured its uptime.
@@ -59,9 +59,20 @@ _Key Achievements:_
 
 <details>
 <summary>
-  <b>04/2013 - 06/2016</b> <i>Research Scientist, Stipend Holder in the Research Graduate School: "Knowledge Discovery in Scientific Literature"</i>
+  <b>04/2013 - 06/2016</b> <i>Research Scientist, Stipend Holder in the Research Graduate School: "Knowledge Discovery in Scientific Literature" @ Technical University of Darmstadt, Germany & Deutsches Institut für Pädagogische Forschung (DIPF), Frankfurt (Main), Germany</i>
 </summary>
-...
+
+_Outline:_ Conducted original research under the supervision of Prof. Dr. Chris Biemann in a team of 5 core research members and 5 research principles in the framework of the Knowledge Discovery in Scientific Literature (KDSL) graduate school.
+
+_Key Responsibilities:_
+
+- Project Crawling \& Semantic Structuring
+
+_Key Achievements:_
+
+- (Co-)authored \& published 6 peer-reviewed papers.
+- Organized a one-day research workshop on IBM Watson.
+
 </details>
 
 <details>
