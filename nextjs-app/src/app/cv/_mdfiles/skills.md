@@ -135,9 +135,9 @@ END:METADATAJSON -->
 <b className="ml-2">Interests</b>
 </summary>
 
-<i className="fa-solid fa-person-running"></i> Running  
-<i className="fa fa-water"></i> Kitesurfing  
-<i className="fa fa-laptop-code"></i> Technology  
-<i className="fa fa-puzzle-piece"></i> Problem-Solving
+<i className="ml-5 fa-solid fa-person-running"></i> Running  
+<i className="ml-5 fa fa-water"></i> Kitesurfing  
+<i className="ml-5 fa fa-laptop-code"></i> Technology  
+<i className="ml-5 fa fa-puzzle-piece"></i> Problem-Solving
 
 </details>

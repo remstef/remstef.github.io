@@ -6,10 +6,44 @@
 }
 END:METADATAJSON -->
 
-###### Language Technology Group & HITeC e.V., University of Hamburg, Germany
+<details className="ml-5">
+<summary>
+  <b className="ml-2">07/2023 - now</b> <i>Postdoctoral Research Scientist @ Language Technology Group, University of Hamburg, Hamburg, Germany</i>
+</summary>
 
-- **Postdoctoral Research Scientist** — since 07/2023
-- **Pre-doctoral Research Scientist** — 10/2016 to 06/2023
+_Outline:_ Conducted original research under the guidance of Prof. Dr. Chris Biemann, participated in project-related events, developed and delivered courses in machine learning, NLP, and research software engineering, supervised theses, student helpers and interns, maintained technical infrastructure and ensured its uptime. Continuation of previous activities in the Language Technology Group.
+
+_Key Responsibilities:_
+Teaching, Supervision, Research Projects &amp; Server infrastructure maintenance: managing a Hadoop cluster that supports a distributed Elasticsearch cluster, two GPU servers, and several web servers; hosting demo applications as Docker containers.
+
+_Key Achievements:_
+
+- Organized four research workshops and served 50+ times as a reviewer
+- Gained leadership qualifications during 19 teaching activities; supervised over 30 theses, interns, and student helpers
+- Contributed to over 30 small to medium sized software projects
+- (Co-)authored over 30 peer-reviewed publications
+
+</details>
+
+<details className="ml-5">
+<summary>
+  <b className="ml-2">06/2016 - 10/2024</b> <i>Consulting / Service</i>
+</summary>
+
+_Outline:_ Research Consultant (Ad hoc engagements). Provided project-based consultancy services, specializing in NLP research and offering expert guidance on various related topics.
+
+_Clients include:_
+
+- Glanos GmbH (Munich),
+- T-Systems (Darmstadt),
+- Merck KGaA (Darmstadt)
+
+</details>
+
+<details className="ml-5">
+<summary>
+  <b className="ml-2">10/2016 - 06/2023</b> <i>Research Scientist @ HITeC e.V., Hamburg, Germany & Language Technology Group, University of Hamburg, Hamburg, Germany
+</summary>
 
 _Outline:_ Conducted original research under the guidance of Prof. Dr. Chris Biemann, participated in project-related events, offered consultancy services for industry partners, developed and delivered courses in machine learning, NLP, and software engineering, supervised theses, student helpers and interns, maintained technical infrastructure and ensured its uptime.
 
@@ -19,66 +53,85 @@ Teaching, Supervision, Research Projects &amp; Server infrastructure maintenance
 _Key Achievements:_
 
 - Successfully defended Ph.D. in June, 2023
-- Organized four research workshops and served 50+ times as a reviewer
-- Gained leadership qualifications during 19 teaching activities; supervised over 30 theses, interns, and student helpers
-- Contributed to over 30 small to medium sized software projects
-- (Co-)authored over 30 peer-reviewed publications
+- Organized four research workshops and served as a reviewer
 
----
+</details>
 
-###### Freelance Consulting Services (Occasional & Part-Time)
+<details className="ml-5">
+<summary>
+  <b className="ml-2">04/2013 - 06/2016</b> <i>Research Scientist, Stipend Holder in the Research Graduate School: "Knowledge Discovery in Scientific Literature"</i>
+</summary>
+...
+</details>
 
-- **Research Consultant (Ad hoc engagements)** — occasional since 2016
+<details className="ml-5">
+<summary>
+  <b className="ml-2">05/2015 - 11/2015</b> <i>Research Intern @ IBM, Zurich Research Lab, Rüschlikon, Switzerland</i>
+</summary>
 
-_Outline:_ Provided project-based freelance consultancy services, specializing in NLP research
-and offering expert guidance on various related topics.
-
-_Clients include:_ Glanos GmbH (Munich), T-Systems (Darmstadt), Merck KGaA (Darmstadt)
-
----
-
-###### International Business Machines (IBM)
-
-- **Research Intern, Zurich Research Lab, Rüschlikon, Switzerland** — 05/2015 to 11/2015
-
-_Supervisor:_ Dr. Abdel Labbi & Dr. Alfio Gliozzo
-
-_Outline:_ Collaborated closely with Angela Fahrni on supervised relation extraction and event detection, utilizing distributional features.
+_Outline:_ Worked on supervised relation extraction and event detection, utilizing distributional features.
 
 _Key Responsibilities:_  
 Implemented a system for named entity recognition, cross-sentence relation extraction, and event detection using distributional features &amp; Conducted (small) internal crowdsourcing task for relation annotation.
 
-&nbsp;
+</details>
 
-- **Research Intern, Thomas J. Watson Research Center, Yorktown Heights, NY, USA** — 07/2014 to 10/2014
-
-_Supervisor:_ Dr. Alfio Gliozzo
+<details className="ml-5">
+<summary>
+  <b className="ml-2">07/2014 - 10/2014</b> <i>Research Intern @ IBM, Thomas J. Watson Research Center, Yorktown Heights, NY, USA</i>
+</summary>
 
 _Outline:_ Implemented, tested, and evaluated distributional semantic methods to enhance knowledge graphs for open and closed domains.
 
----
+</details>
 
-###### Technical University of Darmstadt & Deutsches Institut für Pädagogische Forschung (DIPF)
+<details className="ml-5">
+<summary>
+  <b className="ml-2">10/2012 - 04/2013</b> <i>Software Engineer (full-time) @ ConWeaver GmbH, Darmstadt, Germany</i>
+</summary>
 
-- **Researcher, KDSL Graduate School Program** — 04/2013 to 06/2016
+_Outline:_ Worked on ETL Pipelines for knowledge graph induction
 
-_Key Responsibilities:_ Project crawling & semantic structuring.  
-_Key Achievements:_
-Co-authored 6 peer-reviewed papers; organized a one-day IBM Watson workshop.
+</details>
 
----
+<details className="ml-5">
+<summary>
+  <b className="ml-2">11/2010 - 09/2012</b> <i>Software Engineer (part-time) @ ConWeaver GmbH, Darmstadt, Germany</i>
+</summary>
 
-###### ConWeaver GmbH, Darmstadt, Germany
+_Outline:_ Worked on ETL Pipelines for knowledge graph induction
 
-- **Software Engineer (full time)** — 10/2012 to 05/2013
-- **Software Engineer (part-time student assistant)** — 2009 to 09/2012
+</details>
 
----
+<details className="ml-5">
+<summary>
+  <b className="ml-2">10/2009 - 03/2012</b> <i>Tutor @ Technical University of Darmstadt, Darmstadt, Germany</i>
+</summary>
 
-###### Other roles:
+_Outline:_ Tutoring for General Introduction to Computer Science 1+2
 
-- Tutoring & teaching positions at Technical University of Darmstadt (2009–2012)
-- Systems Administrator at JDS-Sommer GmbH (2007–2008)
-- Part-time job at Greater Union Filmpalast (2002–2006)
-- (EWSD) Systems Specialist at Siemens AG (2000–2003)
-- Apprenticeship for Information and Telecommunications Systems Electronics Technician / Ausbildung als Informations- und Telekommunikationssystem Elektroniker (1997–2000)
+</details>
+
+<details className="ml-5">
+<summary>
+  <b className="ml-2">04/2007 - 08/2008</b> <i>Student Helper @ JDS-Sommer GmbH, Frankfurt (Main), Germany</i>
+</summary>
+
+_Outline:_ Technical Server Administration
+
+</details>
+
+<details className="ml-5">
+<summary>
+  <b className="ml-2">11/2002 - 04/2006</b> <i>Minijob @ Greater Union Filmpalast (Cinestar Metropolis), Frankfurt (Main), Germany</i>
+</summary>
+</details>
+
+<details className="ml-5">
+<summary>
+  <b className="ml-2">07/2000 - 08/2003</b> <i>Systems Specialist, EWSD Systems @ Siemens AG, Frankfurt (Main), Germany</i>
+</summary>
+
+_Outline:_ Field Service Technician for large scale telephone systems (EWSD).
+
+</details>

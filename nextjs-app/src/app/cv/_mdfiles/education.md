@@ -6,17 +6,24 @@
 }
 END:METADATAJSON -->
 
-**Dr.rer.nat. (Ph.D.) in Computer Science** — University of Hamburg, Germany, 2023  
- Thesis: “Domain Defining Context: On Domain-Dependent Corpus Expansion and Contextualized Semantic Structuring” — Advisor: Prof. Dr. Chris Biemann
+**06/2023:** Ph.D. (Dr.rer.nat.) in Computer Science (Language Technology) @ University of Hamburg, Hamburg, Germany  
+ _Thesis: "Domain Defining Context: On Domain-Dependent Corpus Expansion and Contextualized Semantic Structuring"_
 
-**M.Sc. in Computer Science (Linguistics minor)** — Technical University of Darmstadt, Germany, 2012  
- Thesis: “Automatically Identifying Lexical Chains by Means of Statistical Methods – A Knowledge-Free Approach” — Nominated for best thesis award (GSCL) — Advisor: Prof. Dr. Chris Biemann
+**10/2012** M.Sc. in Computer Science @ Technical University of Darmstadt, Darmstadt, Germany  
+ _Thesis: "Automatically Identifying Lexical Chains by Means of Statistical Methods -- A Knowledge-Free Approach"_
 
-**B.Sc. in Computer Science** — Technical University of Darmstadt, Germany, 2009  
- Thesis: “Next-Gen IDE – Evaluation Of Statistical Approaches For Intelligent Code Completion” — Advisor: Dr. Marcel Bruch
+**10/2009** B.Sc. in Computer Science @ Technical University of Darmstadt, Darmstadt, Germany
+_Thesis: "Next-Gen IDE – Evaluation Of Statistical Approaches For Intelligent Code Completion"_
 
-**State Certified Engineer (Techniker)** in Computer Systems & Networking — Werner von Siemens Professional School, Frankfurt, 2005
+<details>
+<summary>
+more ...
+</summary>
 
-**State Certified Apprenticeship** in Information and Telecommunications Systems Electronics Technician — Siemens AG, Frankfurt, 2000
+**07/2005** State Certified Engineer for Computer & Networking Systems @ Werner von Siemens Professional School, Frankfurt am Main, Germany
 
-**High School** — Brüder Grimm Realschule, Frankfurt, 1997
+**06/2000** State Certified Apprenticeship, Information and Telecommunications Systems Electronics Technician @ Siemens AG, Frankfurt (Main)
+
+**07/1997** High School, Brüder-Grimm-Realschule, Frankfurt (Main)
+
+</details>
