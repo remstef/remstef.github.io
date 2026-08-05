@@ -104,7 +104,7 @@ export default function TestAndDebugContent() {
       </CardElement>
       <CardElement title={<span>BarBar</span>}>
         <MarkdownLoader
-          filename={`${process.env.NEXT_PUBLIC_BASE_PATH}/somemarkdown.md`}
+          filename={`${process.env.NEXT_PUBLIC_BASE_PATH}/humans.txt`}
         />
       </CardElement>
       <CardElement title={<span>FooBarBar</span>}>
