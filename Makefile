@@ -29,7 +29,17 @@ start: build
 # cd nextjs-app && pnpm run start
 	cd nextjs-app && npx serve@latest out
 
+.PHONY: update
+update:
+	@echo Updating packages
+	cd nextjs-app && pnpm up --latest && pnpm install
+
 .PHONY: install
 install:
 	@echo Installing packages
 	cd nextjs-app && pnpm install
+
+.PHONY: cleancache
+cleancache:
+	@echo Cleaning cached files and directories
+	rm -rf nextjs-app/out && rm -rf nextjs-app/.next 

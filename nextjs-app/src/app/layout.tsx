@@ -21,7 +21,7 @@ import {
 import { themeNames } from "@/lib/daisyui-theme-names";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import { GoogleTagManager } from "@next/third-parties/google";
+// import { GoogleTagManager } from "@next/third-parties/google";
 import { GeistMono } from "geist/font/mono";
 import {
   GeistPixelCircle,
@@ -164,7 +164,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <GoogleTagManager gtmId="G-1KHTNS4NY2" />
+      {/* <GoogleTagManager gtmId="..." /> /* enter tag provided by analytics.google.com */}
       <AlertsProvider>
         <UserAgentProvider>
           <body className="flex flex-col h-dvh overflow-hidden bg-base-200 text-base-content">

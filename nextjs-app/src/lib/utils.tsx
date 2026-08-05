@@ -1,4 +1,3 @@
-
 // Close all summary-detail dropdowns (called if clicked anywhere, but not on an open details summary dropdown)
 export function forceCloseAllDetailSummaryDropdowns(
   e?: React.MouseEvent<HTMLAnchorElement> | MouseEvent,
