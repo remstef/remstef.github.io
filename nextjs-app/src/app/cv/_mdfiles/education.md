@@ -20,10 +20,14 @@ _Thesis: "Next-Gen IDE – Evaluation Of Statistical Approaches For Intelligent 
 more ...
 </summary>
 
+<div className="mt-3 ml-3">
+
 **07/2005** State Certified Engineer for Computer & Networking Systems @ Werner von Siemens Professional School, Frankfurt am Main, Germany
 
 **06/2000** State Certified Apprenticeship, Information and Telecommunications Systems Electronics Technician @ Siemens AG, Frankfurt (Main)
 
 **07/1997** High School, Brüder-Grimm-Realschule, Frankfurt (Main)
+
+</div>
 
 </details>
