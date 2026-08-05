@@ -6,9 +6,9 @@
 }
 END:METADATAJSON -->
 
-<details className="ml-5">
+<details>
 <summary>
-  <b className="ml-2">07/2023 - now</b> <i>Postdoctoral Research Scientist @ Language Technology Group, University of Hamburg, Hamburg, Germany</i>
+  <b>07/2023 - now</b> <i>Postdoctoral Research Scientist @ Language Technology Group, University of Hamburg, Hamburg, Germany</i>
 </summary>
 
 _Outline:_ Conducted original research under the guidance of Prof. Dr. Chris Biemann, participated in project-related events, developed and delivered courses in machine learning, NLP, and research software engineering, supervised theses, student helpers and interns, maintained technical infrastructure and ensured its uptime. Continuation of previous activities in the Language Technology Group.
@@ -25,9 +25,9 @@ _Key Achievements:_
 
 </details>
 
-<details className="ml-5">
+<details>
 <summary>
-  <b className="ml-2">06/2016 - 10/2024</b> <i>Consulting / Service</i>
+  <b>06/2016 - 10/2024</b> <i>Consulting / Service</i>
 </summary>
 
 _Outline:_ Research Consultant (Ad hoc engagements). Provided project-based consultancy services, specializing in NLP research and offering expert guidance on various related topics.
@@ -40,9 +40,9 @@ _Clients include:_
 
 </details>
 
-<details className="ml-5">
+<details>
 <summary>
-  <b className="ml-2">10/2016 - 06/2023</b> <i>Research Scientist @ HITeC e.V., Hamburg, Germany & Language Technology Group, University of Hamburg, Hamburg, Germany
+  <b>10/2016 - 06/2023</b> <i>Research Scientist @ HITeC e.V., Hamburg, Germany & Language Technology Group, University of Hamburg, Hamburg, Germany
 </summary>
 
 _Outline:_ Conducted original research under the guidance of Prof. Dr. Chris Biemann, participated in project-related events, offered consultancy services for industry partners, developed and delivered courses in machine learning, NLP, and software engineering, supervised theses, student helpers and interns, maintained technical infrastructure and ensured its uptime.
@@ -57,16 +57,16 @@ _Key Achievements:_
 
 </details>
 
-<details className="ml-5">
+<details>
 <summary>
-  <b className="ml-2">04/2013 - 06/2016</b> <i>Research Scientist, Stipend Holder in the Research Graduate School: "Knowledge Discovery in Scientific Literature"</i>
+  <b>04/2013 - 06/2016</b> <i>Research Scientist, Stipend Holder in the Research Graduate School: "Knowledge Discovery in Scientific Literature"</i>
 </summary>
 ...
 </details>
 
-<details className="ml-5">
+<details>
 <summary>
-  <b className="ml-2">05/2015 - 11/2015</b> <i>Research Intern @ IBM, Zurich Research Lab, Rüschlikon, Switzerland</i>
+  <b>05/2015 - 11/2015</b> <i>Research Intern @ IBM, Zurich Research Lab, Rüschlikon, Switzerland</i>
 </summary>
 
 _Outline:_ Worked on supervised relation extraction and event detection, utilizing distributional features.
@@ -76,60 +76,60 @@ Implemented a system for named entity recognition, cross-sentence relation extra
 
 </details>
 
-<details className="ml-5">
+<details>
 <summary>
-  <b className="ml-2">07/2014 - 10/2014</b> <i>Research Intern @ IBM, Thomas J. Watson Research Center, Yorktown Heights, NY, USA</i>
+  <b>07/2014 - 10/2014</b> <i>Research Intern @ IBM, Thomas J. Watson Research Center, Yorktown Heights, NY, USA</i>
 </summary>
 
 _Outline:_ Implemented, tested, and evaluated distributional semantic methods to enhance knowledge graphs for open and closed domains.
 
 </details>
 
-<details className="ml-5">
+<details>
 <summary>
-  <b className="ml-2">10/2012 - 04/2013</b> <i>Software Engineer (full-time) @ ConWeaver GmbH, Darmstadt, Germany</i>
+  <b>10/2012 - 04/2013</b> <i>Software Engineer (full-time) @ ConWeaver GmbH, Darmstadt, Germany</i>
 </summary>
 
 _Outline:_ Worked on ETL Pipelines for knowledge graph induction
 
 </details>
 
-<details className="ml-5">
+<details>
 <summary>
-  <b className="ml-2">11/2010 - 09/2012</b> <i>Software Engineer (part-time) @ ConWeaver GmbH, Darmstadt, Germany</i>
+  <b>11/2010 - 09/2012</b> <i>Software Engineer (part-time) @ ConWeaver GmbH, Darmstadt, Germany</i>
 </summary>
 
 _Outline:_ Worked on ETL Pipelines for knowledge graph induction
 
 </details>
 
-<details className="ml-5">
+<details>
 <summary>
-  <b className="ml-2">10/2009 - 03/2012</b> <i>Tutor @ Technical University of Darmstadt, Darmstadt, Germany</i>
+  <b>10/2009 - 03/2012</b> <i>Tutor @ Technical University of Darmstadt, Darmstadt, Germany</i>
 </summary>
 
 _Outline:_ Tutoring for General Introduction to Computer Science 1+2
 
 </details>
 
-<details className="ml-5">
+<details>
 <summary>
-  <b className="ml-2">04/2007 - 08/2008</b> <i>Student Helper @ JDS-Sommer GmbH, Frankfurt (Main), Germany</i>
+  <b>04/2007 - 08/2008</b> <i>Student Helper @ JDS-Sommer GmbH, Frankfurt (Main), Germany</i>
 </summary>
 
 _Outline:_ Technical Server Administration
 
 </details>
 
-<details className="ml-5">
+<details>
 <summary>
-  <b className="ml-2">11/2002 - 04/2006</b> <i>Minijob @ Greater Union Filmpalast (Cinestar Metropolis), Frankfurt (Main), Germany</i>
+  <b>11/2002 - 04/2006</b> <i>Minijob @ Greater Union Filmpalast (Cinestar Metropolis), Frankfurt (Main), Germany</i>
 </summary>
 </details>
 
-<details className="ml-5">
+<details>
 <summary>
-  <b className="ml-2">07/2000 - 08/2003</b> <i>Systems Specialist, EWSD Systems @ Siemens AG, Frankfurt (Main), Germany</i>
+  <b>07/2000 - 08/2003</b> <i>Systems Specialist, EWSD Systems @ Siemens AG, Frankfurt (Main), Germany</i>
 </summary>
 
 _Outline:_ Field Service Technician for large scale telephone systems (EWSD).
