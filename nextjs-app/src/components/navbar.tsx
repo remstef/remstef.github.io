@@ -27,6 +27,12 @@ const navItems = [
     hrefs: ["/publications"],
   },
   {
+    pos: 3,
+    id: "teaching",
+    label: "Teaching",
+    hrefs: ["/teaching"],
+  },
+  {
     pos: 10,
     id: "cv",
     label: "CV",
@@ -36,12 +42,6 @@ const navItems = [
 
 if (MODE_DEV) {
   navItems.push(
-    {
-      pos: 4,
-      id: "teaching",
-      label: "Teaching",
-      hrefs: ["/teaching"],
-    },
     {
       pos: 5,
       id: "professions",
