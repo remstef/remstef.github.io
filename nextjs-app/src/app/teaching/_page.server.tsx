@@ -24,5 +24,10 @@ export default async function TeachingPage() {
   // This runs at build time on the server
   const { staticMarkdown } = await import("./_static-markdown-loader.server");
 
-  return <TeachingContent supervisionBibHtml={supervisionBibHtml} md={staticMarkdown} />;
+  return (
+    <TeachingContent
+      supervisionBibHtml={supervisionBibHtml}
+      md={staticMarkdown}
+    />
+  );
 }

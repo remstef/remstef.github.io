@@ -1,5 +1,4 @@
 import themes from "daisyui/theme/object.js";
-import { defaultDarkTheme, defaultLightTheme } from "./constants";
 
 // export const themes: Readonly<Array<string>> = [
 //   "light",
@@ -45,24 +44,24 @@ import { defaultDarkTheme, defaultLightTheme } from "./constants";
 //   "silk",
 // ];
 
-export const themeMapping: Record<string, string> = {};
+// export const themeMapping: Record<string, string> = {};
 
-Object.keys(themes).forEach((val) => {
-  if (val === "dark") {
-    themeMapping["daisyui-dark"] = "dark";
-  } else if (val === "light") {
-    themeMapping["daisyui-light"] = "light";
-  } else if (val === defaultDarkTheme) {
-    themeMapping["dark"] = defaultDarkTheme;
-  } else if (val === defaultLightTheme) {
-    themeMapping["light"] = defaultLightTheme;
-  } else {
-    themeMapping[val] = val;
-  }
-});
+// Object.keys(themes).forEach((val) => {
+//   if (val === "dark") {
+//     themeMapping["daisyui-dark"] = "dark";
+//   } else if (val === "light") {
+//     themeMapping["daisyui-light"] = "light";
+//   } else if (val === defaultDarkTheme) {
+//     themeMapping["dark"] = defaultDarkTheme;
+//   } else if (val === defaultLightTheme) {
+//     themeMapping["light"] = defaultLightTheme;
+//   } else {
+//     themeMapping[val] = val;
+//   }
+// });
 
-export const themeMappedNames: Array<string> = Object.keys(themeMapping);
+// export const themeMappedNames: Array<string> = Object.keys(themeMapping);
 
-export const themeMappedValues: Array<string> = Object.values(themeMapping);
+// export const themeMappedValues: Array<string> = Object.values(themeMapping);
 
 export const themeNames: Array<string> = Object.keys(themes);
