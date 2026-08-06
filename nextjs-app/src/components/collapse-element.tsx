@@ -33,7 +33,6 @@ export function CollapseElement({
   titleBoxClassName?: string | undefined | null | false | 0;
   show_open_close_icon?: boolean | undefined | null | false | 0;
 }>) {
-
   // const { listOfActiveAlerts, showAlert, removeAlert } = useAlerts();
   const [isOpen, setIsOpen] = useState(true);
 

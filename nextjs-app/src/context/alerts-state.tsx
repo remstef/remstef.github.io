@@ -50,18 +50,15 @@ export function AlertsProvider({ children }: { children: React.ReactNode }) {
   );
 
   // Remove an alert (triggers fade-out animation first)
-  const removeAlert = React.useCallback(
-    (id: number) => {
-      setListOfActiveAlerts((prev) =>
-        prev.map((a) => (a.id === id ? { ...a, isExiting: true } : a)),
-      );
-      // Wait for fade-out animation to complete before removing
-      setTimeout(() => {
-        setListOfActiveAlerts((prev) => prev.filter((a) => a.id !== id));
-      }, 500);
-    },
-    [],
-  );
+  const removeAlert = React.useCallback((id: number) => {
+    setListOfActiveAlerts((prev) =>
+      prev.map((a) => (a.id === id ? { ...a, isExiting: true } : a)),
+    );
+    // Wait for fade-out animation to complete before removing
+    setTimeout(() => {
+      setListOfActiveAlerts((prev) => prev.filter((a) => a.id !== id));
+    }, 500);
+  }, []);
 
   React.useEffect(() => {
     if (constructionAlert.active) {
@@ -79,15 +76,13 @@ export function AlertsProvider({ children }: { children: React.ReactNode }) {
     }
   }, [showAlert]);
 
-  const contextProviderValue = React.useMemo(() => (
-    { listOfActiveAlerts, showAlert, removeAlert }
-  ), [listOfActiveAlerts, showAlert, removeAlert]);
+  const contextProviderValue = React.useMemo(
+    () => ({ listOfActiveAlerts, showAlert, removeAlert }),
+    [listOfActiveAlerts, showAlert, removeAlert],
+  );
 
   return (
-    <AlertContext.Provider 
-      value={contextProviderValue}
-      children={children}
-    />
+    <AlertContext.Provider value={contextProviderValue} children={children} />
   );
 }
 
