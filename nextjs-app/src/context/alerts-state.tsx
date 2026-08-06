@@ -79,12 +79,15 @@ export function AlertsProvider({ children }: { children: React.ReactNode }) {
     }
   }, [showAlert]);
 
+  const contextProviderValue = React.useMemo(() => (
+    { listOfActiveAlerts, showAlert, removeAlert }
+  ), [listOfActiveAlerts, showAlert, removeAlert]);
+
   return (
-    <AlertContext.Provider
-      value={{ listOfActiveAlerts, showAlert, removeAlert }}
-    >
-      {children}
-    </AlertContext.Provider>
+    <AlertContext.Provider 
+      value={contextProviderValue}
+      children={children}
+    />
   );
 }
 
