@@ -33,21 +33,16 @@ export function CollapseElement({
   titleBoxClassName?: string | undefined | null | false | 0;
   show_open_close_icon?: boolean | undefined | null | false | 0;
 }>) {
-  const [mounted, setMounted] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
+
   // const { listOfActiveAlerts, showAlert, removeAlert } = useAlerts();
+  const [isOpen, setIsOpen] = useState(true);
 
-  // Avoid Hydration Mismatch, i.e. content should be visible to crawlers by default, then, once mounted, collapsed
+  // Avoid Hydration Mismatch: content is visible to crawlers by default
+  // (isOpen=true on server + first client render), then collapses to
+  // openByDefault once mounted on the client.
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (mounted) {
-      setIsOpen(openByDefault);
-      // showAlert('info', `${title?.toString()} mounted ${mounted}; open ${openByDefault}`);
-    }
-  }, [openByDefault, mounted]);
+    setIsOpen(openByDefault);
+  }, [openByDefault]);
 
   return (
     <>
