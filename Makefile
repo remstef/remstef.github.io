@@ -43,3 +43,11 @@ install:
 cleancache:
 	@echo Cleaning cached files and directories
 	rm -rf nextjs-app/out && rm -rf nextjs-app/.next 
+
+.PHONY: ngrok
+ngrok:
+	@echo "Forwarding app to ngrok web address"
+	@echo "To set up ngrok, create an account at ngrok.io"
+	@echo "Register your personal authoken: 'ngrok config add-authtoken <auth-token>'"
+	@echo "Note: For best results, serve the static app with the 'start' target in a different shell."
+	ngrok http 3000
