@@ -1,6 +1,7 @@
 import { MODE_DEV } from "@/lib/constants";
 import { readdir, readFile } from "fs/promises";
 import path from "path";
+import { compareMarkdownFiles } from "./_markdown-file";
 
 export const getSubDirectoryName = (metaurl: string, subdir: string) => {
   const __filename = new URL(metaurl).pathname;
@@ -56,10 +57,6 @@ export const getMarkdownAsObjectsFromDir = async (__subDirname: string) => {
           };
         }),
     )
-  ).sort((a, b) => a.metadata?.pos - b.metadata?.pos);
+  ).sort(compareMarkdownFiles);
 };
 
-// export const staticMarkdown: Array<MarkdownFile> =
-//   await getMarkdownAsObjectsFromDir(
-//     getSubDirectoryName(import.meta.url, "_markdown"),
-//   );
