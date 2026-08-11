@@ -20,7 +20,7 @@ export function PageContent({ md }: { md: MarkdownFile[] }) {
             <section id={`${obj.metadata?.sectionid}`} />
             {/* <pre>{JSON.stringify(obj, null, 2)}</pre> */}
             <CollapseElement
-              openByDefault={activeSection === obj.metadata?.sectionid}
+              openByDefault={activeSection === obj.metadata?.sectionid || obj.metadata?.open}
               show_open_close_icon={true}
               titleBoxClassName=""
               title={<T>{`${obj.metadata?.title}`}</T>}

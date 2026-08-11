@@ -2,7 +2,8 @@
 {
   "title": "Summary",
   "sectionid": "summary",
-  "pos": 10
+  "pos": 10,
+  "open": true
 }
 END:METADATAJSON -->
 
