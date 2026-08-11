@@ -5,7 +5,7 @@ import { CJ, CollapseElement, T } from "@/components/collapse-element";
 import { MarkdownConfiguredExplicit } from "@/components/markdown-configured";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 import { useHash } from "@/hooks/hash-section";
-import MarkdownFile from "../_markdown-utils/_markdown-file";
+import MarkdownFile, { compareMarkdownFiles } from "../_markdown-utils/_markdown-file";
 
 export function PageContent({ md }: { md: MarkdownFile[] }) {
   const [activeSection, setActiveSection] = useHash("");
@@ -14,7 +14,7 @@ export function PageContent({ md }: { md: MarkdownFile[] }) {
     <ResponsiveCardsContainer>
       {/* BEGIN */}
       <CardElement title="Projects" classNameTitle="mb-2">
-        {md.map((obj) => (
+        {md.sort((a, b) => compareMarkdownFiles(b,a)).map((obj) => (
           <div key={obj.filename}>
             <hr className="mb-2 text-base-300" />
             <section id={`${obj.metadata?.sectionid}`} />
