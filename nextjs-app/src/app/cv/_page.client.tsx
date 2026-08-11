@@ -6,7 +6,7 @@ import { MarkdownConfiguredExplicit } from "@/components/markdown-configured";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 import { useHash } from "@/hooks/hash-section";
 import Link from "next/link";
-import MarkdownFile from "../_markdown-utils/_markdown-file";
+import MarkdownFile from "../_utils/_markdown-file";
 
 export function CvContent({ md }: { md: MarkdownFile[] }) {
   const [activeSection, setActiveSection] = useHash("");

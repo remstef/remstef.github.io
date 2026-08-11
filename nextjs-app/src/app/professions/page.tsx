@@ -6,7 +6,7 @@ import {
 } from "@/lib/constants";
 import { getPathRelativeToAppFolder } from "@/lib/utils";
 import { Metadata } from "next";
-import { ProfessionsContent } from "./_page-content";
+import { ProfessionsContent } from "./_page.client";
 
 const currentpath: string = getPathRelativeToAppFolder(import.meta.url);
 const currentPageTitle: string = "Professional Experience";

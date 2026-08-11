@@ -1,12 +1,12 @@
 import {
-  seoUrlLocation,
-  theProtagonistsAtHandle,
-  theProtagonistsFullName,
-  theProtagonistsIdentifier,
+    seoUrlLocation,
+    theProtagonistsAtHandle,
+    theProtagonistsFullName,
+    theProtagonistsIdentifier,
 } from "@/lib/constants";
 import { getPathRelativeToAppFolder } from "@/lib/utils";
 import { Metadata } from "next";
-import AboutContent from "./about/_page-content";
+import AboutContent from "./about/_page.client";
 
 const currentpath: string = getPathRelativeToAppFolder(import.meta.url);
 const currentPageTitle: string = "About";

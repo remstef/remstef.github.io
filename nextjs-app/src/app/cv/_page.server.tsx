@@ -1,9 +1,9 @@
-import MarkdownFile from "../_markdown-utils/_markdown-file";
+import MarkdownFile from "../_utils/_markdown-file";
 import {
   getMarkdownAsObjectsFromDir,
   getSubDirectoryName,
-} from "../_markdown-utils/_markdown-utils.server";
-import { CvContent } from "./_page-content.client";
+} from "../_utils/_markdown-utils.server";
+import { CvContent } from "./_page.client";
 
 // runs at build time on the server
 // just a wrapper component, so that the client can receive the loaded md files

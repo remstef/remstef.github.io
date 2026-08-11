@@ -1,11 +1,11 @@
 import { readFile } from "fs/promises";
 import path from "path";
-import MarkdownFile from "../_markdown-utils/_markdown-file";
+import MarkdownFile from "../_utils/_markdown-file";
 import {
   getMarkdownAsObjectsFromDir,
   getSubDirectoryName,
-} from "../_markdown-utils/_markdown-utils.server";
-import { TeachingContent } from "./_page-content.client";
+} from "../_utils/_markdown-utils.server";
+import { TeachingContent } from "./_page.client";
 
 
 /**

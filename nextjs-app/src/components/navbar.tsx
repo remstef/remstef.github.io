@@ -28,6 +28,12 @@ const navItems = [
   },
   {
     pos: 3,
+    id: "researchprojects",
+    label: "Research Projects",
+    hrefs: ["/projects"],
+  },
+  {
+    pos: 4,
     id: "teaching",
     label: "Teaching",
     hrefs: ["/teaching"],

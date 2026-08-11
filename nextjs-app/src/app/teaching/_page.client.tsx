@@ -5,7 +5,7 @@ import { CJ, CollapseElement, T } from "@/components/collapse-element";
 import { MarkdownConfiguredExplicit } from "@/components/markdown-configured";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 import { useHash } from "@/hooks/hash-section";
-import MarkdownFile from "../_markdown-utils/_markdown-file";
+import MarkdownFile from "../_utils/_markdown-file";
 
 export function TeachingContent({
   supervisionBibHtml,

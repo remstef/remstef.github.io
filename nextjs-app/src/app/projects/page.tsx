@@ -9,8 +9,8 @@ import { Metadata } from "next";
 import ServerPageContent from "./_page.server";
 
 const currentpath: string = getPathRelativeToAppFolder(import.meta.url);
-const currentPageTitle: string = "CV";
-const currentPageDescription: string = `CV (curriculum vitae, Lebenslauf) | Steffen Remus, Ph.D. (@remstef); NLP, ML, AI & Software Engineer.`;
+const currentPageTitle: string = "Research Projects";
+const currentPageDescription: string = `Research Projects | Steffen Remus, Ph.D. (@remstef); NLP, ML, AI & Software Engineer.`;
 
 // metadata overrides
 export const metadata: Metadata = {
