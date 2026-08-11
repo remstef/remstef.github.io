@@ -8,6 +8,7 @@ export default interface MarkdownFile {
     title?: string;
     sectionid?: string;
     pos?: number;
+    open?: boolean;
   };
 }
 
