@@ -13,5 +13,5 @@ END:METADATAJSON -->
 - [WebAnno-MM: WebAnno meets EXMARaLDA (06/2017–01/2019)](#webannomm)
 - [BIMDanube: Network of Excellence on Biomedical Information Management in the Danube Region (01/2017–03/2019)](#bimdanube)
 - [JOIN-T: Joining Ontologies and Semantics Induced from Text (2016–2017)](#joint)
+- [AIPHES: Adaptive Preparation of Information from Heterogeneous Sources (2015-2017)](#aiphes)
 - [KDSL: Knowledge Discovery in Scientific Literature (04/2013–06/2016)](#kdsl)
-- [AIPHES: (Adaptive Preparation of Information from Heterogeneous Sources)](#aiphes)
