@@ -59,4 +59,3 @@ export const getMarkdownAsObjectsFromDir = async (__subDirname: string) => {
     )
   ).sort(compareMarkdownFiles);
 };
-

@@ -3,20 +3,20 @@
 import { ReactNode, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-export const TitleSpan = ({ children, className="font-fancy text-xl" }: Readonly<{ children: ReactNode, className?: string }>) => {
+export const TitleSpan = ({
+  children,
+  className = "font-fancy text-xl",
+}: Readonly<{ children: ReactNode; className?: string }>) => {
   return <span className={twMerge("my-2", className)} children={children} />;
 };
 export const T = TitleSpan;
 
 export const ContentDiv = ({
   children,
-  className = "text-justify wrap-break-word whitespace-normal [hyphens:auto]"
-}: Readonly<{ children: ReactNode, className?: string }>) => {
+  className = "text-justify wrap-break-word whitespace-normal [hyphens:auto]",
+}: Readonly<{ children: ReactNode; className?: string }>) => {
   return (
-    <div
-      className={twMerge("my-2 pb-2", className)}
-      children={children}
-    />
+    <div className={twMerge("my-2 pb-2", className)} children={children} />
   );
 };
 export const C = ContentDiv;

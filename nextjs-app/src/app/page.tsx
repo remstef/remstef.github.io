@@ -1,8 +1,8 @@
 import {
-    seoUrlLocation,
-    theProtagonistsAtHandle,
-    theProtagonistsFullName,
-    theProtagonistsIdentifier,
+  seoUrlLocation,
+  theProtagonistsAtHandle,
+  theProtagonistsFullName,
+  theProtagonistsIdentifier,
 } from "@/lib/constants";
 import { getPathRelativeToAppFolder } from "@/lib/utils";
 import { Metadata } from "next";

@@ -6,7 +6,8 @@ export const MODE_PRODUCTION: Readonly<boolean> =
 
 export const MODE_TEST: Readonly<boolean> = process.env.NODE_ENV === "test";
 
-export const sourcesURL: Readonly<string> = "https://github.com/remstef/remstef.github.io"; // "https://github.com/remstef/itsme-again"
+export const sourcesURL: Readonly<string> =
+  "https://github.com/remstef/remstef.github.io"; // "https://github.com/remstef/itsme-again"
 
 export const defaultDarkTheme: Readonly<string> = "dim"; //"forest"; // "business";
 

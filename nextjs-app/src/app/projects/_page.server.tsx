@@ -1,4 +1,3 @@
-
 import MarkdownFile from "../_utils/_markdown-file";
 import {
   getMarkdownAsObjectsFromDir,

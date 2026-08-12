@@ -7,7 +7,6 @@ import {
 } from "../_utils/_markdown-utils.server";
 import { TeachingContent } from "./_page.client";
 
-
 /**
  * Strips <html> and <body> tags from HTML content
  */
@@ -25,10 +24,9 @@ const htmlRaw = await readFile(
 
 const supervisionBibHtml = stripHtmlBodyTags(htmlRaw);
 
-const staticMarkdown: Array<MarkdownFile> =
-  await getMarkdownAsObjectsFromDir(
-    getSubDirectoryName(import.meta.url, "_mdfiles"),
-  );
+const staticMarkdown: Array<MarkdownFile> = await getMarkdownAsObjectsFromDir(
+  getSubDirectoryName(import.meta.url, "_mdfiles"),
+);
 
 // runs at build time on the server
 // just a wrapper component, so that the client can receive the loaded md files
