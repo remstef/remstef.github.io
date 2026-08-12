@@ -13,7 +13,7 @@ export function PageContent({ md }: { md: MarkdownFile[] }) {
   return (
     <ResponsiveCardsContainer>
       {/* BEGIN */}
-      <CardElement title="Projects" classNameTitle="mb-2">
+      <CardElement title="Research Projects" classNameTitle="mb-2">
         {md
           .sort((a, b) => compareMarkdownFiles(b, a))
           .map((obj) => (
