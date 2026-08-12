@@ -2,7 +2,7 @@
 {
   "title": "Join-T2",
   "sectionid": "joint2",
-  "pos": 3
+  "pos": 6
 }
 END:METADATAJSON -->
 
