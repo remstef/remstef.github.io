@@ -3,13 +3,13 @@ import {
   getMarkdownAsObjectsFromDir,
   getSubDirectoryName,
 } from "../_utils/_markdown-utils.server";
-import { CvContent } from "./_page.client";
+import { PageContent } from "./_page.client";
 
 // runs at build time on the server
 // just a wrapper component, so that the client can receive the loaded md files
-export default async function CvPage() {
+export default async function ServerPageContent() {
   const staticMarkdown: Array<MarkdownFile> = await getMarkdownAsObjectsFromDir(
     getSubDirectoryName(import.meta.url, "_mdfiles"),
   );
-  return <CvContent md={staticMarkdown} />;
+  return <PageContent md={staticMarkdown} />;
 }

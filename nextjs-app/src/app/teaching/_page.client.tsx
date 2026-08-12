@@ -1,11 +1,11 @@
 "use client";
 
 import CardElement from "@/components/card-element";
-import { CJ, CollapseElement, T } from "@/components/collapse-element";
+import { C, CollapseElement, T } from "@/components/collapse-element";
 import { MarkdownConfiguredExplicit } from "@/components/markdown-configured";
 import ResponsiveCardsContainer from "@/components/responsive-cards-container";
 import { useHash } from "@/hooks/hash-section";
-import MarkdownFile from "../_markdown-utils/_markdown-file";
+import MarkdownFile from "../_utils/_markdown-file";
 
 export function TeachingContent({
   supervisionBibHtml,
@@ -32,11 +32,11 @@ export function TeachingContent({
               titleBoxClassName=""
               title={<T>{`${obj.metadata?.title}`}</T>}
               children={
-                <CJ>
+                <C>
                   <MarkdownConfiguredExplicit>
                     {`${obj.content}`}
                   </MarkdownConfiguredExplicit>
-                </CJ>
+                </C>
               }
             />
           </div>

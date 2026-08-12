@@ -3,22 +3,23 @@
 import { ReactNode, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-export const Titlespan = ({ children }: Readonly<{ children: ReactNode }>) => {
-  return <span className="font-fancy text-xl my-2" children={children} />;
-};
-export const T = Titlespan;
-
-export const Contentdivjustified = ({
+export const TitleSpan = ({
   children,
-}: Readonly<{ children: ReactNode }>) => {
+  className = "font-fancy text-xl",
+}: Readonly<{ children: ReactNode; className?: string }>) => {
+  return <span className={twMerge("my-2", className)} children={children} />;
+};
+export const T = TitleSpan;
+
+export const ContentDiv = ({
+  children,
+  className = "text-justify wrap-break-word whitespace-normal [hyphens:auto]",
+}: Readonly<{ children: ReactNode; className?: string }>) => {
   return (
-    <div
-      className="my-2 pb-2 text-justify wrap-break-word whitespace-normal [hyphens:auto]"
-      children={children}
-    />
+    <div className={twMerge("my-2 pb-2", className)} children={children} />
   );
 };
-export const CJ = Contentdivjustified;
+export const C = ContentDiv;
 
 export function CollapseElement({
   title = "Lorem Ipsum",

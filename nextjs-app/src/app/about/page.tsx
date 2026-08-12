@@ -6,7 +6,7 @@ import {
 } from "@/lib/constants";
 import { getPathRelativeToAppFolder } from "@/lib/utils";
 import type { Metadata } from "next";
-import AboutContent from "./_page-content";
+import AboutContent from "./_page.client";
 
 /***
  *
