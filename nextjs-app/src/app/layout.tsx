@@ -14,9 +14,10 @@ import {
   seoRichResultsJsonLD,
   seoTitle,
   seoUrlLocation,
+  sourcesURL,
   theProtagonistsAtHandle,
   theProtagonistsIdentifier,
-  theProtagonistsName,
+  theProtagonistsName
 } from "@/lib/constants";
 import { themeNames } from "@/lib/daisyui-theme-names";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -40,6 +41,7 @@ import {
   Roboto_Serif,
   Roboto_Slab,
 } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 config.autoAddCss = false;
 
@@ -184,10 +186,10 @@ export default function RootLayout({
                 <div className="flex justify-center p-4">{children}</div>
               </main>
               <footer className="footer sm:footer-horizontal footer-center bg-base-100 shadow-sm text-center p-1 text-sm shrink-0 z-10 text-base-content font-footer">
-                <div className="flex items-center w-full">
-                  <span className="flex-1 text-center">
-                    © {new Date().getFullYear()}
-                  </span>
+                <div className="flex flex-wrap items-center justify-center w-full">
+                  <span className="whitespace-nowrap">© {new Date().getFullYear()} {theProtagonistsName}.</span>
+                  <span className="whitespace-nowrap">Built with passion &amp; powered by <Link href="https://nextjs.org" children="Next.js" />.</span>
+                  <span className="whitespace-nowrap">Find sources <Link href={sourcesURL} children="here." /></span>
                 </div>
               </footer>
             </ThemeProvider>
